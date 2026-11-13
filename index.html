@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1B432C">
+<meta name="description" content="Limoncello Pasta & Pizza To Go en Centro Histórico, San Luis Potosí. Menú digital y pedidos por WhatsApp.">
+<title>Limoncello · Pasta & Pizza To Go | Menú</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4EFE6;
+  --paper:#FAF7F2;
+  --card-green:#1B432C;
+  --ink:#1C241E;
+  --muted:#536358;
+  --green:#1B432C;
+  --green-dark:#122E1E;
+  --yellow:#F5C400;
+  --yellow-soft:#FFF5C0;
+  --gold:#D8B467;
+  --coral:#C84B31;
+  --dark-btn:#142219;
+  --line:#DFD7C8;
+  --radius:22px;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-sans:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--bg);scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--font-sans);background:var(--bg)}
+body.locked{overflow:hidden}
+button,input,select,textarea{font:inherit}
+button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+button:disabled{opacity:.4;cursor:default}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{width:min(1200px,100%);margin:auto;padding-inline:22px}
+
+/* HERO INSPIRADO EN EL MENÚ IMPRESO DE LIMONCELLO */
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 65%,#235337 100%);
+  color:var(--paper);padding-bottom:54px;
+  border-bottom:6px solid var(--yellow);
+}
+.hero:before{
+  content:"";position:absolute;z-index:-1;
+  right:-160px;top:-40px;width:520px;height:520px;
+  border:2px dashed #f5c40038;border-radius:50%;
+  box-shadow:0 0 0 60px #f5c4000a,0 0 0 120px #f5c40005;
+}
+.hero-photo{
+  position:absolute;inset:0;z-index:-3;
+  width:100%;height:100%;object-fit:cover;
+}
+.hero.has-photo:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:linear-gradient(90deg,#122e1ee6,#1b432ccc);
+}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-block:20px}
+.kicker{font-size:11px;font-weight:800;letter-spacing:1.8px;line-height:1.6;text-transform:uppercase}
+.language{
+  border:1px solid #f5c40080;color:var(--yellow);background:#122e1e99;
+  padding:9px 16px;border-radius:99px;min-height:40px;font-weight:700;font-size:13px;
+}
+.hero-grid{
+  display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
+  padding:10px 0 6px;
+}
+.hero-content{flex:1;min-width:280px}
+.hero .kicker{color:var(--yellow)}
+.brand-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--bg);color:var(--ink);
+  padding:14px 22px;border-radius:22px;margin:14px 0 18px;
+  box-shadow:0 10px 30px #00000029;
+  border:2px solid var(--yellow);
+}
+.brand-logo-text{
+  font-family:var(--font-sans);font-weight:400;font-size:28px;line-height:0.95;letter-spacing:1px;
+  color:var(--ink);
+}
+.brand-logo-text strong{font-weight:800;display:block;font-size:10px;letter-spacing:1.6px;margin-top:6px;color:var(--green)}
+.lemon-dot{
+  display:inline-block;width:18px;height:13px;background:var(--yellow);
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  position:relative;vertical-align:middle;margin:0 1px;
+  box-shadow:inset -2px -2px 0 #d4a700;
+}
+.lemon-dot:after{
+  content:"";position:absolute;top:-4px;right:2px;width:6px;height:4px;
+  background:#2E6F40;border-radius:50% 0 50% 0;
+}
+.hero h1{
+  margin:6px 0 14px;font-family:var(--font-display);
+  font-size:clamp(42px,7vw,82px);font-weight:800;
+  letter-spacing:-1.5px;line-height:1.02;color:var(--paper);
+}
+.hero h1 span{color:var(--yellow)}
+.hero p{font-size:18px;line-height:1.65;max-width:600px;margin-bottom:0;color:#EAE4D7}
+
+/* NAVEGACIÓN DESKTOP */
+.desktop-nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 4px 18px #1b432c0a}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:20px}
+.brand{font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:8px}
+.brand small{font-family:var(--font-sans);font-size:11px;font-weight:800;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.nav-buttons{display:flex;gap:8px}
+.nav-buttons button,.mobile-nav button{
+  border:0;color:var(--ink);background:transparent;
+  padding:12px 18px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:.5px;
+}
+.nav-buttons .active{background:var(--green);color:var(--yellow)}
+.count{display:inline-block;background:var(--yellow);color:var(--ink);padding:3px 7px;border-radius:99px;font-size:11px;font-weight:800;margin-left:5px}
+
+main{padding-block:36px 65px;scroll-margin-top:85px}
+h2{font-family:var(--font-display);font-size:clamp(32px,5vw,46px);font-weight:800;margin:8px 0 14px;color:var(--green)}
+.lead{color:var(--muted);line-height:1.7;max-width:730px;font-size:15px}
+
+/* SELECTOR DE MODALIDAD */
+.menu-modes{
+  display:flex;gap:8px;margin:20px 0;
+  background:#E8E1D3;padding:6px;border-radius:16px;border:1px solid var(--line);
+}
+.mode-btn{
+  flex:1;padding:13px;border:none;background:transparent;border-radius:12px;
+  font-weight:800;color:var(--muted);font-size:14px;transition:all 0.2s;
+}
+.mode-btn.active{
+  background:var(--green);color:var(--yellow);box-shadow:0 4px 12px #1b432c26;
+}
+
+.menu-tools{display:flex;align-items:center;gap:20px;justify-content:space-between;margin-top:22px}
+.search{
+  width:min(100%,350px);padding:13px 16px;min-height:46px;
+  border:1px solid var(--line);border-radius:14px;
+  background:var(--paper);color:var(--ink);font-size:15px;
+}
+.currency{font-size:12px;font-weight:700;color:var(--muted)}
+.filters{display:flex;gap:8px;overflow:auto;padding:18px 0 25px;scrollbar-width:thin}
+.filter{
+  flex-shrink:0;min-height:44px;border:1px solid var(--line);
+  border-radius:99px;background:var(--paper);color:var(--ink);
+  padding:10px 18px;font-size:13px;font-weight:800;transition:all .15s;
+}
+.filter.active{background:var(--green);color:var(--yellow);border-color:var(--green)}
+
+/* TARJETAS CON ESTÉTICA DEL MENÚ IMPRESO */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{
+  min-width:0;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;background:var(--paper);display:flex;flex-direction:column;
+  box-shadow:0 8px 24px #1b432c08;transition:transform .2s;
+}
+.card:hover{transform:translateY(-2px)}
+.photo{
+  width:100%;aspect-ratio:16/10;position:relative;display:grid;
+  place-items:center;background:linear-gradient(135deg,var(--green-dark),var(--green));
+  border:0;padding:0;overflow:hidden;border-bottom:3px solid var(--yellow);
+}
+.photo:disabled{opacity:1}
+.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.placeholder{text-align:center;color:var(--paper);padding:20px}
+.placeholder span{display:block;font-size:38px;margin-bottom:8px}
+.placeholder strong{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--yellow);display:block}
+.placeholder small{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#EAE4D7;opacity:.85}
+
+.content{padding:20px;flex:1;display:flex;flex-direction:column}
+.card-top-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.category-label{font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--green);text-transform:uppercase}
+.pill-badge{
+  display:inline-block;background:var(--bg);border:1.5px solid var(--ink);
+  color:var(--ink);padding:4px 11px;border-radius:9px;
+  font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+}
+.card h3{
+  font-family:var(--font-display);font-size:24px;font-weight:800;
+  line-height:1.2;margin:4px 0 10px;color:var(--ink);
+}
+.card-description{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 12px}
+.variant-label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-top:auto;padding-top:8px;text-transform:uppercase;letter-spacing:.6px}
+.variant-label select{
+  display:block;width:100%;margin-top:6px;padding:10px 11px;min-height:44px;
+  border:1.5px solid var(--line);border-radius:11px;background:white;
+  color:var(--ink);font-size:14px;font-weight:700;
+}
+.price-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);
+}
+.price-dots{flex:1;border-bottom:2px dotted var(--line);margin:0 10px;position:relative;top:-4px}
+.price{
+  font-family:var(--font-display);font-size:25px;font-weight:800;
+  color:var(--green);background:var(--yellow-soft);
+  padding:2px 10px;border-radius:8px;border:1px solid #e5b80040;
+}
+.quantity{
+  margin:0 20px 19px;padding-top:13px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;font-weight:700;
+}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{
+  width:42px;height:42px;border:1.5px solid var(--line);border-radius:12px;
+  background:white;color:var(--green);font-size:22px;font-weight:700;
+}
+.stepper button:not(:disabled):hover{background:var(--green);color:var(--yellow);border-color:var(--green)}
+.stepper output{min-width:20px;text-align:center;font-weight:800;font-size:15px}
+.empty{padding:32px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);line-height:1.7}
+
+/* SECCIÓN VISÍTANOS */
+.visit-card{
+  max-width:660px;margin:0 auto;padding:36px 30px;
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:28px;box-shadow:0 12px 34px #1b432c12;
+}
+.visit-card .kicker{color:var(--green);font-size:12px;letter-spacing:1.8px}
+.visit-card h2{margin:8px 0 12px;line-height:1.12;color:var(--green)}
+.visit-card .lead{font-size:15px;margin-bottom:24px}
+.branch-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.branch-tab{
+  flex:1;min-height:42px;padding:8px 14px;border-radius:12px;
+  border:1px solid var(--line);background:var(--bg);color:var(--muted);
+  font-size:12px;font-weight:800;transition:all .2s;
+}
+.branch-tab.active{background:var(--green);color:var(--yellow);border-color:var(--green)}
+.info-box{
+  padding:18px 20px;margin-bottom:14px;
+  background:var(--bg);border:1px solid var(--line);border-radius:18px;
+}
+.info-box-label{
+  display:block;font-size:11px;font-weight:800;letter-spacing:1.2px;
+  color:var(--green);text-transform:uppercase;margin-bottom:6px;
+}
+.info-box-text{margin:0;font-size:16px;font-weight:600;line-height:1.55;color:var(--ink)}
+.visit-actions{display:flex;flex-direction:column;gap:12px;margin:22px 0 32px}
+.visit-btn{
+  min-height:54px;width:100%;display:inline-flex;align-items:center;justify-content:center;
+  gap:8px;padding:15px 20px;border:0;border-radius:16px;
+  color:white;text-decoration:none;font-size:14px;font-weight:800;letter-spacing:.6px;
+  text-transform:uppercase;
+}
+.visit-btn.maps{background:var(--dark-btn);color:var(--paper)}
+.visit-btn.pickup{background:var(--yellow);color:var(--ink)}
+.social-title{
+  font-size:13px;font-weight:800;letter-spacing:1.2px;
+  color:var(--muted);text-transform:uppercase;margin:0 0 14px;
+}
+.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.social-item{
+  min-height:54px;display:inline-flex;align-items:center;justify-content:center;
+  gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;
+  background:white;color:var(--ink);text-decoration:none;
+  font-size:14px;font-weight:800;transition:all 0.2s ease;
+}
+.social-item svg{
+  width:20px;height:20px;fill:none;stroke:currentColor;
+  stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;
+}
+.social-item.facebook:hover{color:#1877F2;border-color:#1877F2}
+.social-item.instagram:hover{color:#E1306C;border-color:#E1306C}
+.social-item.whatsapp:hover{color:#25D366;border-color:#25D366}
+
+.button{
+  min-height:48px;display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 18px;border:1px solid transparent;border-radius:13px;
+  background:var(--green);color:var(--yellow);text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.5px;
+}
+.secondary{background:transparent;color:var(--green);border-color:var(--line)}
+footer{
+  padding:28px 22px 40px;border-top:1px solid var(--line);
+  text-align:center;color:var(--muted);font-size:13px;line-height:1.8;
+  background:#ECE5D8;
+}
+footer strong{color:var(--green);font-family:var(--font-display);font-size:16px}
+
+.wa-float{
+  position:fixed;bottom:23px;right:20px;z-index:30;
+  width:56px;height:56px;display:grid;place-items:center;
+  background:#25D366;border-radius:50%;color:white;box-shadow:0 8px 24px #0004;
+}
+.wa-float svg{width:32px;height:32px;fill:currentColor;stroke:none}
+
+.mobile-nav{display:none}
+.nav-icon{
+  width:22px;height:22px;margin:0 auto 5px;display:block;
+  fill:none;stroke:currentColor;stroke-width:1.9;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+dialog{
+  padding:0;border:0;border-radius:25px;background:var(--paper);color:var(--ink);
+  width:min(620px,calc(100% - 24px));max-height:90vh;max-height:90dvh;
+  box-shadow:0 25px 90px #0006;
+}
+dialog::backdrop{background:#122e1ec9}
+.dialog-content{padding:25px}
+.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.dialog-head h2{font-size:30px;margin:0}
+.close{width:44px;height:44px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;background:white;color:var(--ink);font-size:27px}
+.hint{font-size:12px;line-height:1.7;color:var(--muted)}
+.cart-row{padding:16px 0;border-bottom:1px solid var(--line)}
+.cart-title{display:flex;justify-content:space-between;align-items:start;gap:15px;font-size:15px;line-height:1.5}
+.cart-variant{font-size:12px;font-weight:700;color:var(--green);margin-top:4px}
+.cart-row .quantity{margin:12px 0 0;padding:0;border:0}
+.totals{padding:16px 0}
+.totals div{display:flex;justify-content:space-between;gap:15px;margin:12px 0;font-size:14px}
+.totals .total{font-size:18px;font-weight:800;color:var(--green)}
+.full{width:100%;margin-top:10px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:block;font-size:13px;font-weight:600;line-height:1.5}
+.field input,.field select,.field textarea{
+  display:block;width:100%;margin-top:6px;padding:12px;min-height:46px;
+  border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font-size:15px;font-weight:400;
+}
+.wide{grid-column:1/-1}
+fieldset{padding:0;margin:22px 0;border:0;min-width:0}
+legend{font-weight:800;color:var(--green);margin-bottom:15px}
+#photoDialog{width:min(1000px,calc(100% - 24px));background:transparent;box-shadow:none}
+.photo-top{display:flex;justify-content:end;margin-bottom:10px}
+#largePhoto{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:auto;border-radius:16px}
+.toast{
+  position:fixed;z-index:60;bottom:100px;left:50%;transform:translateX(-50%);
+  width:max-content;max-width:calc(100% - 30px);padding:14px 18px;border-radius:13px;
+  background:var(--green);color:var(--yellow);font-size:13px;font-weight:700;
+}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .wrap{padding-inline:16px}
+  .hero{padding-bottom:32px}
+  .hero h1{font-size:clamp(38px,11vw,64px)}
+  .hero p{font-size:16px}
+  .desktop-nav{display:none}
+  main{scroll-margin-top:15px}
+  .menu-modes{flex-direction:row;gap:6px;margin:15px 0}
+  .menu-tools{display:block}
+  .search{width:100%;max-width:none}
+  .currency{display:block;margin-top:12px}
+  .visit-card{padding:26px 20px;border-radius:24px}
+  .social-grid{grid-template-columns:1fr}
+  .mobile-nav{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:5px;
+    position:fixed;bottom:calc(10px + env(safe-area-inset-bottom));
+    left:10px;right:10px;z-index:35;background:var(--paper);
+    padding:7px;border:1px solid var(--line);border-radius:21px;box-shadow:0 10px 35px #0003;
+  }
+  .mobile-nav button{padding:7px 3px;font-size:10px;min-height:53px;border-radius:14px}
+  .mobile-nav button.active{background:var(--green);color:var(--yellow)}
+  .wa-float{bottom:calc(95px + env(safe-area-inset-bottom));right:16px;width:50px;height:50px}
+  footer{padding:24px 20px calc(115px + env(safe-area-inset-bottom))}
+  .toast{bottom:calc(155px + env(safe-area-inset-bottom))}
+}
+@media(max-width:540px){
+  .grid,.fields{grid-template-columns:1fr}
+  .dialog-content{padding:19px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="hero">
+  <img id="heroPhoto" class="hero-photo" alt="" hidden>
+  <div class="wrap">
+    <div class="top">
+      <span class="kicker">ARISTA #250 · CENTRO HISTÓRICO</span>
+      <button type="button" id="language" class="language">English · EN</button>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="brand-badge" aria-label="Limoncello Pasta & Pizza To Go">
+          <div class="brand-logo-text">
+            Li<br>m<span class="lemon-dot"></span>n<br>cell<span class="lemon-dot"></span>
+            <strong>PASTA &amp; PIZZA TO GO</strong>
+          </div>
+        </div>
+        <div class="kicker" data-t="heroLabel">AUTÉNTICO SABOR ITALIANO</div>
+        <h1>Menú <span>Limoncello</span></h1>
+        <p id="slogan">Pasta fresca, pizzas artesanales, tiramisú y bebidas listas para llevar o disfrutar.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="desktop-nav">
+  <nav class="wrap nav-inner" aria-label="Principal">
+    <span class="brand">Limoncello <small>Pasta &amp; Pizza To Go</small></span>
+    <div class="nav-buttons">
+      <button type="button" data-view="menu" class="active" data-t="menu">MENÚ</button>
+      <button type="button" data-view="visit" data-t="visit">VISÍTANOS</button>
+      <button type="button" data-order aria-haspopup="dialog">
+        <span data-t="order">PEDIDOS</span>
+        <span class="count" data-count hidden></span>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<main id="main" class="wrap">
+  <section id="menuView">
+    <span class="kicker" data-t="menuLabel">PASTA &amp; PIZZA TO GO</span>
+    <h2 data-t="menuTitle">Nuestro Menú</h2>
+    <p class="lead" data-t="intro">Elige tu pasta, pizza, complemento o bebida favorita y personaliza tus extras. Confirmaremos tu pedido por WhatsApp.</p>
+    
+    <div class="menu-modes" aria-label="Modalidad de pedido">
+      <button id="btnToGo" type="button" class="mode-btn active" data-mode="togo">🛍️ Para llevar (To Go)</button>
+      <button id="btnRest" type="button" class="mode-btn" data-mode="restaurante">🛵 Pedido a domicilio</button>
+    </div>
+
+    <div class="menu-tools">
+      <input id="search" class="search" type="search" aria-label="Buscar platillos" placeholder="Buscar spaghetti, pizza, tiramisú…">
+      <span class="currency" data-t="currency">Precios en pesos mexicanos · MXN</span>
+    </div>
+    <nav id="filters" class="filters" aria-label="Categorías del menú"></nav>
+    <div id="products" class="grid"></div>
+    <p id="empty" class="empty" data-t="noResults" hidden>No encontramos platillos con esa búsqueda.</p>
+  </section>
+
+  <section id="visitView" hidden>
+    <div class="visit-card">
+      <span class="kicker" data-t="visitLabel">INFORMACIÓN DEL ESTABLECIMIENTO</span>
+      <h2 data-t="visitTitle">Limoncello · Pasta &amp; Pizza To Go</h2>
+      <p class="lead" data-t="visitIntro">Visítanos en el Centro Histórico o realiza tu pedido anticipado por WhatsApp.</p>
+
+      <div id="branchTabs" class="branch-tabs" aria-label="Sucursales"></div>
+
+      <div class="info-box">
+        <span class="info-box-label" data-t="locationLabel">DIRECCIÓN</span>
+        <p id="visitAddress" class="info-box-text"></p>
+      </div>
+
+      <div class="info-box">
+        <span class="info-box-label" data-t="scheduleLabel">HORARIO</span>
+        <p id="visitSchedule" class="info-box-text"></p>
+      </div>
+
+      <div class="info-box">
+        <span class="info-box-label" data-t="phoneLabel">TELÉFONO / WHATSAPP</span>
+        <p class="info-box-text">+ 444 6539978</p>
+      </div>
+
+      <div class="visit-actions">
+        <a id="visitMapsBtn" class="visit-btn maps" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">📍</span>
+          <span data-t="mapsBtn">VER EN GOOGLE MAPS</span>
+        </a>
+        <button id="pickupOrderBtn" type="button" class="visit-btn pickup" data-t="pickupBtn">
+          PEDIR PARA LLEVAR (TO GO)
+        </button>
+      </div>
+
+      <h3 class="social-title" data-t="followUs">REDES SOCIALES Y CONTACTO</h3>
+      <div class="social-grid">
+        <a id="instagram" class="social-item instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Limoncello Pizza &amp; Pasta</span>
+        </a>
+        <a id="facebook" class="social-item facebook" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          <span>Limoncello</span>
+        </a>
+        <a id="contactWA" class="social-item whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          <span>+ 444 6539978</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Limoncello · Pasta &amp; Pizza To Go</strong><br>
+  <span>Arista #250, Centro Histórico · Tel. + 444 6539978</span><br>
+  <span data-t="footer">Horario: Lunes a Viernes de 1-8 PM | Sábados de 1-6</span>
+</footer>
+
+<a id="floatingWA" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <path d="M12.031 21.498L12 21.5c-1.616 0-3.197-.417-4.582-1.206l-4.996 1.31 1.332-4.87A9.444 9.444 0 012.5 12C2.5 6.762 6.762 2.5 12 2.5 17.238 2.5 21.5 6.762 21.5 12c0 5.238-4.262 9.5-9.469 9.498zm-4.704-2.616c1.378.815 2.99 1.258 4.673 1.258 4.49 0 8.14-3.65 8.14-8.14S16.49 3.86 12 3.86 3.86 7.51 3.86 12c0 1.745.545 3.42 1.558 4.81l-1.026 3.75 3.843-1.012l.092.054zM16.5 14.5c-.25-.125-1.488-.735-1.718-.82-.23-.084-.398-.125-.566.125-.168.25-.65 .82-.796.988-.146.168-.293.188-.543.063C11.5 14.3 10.165 13 9.24 11.5c-.146-.25-.015-.386.11-.51.112-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.02-.438-.063-.125-.567-1.365-.776-1.87-.203-.49-.41-.424-.566-.432-.146-.008-.313-.008-.48-.008-.167 0-.438.062-.667.312C7 8.125 6.25 8.833 6.25 10.25c0 1.417 1.27 2.792 1.448 3.03.177.24 2.062 3.15 4.996 4.418.698.3 1.242.48 1.667.615.7.223 1.336.19 1.838.115.563-.083 1.73-.708 1.972-1.396.24-.688.24-1.282.167-1.407-.073-.125-.282-.208-.532-.333z" />
+  </svg>
+</a>
+
+<nav class="mobile-nav" aria-label="Navegación móvil">
+  <button type="button" data-view="visit">
+    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span data-t="visit">VISÍTANOS</span>
+  </button>
+  <button type="button" data-view="menu" class="active">
+    <svg class="nav-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <span data-t="menu">MENÚ</span>
+  </button>
+  <button type="button" data-order aria-haspopup="dialog">
+    <svg class="nav-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+    <span data-t="order">PEDIDOS</span><span class="count" data-count hidden></span>
+  </button>
+</nav>
+
+<dialog id="orderDialog" aria-labelledby="orderTitle">
+  <div class="dialog-content">
+    <div id="orderBody">
+      <div class="dialog-head">
+        <h2 id="orderTitle" data-t="orderTitle">Mi pedido</h2>
+        <button id="closeOrder" class="close" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <p class="hint" data-t="review">Revisa platillos, opciones o extras y cantidades.</p>
+      <div id="cartRows"></div>
+      <div class="totals" aria-live="polite">
+        <div><span data-t="subtotal">Productos</span><strong id="subtotal"></strong></div>
+        <div><span data-t="shipping">Servicio / Envío</span><strong id="shipping"></strong></div>
+        <div class="total"><span data-t="total">Total estimado</span><strong id="total"></strong></div>
+      </div>
+      <div id="cartStep">
+        <button id="continueOrder" class="button full" type="button" data-t="continue">CONTINUAR</button>
+        <button id="more" class="button secondary full" type="button" data-t="more">AGREGAR MÁS PLATILLOS</button>
+      </div>
+      <form id="orderForm" hidden>
+        <fieldset>
+          <legend data-t="details">Datos de tu pedido</legend>
+          <div class="fields">
+            <label class="field"><span data-t="branch">Sucursal</span><select id="branchSelect" required></select></label>
+            <label class="field"><span data-t="service">Servicio</span><select id="service">
+              <option value="pickup" data-t="pickup">Para llevar (Recoger en Arista #250)</option>
+              <option value="delivery" data-t="delivery">Entrega a domicilio</option>
+            </select></label>
+            <label class="field"><span data-t="name">Nombre *</span><input id="customer" autocomplete="name" maxlength="100" required></label>
+            <label class="field"><span data-t="phone">Celular *</span><input id="phone" type="tel" autocomplete="tel" maxlength="25" required></label>
+          </div>
+        </fieldset>
+        <fieldset id="addressFields">
+          <legend data-t="address">Domicilio de entrega</legend>
+          <div class="fields">
+            <label class="field wide"><span data-t="street">Calle *</span><input id="street" autocomplete="address-line1" maxlength="150" required></label>
+            <label class="field"><span data-t="number">Número exterior *</span><input id="number" maxlength="30" required></label>
+            <label class="field"><span data-t="neighborhood">Colonia *</span><input id="neighborhood" maxlength="100" required></label>
+            <label class="field"><span data-t="city">Municipio *</span><input id="city" value="San Luis Potosí" autocomplete="address-level2" maxlength="100" required></label>
+            <label class="field"><span data-t="zip">Código postal *</span><input id="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" required></label>
+            <label class="field wide"><span data-t="references">Referencias (opcional)</span><input id="references" maxlength="250"></label>
+            <label class="field wide"><span data-t="location">Ubicación / enlace de Maps (opcional)</span><input id="location" maxlength="500"></label>
+          </div>
+          <button id="useLocation" class="button secondary full" type="button" data-t="useLocation">USAR MI UBICACIÓN</button>
+          <p id="locationStatus" class="hint" role="status"></p>
+          <p class="hint" data-t="geoNote">Solo se consulta tu ubicación al pulsar el botón. Verifica que corresponda al domicilio de entrega.</p>
+        </fieldset>
+        <label class="field"><span data-t="notes">Indicaciones para tus platillos (opcional)</span><textarea id="notes" maxlength="500" rows="3"></textarea></label>
+        <p class="hint" data-t="confirm">El restaurante confirmará disponibilidad, costo final, formas de pago y tiempo de recolección o entrega.</p>
+        <button class="button full" type="submit" data-t="send">CONTINUAR EN WHATSAPP</button>
+        <button id="back" class="button secondary full" type="button" data-t="back">VOLVER A MI PEDIDO</button>
+        <p class="hint" data-t="waNote">WhatsApp se abrirá con el pedido preparado. Pulsa Enviar allí para solicitarlo.</p>
+      </form>
+    </div>
+
+    <div id="orderSuccess" hidden style="text-align:center;padding:26px 12px 14px;">
+      <div style="width:72px;height:72px;margin:0 auto 18px;border-radius:50%;background:#E6F7ED;display:grid;place-items:center;color:#25D366;font-size:38px;box-shadow:0 6px 18px #25D36622;">✓</div>
+      <h2 style="font-family:var(--font-display);font-size:29px;margin:0 0 10px;color:var(--ink);" data-t="sentTitle">Pedido enviado</h2>
+      <p style="font-size:16px;line-height:1.6;color:var(--muted);margin:0 0 26px;" data-t="sentDesc">Consulta el chat en WhatsApp para confirmar tu pedido.</p>
+      <button id="closeSuccess" class="button full" type="button" data-t="backMenu">VOLVER AL MENÚ</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="photoDialog" aria-label="Fotografía del platillo">
+  <div class="photo-top"><button id="closePhoto" class="close" type="button" aria-label="Cerrar">×</button></div>
+  <img id="largePhoto" alt="">
+</dialog>
+
+<div id="toast" class="toast" role="status" hidden></div>
+
+<script>
+"use strict";
+
+/* ============================================================
+   CONFIGURACIÓN OFICIAL: LIMONCELLO (PASTA & PIZZA TO GO)
+   ============================================================ */
+const CONFIG = {
+  nombre:"Limoncello (Pasta & Pizza To Go)",
+  whatsapp:"524446539978",
+  facebook:"https://www.facebook.com/search/top?q=Limoncello",
+  instagram:"https://www.instagram.com/explore/search/keyword/?q=Limoncello%20Pizza%20%26%20Pasta",
+  lema:"Pasta fresca, pizzas artesanales, tiramisú y bebidas listas para llevar.",
+  lemaEn:"Fresh pasta, artisan pizzas, tiramisu and drinks ready to go.",
+  
+  portada:"imagenes/portada_limoncello.jpg",
+  carpetaFotos:"images/Menu/",
+  extensionFotos:".jpg",
+
+  sucursales:[
+    {
+      id:"centro",
+      nombre:"Centro Histórico",
+      direccion:"Arista #250, Centro Histórico, San Luis Potosí, S.L.P.",
+      horario:"Lunes a Viernes de 1-8 PM | Sábados de 1-6",
+      horarioEn:"Monday to Friday 1-8 PM | Saturdays 1-6 PM",
+      maps:"https://www.google.com/maps/search/?api=1&query=Arista+250+Centro+Historico+San+Luis+Potosi"
+    }
+  ]
+};
+
+const FOTOS = {};
+
+/* CATEGORÍAS FIELES AL MENÚ IMPRESO */
+const CATEGORIAS = {
+  spaghetti:["Spaghetti ($70.00)","Spaghetti ($70.00)","🍝"],
+  pizza:["Pizza ($75.00)","Pizza ($75.00)","🍕"],
+  complementos:["Complementos y Postres","Sides & Desserts","🥗"],
+  bebidas:["Bebidas","Drinks","☕"]
+};
+
+const CATS_ALL = ["spaghetti","pizza","complementos","bebidas"];
+
+const slug = texto => texto.normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+  .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+function itemMenu(categoria, badge, nombre, nombreEn, descEs, descEn, variantes){
+  return {
+    id:slug(nombre),
+    categoria,
+    badge,
+    nombre,
+    nombreEn,
+    descEs,
+    descEn,
+    variantes
+  };
+}
+
+/* ============================================================
+   CATÁLOGO EXACTO EXTRAÍDO DEL MENÚ FÍSICO DE LIMONCELLO
+   ============================================================ */
+const MENU = [
+  /* ================== SPAGHETTI ($70.00) ================== */
+  itemMenu(
+    "spaghetti",
+    "RAGU",
+    "Spaghetti Ragú",
+    "Ragu Spaghetti",
+    "Spaghetti base ($70.00) · Opción de extra: + Carne ($15.00)",
+    "Base spaghetti ($70.00) · Optional extra: + Meat ($15.00)",
+    [
+      ["RAGU (Base $70.00)", "RAGU (Base $70.00)", 70],
+      ["RAGU + Carne (+$15.00)", "RAGU + Meat (+$15.00)", 85]
+    ]
+  ),
+  itemMenu(
+    "spaghetti",
+    "PESTO",
+    "Spaghetti Pesto",
+    "Pesto Spaghetti",
+    "Spaghetti base ($70.00) · Opción de extra: + Nuez ($15.00)",
+    "Base spaghetti ($70.00) · Optional extra: + Walnut ($15.00)",
+    [
+      ["PESTO (Base $70.00)", "PESTO (Base $70.00)", 70],
+      ["PESTO + Nuez (+$15.00)", "PESTO + Walnut (+$15.00)", 85]
+    ]
+  ),
+  itemMenu(
+    "spaghetti",
+    "ALFREDO",
+    "Spaghetti Alfredo",
+    "Alfredo Spaghetti",
+    "Spaghetti base ($70.00) · Opción de extra: + Tocino ($15.00)",
+    "Base spaghetti ($70.00) · Optional extra: + Bacon ($15.00)",
+    [
+      ["ALFREDO (Base $70.00)", "ALFREDO (Base $70.00)", 70],
+      ["ALFREDO + Tocino (+$15.00)", "ALFREDO + Bacon (+$15.00)", 85]
+    ]
+  ),
+
+  /* ================== PIZZA ($75.00) ================== */
+  itemMenu(
+    "pizza",
+    "PEPPERONI",
+    "Pizza Pepperoni",
+    "Pepperoni Pizza",
+    "Salsa de tomate, mozzarella y pepperoni.",
+    "Tomato sauce, mozzarella and pepperoni.",
+    [["Especialidad · Pepperoni", "Specialty · Pepperoni", 75]]
+  ),
+  itemMenu(
+    "pizza",
+    "MARGARITA",
+    "Pizza Margarita",
+    "Margherita Pizza",
+    "Napolitana con tomate, mozzarella y albahaca.",
+    "Neapolitan style with tomato, mozzarella and basil.",
+    [["Especialidad · Margarita", "Specialty · Margherita", 75]]
+  ),
+  itemMenu(
+    "pizza",
+    "CHAMPIÑONES",
+    "Pizza Champiñones",
+    "Mushroom Pizza",
+    "Salsa de tomate, mozzarella y champiñones.",
+    "Tomato sauce, mozzarella and mushrooms.",
+    [["Especialidad · Champiñones", "Specialty · Mushrooms", 75]]
+  ),
+  itemMenu(
+    "pizza",
+    "PIMIENTO + CEBOLLA",
+    "Pizza Pimiento + Cebolla",
+    "Pepper + Onion Pizza",
+    "Salsa de tomate, queso mozzarella, pimiento y cebolla.",
+    "Tomato sauce, mozzarella cheese, bell pepper and onion.",
+    [["Especialidad · Pimiento + Cebolla", "Specialty · Pepper + Onion", 75]]
+  ),
+  itemMenu(
+    "pizza",
+    "PEPPERONI + CHAMPIÑONES",
+    "Pizza Pepperoni + Champiñones",
+    "Pepperoni + Mushroom Pizza",
+    "Salsa de tomate, queso mozzarella, champiñones y pepperoni.",
+    "Tomato sauce, mozzarella cheese, mushrooms and pepperoni.",
+    [["Especialidad · Pepperoni + Champiñones", "Specialty · Pepperoni + Mushrooms", 75]]
+  ),
+
+  /* ================== COMPLEMENTOS Y POSTRES ================== */
+  itemMenu(
+    "complementos",
+    "COMPLEMENTO",
+    "Ensalada",
+    "Salad",
+    "Ensalada fresca del menú Limoncello.",
+    "Fresh house salad.",
+    [["Orden", "Order", 50]]
+  ),
+  itemMenu(
+    "complementos",
+    "LIMÓN O CAFÉ",
+    "Tiramisú",
+    "Tiramisu",
+    "Postre italiano tradicional. Opciones: LIMÓN O CAFÉ.",
+    "Traditional Italian dessert. Options: LEMON OR COFFEE.",
+    [
+      ["Opción: LIMÓN", "Option: LEMON", 50],
+      ["Opción: CAFÉ", "Option: COFFEE", 50]
+    ]
+  ),
+
+  /* ================== BEBIDAS ================== */
+  itemMenu(
+    "bebidas",
+    "CAFETERÍA",
+    "Cappuccino",
+    "Cappuccino",
+    "Cappuccino caliente preparado al momento.",
+    "Freshly prepared hot cappuccino.",
+    [["Regular", "Regular", 40]]
+  ),
+  itemMenu(
+    "bebidas",
+    "BEBIDA",
+    "Refresco",
+    "Soft Drink",
+    "Refresco bien frío.",
+    "Chilled soft drink.",
+    [["Regular", "Regular", 35]]
+  ),
+  itemMenu(
+    "bebidas",
+    "BEBIDA",
+    "Agua mineral",
+    "Sparkling Water",
+    "Agua mineral refrescante.",
+    "Refreshing sparkling mineral water.",
+    [["Regular", "Regular", 35]]
+  ),
+  itemMenu(
+    "bebidas",
+    "BEBIDA",
+    "Agua frutal",
+    "Fruit Water",
+    "Agua frutal fresca del día.",
+    "Fresh fruit water of the day.",
+    [["Regular", "Regular", 35]]
+  )
+];
+
+const TEXT = {
+  es:{
+    heroLabel:"AUTÉNTICO SABOR ITALIANO",
+    menu:"MENÚ",visit:"VISÍTANOS",order:"PEDIDOS",
+    menuLabel:"PASTA & PIZZA TO GO",menuTitle:"Nuestro Menú",
+    intro:"Elige tu pasta, pizza, complemento o bebida favorita y personaliza tus extras. Confirmaremos tu pedido por WhatsApp.",
+    modeRest:"Pedido a domicilio", modeToGo:"Para llevar (To Go)",
+    currency:"Precios en pesos mexicanos · MXN",
+    noResults:"No encontramos platillos con esa búsqueda.",
+    visitLabel:"INFORMACIÓN DEL ESTABLECIMIENTO",visitTitle:"Limoncello · Pasta & Pizza To Go",
+    visitIntro:"Visítanos en el Centro Histórico o realiza tu pedido anticipado por WhatsApp.",
+    locationLabel:"DIRECCIÓN",scheduleLabel:"HORARIO",phoneLabel:"TELÉFONO / WHATSAPP",
+    mapsBtn:"VER EN GOOGLE MAPS",pickupBtn:"PEDIR PARA LLEVAR (TO GO)",
+    followUs:"REDES SOCIALES Y CONTACTO",
+    footer:"Horario: Lunes a Viernes de 1-8 PM | Sábados de 1-6",
+    orderTitle:"Mi pedido",review:"Revisa platillos, opciones o extras y cantidades.",
+    subtotal:"Productos",shipping:"Servicio / Envío",total:"Total estimado",pending:"Por confirmar",
+    continue:"CONTINUAR",more:"AGREGAR MÁS PLATILLOS",details:"Datos de tu pedido",
+    branch:"Sucursal",service:"Servicio",delivery:"Entrega a domicilio",pickup:"Para llevar (Recoger en Arista #250)",
+    name:"Nombre *",phone:"Celular *",address:"Domicilio de entrega",
+    street:"Calle *",number:"Número exterior *",neighborhood:"Colonia *",
+    city:"Municipio *",zip:"Código postal *",references:"Referencias (opcional)",
+    location:"Ubicación / enlace de Maps (opcional)",useLocation:"USAR MI UBICACIÓN",
+    geoNote:"Solo se consulta tu ubicación al pulsar el botón. Verifica que corresponda al domicilio de entrega.",
+    notes:"Indicaciones para tus platillos (opcional)",
+    confirm:"El restaurante confirmará disponibilidad, costo final, formas de pago y tiempo de recolección o entrega.",
+    send:"CONTINUAR EN WHATSAPP",back:"VOLVER A MI PEDIDO",
+    waNote:"WhatsApp se abrirá con el pedido preparado. Pulsa Enviar allí para solicitarlo.",
+    all:"Todos (14)",search:"Buscar spaghetti, pizza, tiramisú…",presentation:"Opciones de preparación / Extras",
+    quantity:"Cantidad",add:"Agregar",remove:"Quitar",close:"Cerrar",photo:"Fotografía del platillo",
+    enlarge:"Ampliar fotografía",emptyCart:"Tu pedido está vacío.",
+    noShipping:"Para llevar (Sin costo de envío)",
+    hello:"Hola Limoncello, me gustaría realizar un pedido.",
+    phoneError:"Escribe un teléfono de 10 a 15 dígitos.",required:"Completa este dato.",
+    geoLoading:"Obteniendo ubicación…",geoOK:"Ubicación agregada. Verifica el punto de entrega.",
+    geoError:"No se pudo obtener tu ubicación. Escribe la dirección o pega un enlace de Maps.",
+    category:"Categorías del menú",chat:"Contactar por WhatsApp",
+    sentTitle:"Pedido enviado",
+    sentDesc:"Consulta el chat en WhatsApp para confirmar tu pedido.",
+    backMenu:"VOLVER AL MENÚ"
+  },
+  en:{
+    heroLabel:"AUTHENTIC ITALIAN FLAVOR",
+    menu:"MENU",visit:"VISIT US",order:"ORDERS",
+    menuLabel:"PASTA & PIZZA TO GO",menuTitle:"Our Menu",
+    intro:"Choose your favorite pasta, pizza, side or drink and customize your extras. We will confirm your order via WhatsApp.",
+    modeRest:"Home Delivery", modeToGo:"Takeout (To Go)",
+    currency:"Prices in Mexican pesos · MXN",
+    noResults:"No dishes match your search.",
+    visitLabel:"ESTABLISHMENT INFORMATION",visitTitle:"Limoncello · Pasta & Pizza To Go",
+    visitIntro:"Visit us in Centro Histórico or place your order in advance via WhatsApp.",
+    locationLabel:"ADDRESS",scheduleLabel:"HOURS",phoneLabel:"PHONE / WHATSAPP",
+    mapsBtn:"VIEW ON GOOGLE MAPS",pickupBtn:"ORDER TO GO (PICKUP)",
+    followUs:"SOCIAL MEDIA & CONTACT",
+    footer:"Hours: Monday to Friday 1-8 PM | Saturdays 1-6 PM",
+    orderTitle:"My order",review:"Review dishes, options/extras and quantities.",
+    subtotal:"Items",shipping:"Service / Delivery",total:"Estimated total",pending:"To be confirmed",
+    continue:"CONTINUE",more:"ADD MORE DISHES",details:"Order details",
+    branch:"Location",service:"Service",delivery:"Home delivery",pickup:"To Go (Pick up at Arista #250)",
+    name:"Name *",phone:"Phone *",address:"Delivery address",
+    street:"Street *",number:"Street number *",neighborhood:"Neighborhood *",
+    city:"City *",zip:"Postal code *",references:"Directions / landmarks (optional)",
+    location:"Location / Maps link (optional)",useLocation:"USE MY LOCATION",
+    geoNote:"Your location is accessed only when you press the button. Check that it matches your delivery address.",
+    notes:"Instructions for your dishes (optional)",
+    confirm:"The restaurant will confirm availability, final cost, payment methods and pickup or delivery time.",
+    send:"CONTINUE IN WHATSAPP",back:"BACK TO MY ORDER",
+    waNote:"WhatsApp will open with your order ready. Press Send there to request it.",
+    all:"All (14)",search:"Search spaghetti, pizza, tiramisu…",presentation:"Preparation options / Extras",
+    quantity:"Quantity",add:"Add",remove:"Remove",close:"Close",photo:"Dish photo",
+    enlarge:"Enlarge photo",emptyCart:"Your order is empty.",
+    noShipping:"To Go (No delivery fee)",
+    hello:"Hello Limoncello, I would like to place an order.",
+    phoneError:"Enter a phone number with 10 to 15 dígitos.",required:"Please complete this field.",
+    geoLoading:"Getting your location…",geoOK:"Location added. Check the delivery point.",
+    geoError:"Could not access your location. Type your address or paste a Maps link.",
+    category:"Menu categories",chat:"Contact via WhatsApp",
+    sentTitle:"Order sent",
+    sentDesc:"Please check your WhatsApp chat to confirm your order.",
+    backMenu:"BACK TO MENU"
+  }
+};
+
+const $ = id => document.getElementById(id);
+const make = (tag,cls,text) => {
+  const node=document.createElement(tag);
+  if(cls) node.className=cls;
+  if(text!==undefined) node.textContent=text;
+  return node;
+};
+let lang="es",category="",orderId="",activeBranchIndex=0,menuMode="togo",toastTimer;
+const cart=new Map();
+const selected=new Map();
+const lookup=new Map(MENU.map(p=>[p.id,p]));
+const t=key=>TEXT[lang][key];
+const name=p=>lang==="es"?p.nombre:p.nombreEn;
+const desc=p=>lang==="es"?p.descEs:p.descEn;
+const vName=v=>v[lang==="es"?0:1];
+const money=n=>new Intl.NumberFormat(lang==="es"?"es-MX":"en-US",{
+  style:"currency",currency:"MXN",currencyDisplay:"narrowSymbol"
+}).format(n);
+const keyFor=(p,index)=>p.id+"::"+index;
+const wa=text=>"https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(text);
+const normalize=text=>text.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+
+function showView(view,changeHash=true,scroll=true){
+  const visit=view==="visit";
+  $("menuView").hidden=visit;$("visitView").hidden=!visit;
+  document.querySelectorAll("[data-view]").forEach(button=>{
+    const active=button.dataset.view===(visit?"visit":"menu");
+    button.classList.toggle("active",active);
+    if(active)button.setAttribute("aria-current","page");
+    else button.removeAttribute("aria-current");
+  });
+  if(changeHash){
+    try{history.replaceState(null,"",visit?"#visitanos":"#menu");}catch{}
+  }
+  if(scroll)$("main").scrollIntoView({
+    behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"
+  });
+}
+document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>showView(b.dataset.view));
+
+$("btnRest").onclick = () => setMenuMode("restaurante");
+$("btnToGo").onclick = () => setMenuMode("togo");
+
+function setMenuMode(mode){
+  menuMode = mode;
+  $("btnRest").classList.toggle("active", mode === "restaurante");
+  $("btnToGo").classList.toggle("active", mode === "togo");
+  $("service").value = mode === "togo" ? "pickup" : "delivery";
+  updateService();
+}
+
+function openDialog(dialog){
+  dialog.showModal();document.body.classList.add("locked");
+}
+[$("orderDialog"),$("photoDialog")].forEach(dialog=>{
+  dialog.addEventListener("close",()=>document.body.classList.remove("locked"));
+  dialog.addEventListener("click",event=>{
+    if(event.target!==dialog)return;
+    const r=dialog.getBoundingClientRect();
+    if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();
+  });
+});
+$("closeOrder").onclick=()=>$("orderDialog").close();
+$("closePhoto").onclick=()=>$("photoDialog").close();
+
+function controls(p,index){
+  const row=make("div","quantity");
+  row.dataset.key=keyFor(p,index);
+  row.append(make("span","",t("quantity")));
+  const stepper=make("div","stepper");
+  const minus=make("button","","−"),plus=make("button","","+"),out=make("output","","0");
+  minus.type=plus.type="button";
+  const label=name(p)+" · "+vName(p.variantes[index]);
+  minus.setAttribute("aria-label",t("remove")+" "+label);
+  plus.setAttribute("aria-label",t("add")+" "+label);
+  out.setAttribute("aria-label",t("quantity")+" "+label);
+  minus.onclick=()=>change(p,index,-1);
+  plus.onclick=()=>change(p,index,1);
+  stepper.append(minus,out,plus);row.append(stepper);
+  return row;
+}
+function change(p,index,delta){
+  const key=keyFor(p,index);
+  const quantity=Math.max(0,Math.min(99,(cart.get(key)?.quantity||0)+delta));
+  if(quantity)cart.set(key,{id:p.id,index,quantity});
+  else cart.delete(key);
+  if(cart.size&&!orderId)orderId="LIM-"+Date.now().toString(36).toUpperCase();
+  if(!cart.size)orderId="";
+  renderCart();sync();
+}
+function sync(){
+  document.querySelectorAll("[data-key]").forEach(row=>{
+    const quantity=cart.get(row.dataset.key)?.quantity||0;
+    row.querySelector("output").textContent=quantity;
+    const buttons=row.querySelectorAll("button");
+    buttons[0].disabled=quantity===0;buttons[1].disabled=quantity>=99;
+  });
+  const total=[...cart.values()].reduce((sum,row)=>sum+row.quantity,0);
+  document.querySelectorAll("[data-count]").forEach(node=>{
+    node.textContent=total;node.hidden=total===0;
+  });
+}
+function renderFilters(){
+  const nav=$("filters");nav.replaceChildren();
+
+  const btnAll = make("button","filter",t("all"));
+  btnAll.type="button";
+  btnAll.classList.toggle("active",category==="");
+  btnAll.onclick=()=>{ category=""; renderFilters(); renderProducts(); };
+  nav.append(btnAll);
+
+  CATS_ALL.forEach(id=>{
+    const textLabel = CATEGORIAS[id][lang==="es"?0:1];
+    const emoji = CATEGORIAS[id][2];
+    const button=make("button","filter", emoji + " " + textLabel);
+    button.type="button";
+    button.classList.toggle("active",category===id);
+    button.setAttribute("aria-pressed",String(category===id));
+    button.onclick=()=>{
+      category=id;
+      nav.querySelectorAll("button").forEach(b=>{
+        b.classList.toggle("active",b===button);
+        b.setAttribute("aria-pressed",String(b===button));
+      });
+      renderProducts();
+    };
+    nav.append(button);
+  });
+}
+function renderProducts(){
+  const grid=$("products");grid.replaceChildren();
+  const query=normalize($("search").value.trim());
+  
+  const visible=MENU.filter(p=>{
+    const haystack=normalize([
+      p.nombre,p.nombreEn,p.badge,p.descEs,p.descEn,...CATEGORIAS[p.categoria],
+      ...p.variantes.flatMap(v=>[v[0],v[1]])
+    ].join(" "));
+    return (!category||p.categoria===category)&&(!query||haystack.includes(query));
+  });
+  
+  $("empty").hidden=visible.length>0;
+  
+  visible.forEach(p=>{
+    const card=make("article","card");
+    const photo=make("button","photo");
+    photo.type="button";photo.disabled=true;
+    photo.setAttribute("aria-label",t("enlarge")+" "+name(p));
+    const fallback=make("div","placeholder");
+    const symbol=make("span","",CATEGORIAS[p.categoria][2]);
+    symbol.setAttribute("aria-hidden","true");
+    fallback.append(
+      symbol,
+      make("strong","","Limoncello"),
+      make("small","","PASTA & PIZZA TO GO")
+    );
+    const image=make("img");
+    image.alt=name(p);image.loading="lazy";image.hidden=true;
+    image.onload=()=>{image.hidden=false;fallback.hidden=true;photo.disabled=false;};
+    image.onerror=()=>{image.hidden=true;fallback.hidden=false;photo.disabled=true;};
+    image.src=FOTOS[p.id]||CONFIG.carpetaFotos+p.id+CONFIG.extensionFotos;
+    photo.append(fallback,image);
+    photo.onclick=()=>{
+      $("largePhoto").src=image.currentSrc||image.src;
+      $("largePhoto").alt=name(p);
+      openDialog($("photoDialog"));
+    };
+
+    const content=make("div","content");
+    const topRow=make("div","card-top-row");
+    const catLabel = CATEGORIAS[p.categoria][lang==="es"?0:1];
+    topRow.append(
+      make("span","category-label",catLabel),
+      make("span","pill-badge",p.badge)
+    );
+    content.append(
+      topRow,
+      make("h3","",name(p)),
+      make("p","card-description",desc(p))
+    );
+
+    let index=selected.get(p.id)||0;
+    const priceRow=make("div","price-row");
+    const price=make("div","price",money(p.variantes[index][2]));
+    price.setAttribute("aria-live","polite");
+    priceRow.append(make("span","price-dots"),price);
+
+    let quantity=controls(p,index);
+    if(p.variantes.length>1){
+      const label=make("label","variant-label",t("presentation"));
+      const select=make("select");
+      p.variantes.forEach((v,i)=>{
+        const option=make("option","",vName(v)+" — "+money(v[2]));
+        option.value=String(i);select.append(option);
+      });
+      select.value=String(index);
+      select.onchange=()=>{
+        index=Number(select.value);selected.set(p.id,index);
+        price.textContent=money(p.variantes[index][2]);
+        const next=controls(p,index);quantity.replaceWith(next);quantity=next;sync();
+      };
+      label.append(select);content.append(label);
+    }
+    content.append(priceRow);
+    card.append(photo,content,quantity);
+    grid.append(card);
+  });
+  sync();
+}
+$("search").addEventListener("input",renderProducts);
+
+function renderBranches(){
+  const tabs=$("branchTabs");
+  tabs.replaceChildren();
+  tabs.hidden=CONFIG.sucursales.length<=1;
+
+  CONFIG.sucursales.forEach((branch,index)=>{
+    const btn=make("button","branch-tab"+(index===activeBranchIndex?" active":""),branch.nombre);
+    btn.type="button";
+    btn.onclick=()=>{
+      activeBranchIndex=index;
+      renderBranches();
+    };
+    tabs.append(btn);
+  });
+
+  const current=CONFIG.sucursales[activeBranchIndex]||CONFIG.sucursales[0];
+  if(!current)return;
+  $("visitAddress").textContent=current.direccion;
+  $("visitSchedule").textContent=(lang==="es"?current.horario:current.horarioEn)||current.horario;
+  $("visitMapsBtn").href=current.maps||"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(current.direccion);
+}
+
+$("pickupOrderBtn").onclick=()=>{
+  const current=CONFIG.sucursales[activeBranchIndex]||CONFIG.sucursales[0];
+  if(current)$("branchSelect").value=current.id;
+  $("service").value="pickup";
+  updateService();
+  if(cart.size){
+    cartStep();
+    renderCart();
+    openDialog($("orderDialog"));
+  }else{
+    showView("menu");
+  }
+};
+
+function cartStep(){
+  $("cartStep").hidden=false;$("orderForm").hidden=true;
+}
+function subtotal(){
+  return [...cart.values()].reduce((sum,row)=>
+    sum+lookup.get(row.id).variantes[row.index][2]*row.quantity,0);
+}
+function renderCart(){
+  const container=$("cartRows");
+  const active=document.activeElement;
+  const focused=container.contains(active)?active.getAttribute("aria-label"):null;
+  container.replaceChildren();
+  if(!cart.size)container.append(make("p","hint",t("emptyCart")));
+  cart.forEach(row=>{
+    const p=lookup.get(row.id),variant=p.variantes[row.index];
+    const box=make("div","cart-row"),heading=make("div","cart-title");
+    heading.append(make("strong","",name(p)),make("span","",money(variant[2]*row.quantity)));
+    box.append(heading,make("div","cart-variant",vName(variant)),controls(p,row.index));
+    container.append(box);
+  });
+  const pickup=$("service").value==="pickup",sum=subtotal();
+  $("subtotal").textContent=money(sum)+" MXN";
+  $("shipping").textContent=pickup?t("noShipping"):t("pending");
+  $("total").textContent=!cart.size?money(0):pickup?money(sum)+" MXN":t("pending");
+  $("continueOrder").disabled=!cart.size;
+  if(!cart.size)cartStep();
+  sync();
+  if(focused){
+    const next=[...container.querySelectorAll("button")].find(b=>
+      b.getAttribute("aria-label")===focused&&!b.disabled);
+    (next||$("more")).focus();
+  }
+}
+document.querySelectorAll("[data-order]").forEach(button=>button.onclick=()=>{
+  $("orderSuccess").hidden=true;
+  $("orderBody").hidden=false;
+  cartStep();renderCart();openDialog($("orderDialog"));$("closeOrder").focus();
+});
+$("continueOrder").onclick=()=>{
+  if(!cart.size)return;
+  $("cartStep").hidden=true;$("orderForm").hidden=false;$("customer").focus();
+};
+$("back").onclick=()=>{cartStep();$("continueOrder").focus();};
+$("more").onclick=()=>{$("orderDialog").close();showView("menu");};
+
+$("closeSuccess").onclick=()=>{
+  $("orderDialog").close();
+  $("orderSuccess").hidden=true;
+  $("orderBody").hidden=false;
+  cartStep();
+  renderCart();
+  showView("menu");
+};
+
+CONFIG.sucursales.forEach(branch=>{
+  const option=make("option","",branch.nombre + " — " + branch.direccion);
+  option.value=branch.id;
+  $("branchSelect").append(option);
+});
+function updateService(){
+  const delivery=$("service").value==="delivery";
+  $("addressFields").hidden=!delivery;
+  $("addressFields").disabled=!delivery;
+  renderCart();
+}
+$("service").onchange=updateService;
+$("orderForm").querySelectorAll("input").forEach(input=>{
+  input.addEventListener("input",()=>input.setCustomValidity(""));
+});
+$("orderForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  if(!cart.size){cartStep();return;}
+  const form=$("orderForm");
+  form.querySelectorAll("input[required]").forEach(input=>{
+    input.setCustomValidity(input.matches(":disabled")||input.value.trim()?"":t("required"));
+  });
+  $("phone").setCustomValidity(/^\d{10,15}$/.test($("phone").value.replace(/\D/g,""))?"":t("phoneError"));
+  if(!form.reportValidity())return;
+  const branch=CONFIG.sucursales.find(b=>b.id===$("branchSelect").value);
+  if(!branch)return;
+  const delivery=$("service").value==="delivery";
+  const value=id=>$(id).value.trim();
+  const mxn=n=>new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN"}).format(n)+" MXN";
+  const message=[
+    "🍋 *"+CONFIG.nombre+"*",
+    "Folio de pedido: "+orderId,
+    "Ubicación: "+branch.direccion,
+    "Modalidad: "+(delivery?"Entrega a domicilio":"Para llevar (Recoger en sucursal)"),
+    ""
+  ];
+  cart.forEach(row=>{
+    const p=lookup.get(row.id),v=p.variantes[row.index];
+    message.push("• "+row.quantity+" × "+p.nombre+" ["+v[0]+"] — "+mxn(v[2]*row.quantity));
+  });
+  message.push(
+    "","Subtotal productos: "+mxn(subtotal()),
+    "Envío: "+(delivery?"Por confirmar":"Sin costo (Para llevar)"),
+    "Total estimado: "+(delivery?"Por confirmar con envío":mxn(subtotal())),
+    "","Cliente: "+value("customer"),"Tel / Celular: "+value("phone")
+  );
+  if(delivery){
+    message.push("Dirección de entrega: "+[
+      value("street"),value("number"),value("neighborhood"),value("city"),"CP "+value("zip")
+    ].join(", "));
+    if(value("references"))message.push("Referencias: "+value("references"));
+    if(value("location"))message.push("Mapa: "+value("location"));
+  }
+  if(value("notes"))message.push("Indicaciones: "+value("notes"));
+  message.push("","Por favor confirma disponibilidad y tiempo de "+(delivery?"entrega.":"preparación para pasar a recoger."));
+  
+  window.open(wa(message.join("\n")), "_blank");
+
+  cart.clear();
+  orderId = "";
+  sync();
+  $("orderBody").hidden = true;
+  $("orderSuccess").hidden = false;
+  $("closeSuccess").focus();
+});
+
+$("useLocation").onclick=()=>{
+  if(!navigator.geolocation){$("locationStatus").textContent=t("geoError");return;}
+  $("useLocation").disabled=true;$("locationStatus").textContent=t("geoLoading");
+  navigator.geolocation.getCurrentPosition(position=>{
+    $("useLocation").disabled=false;
+    $("location").value="https://www.google.com/maps?q="+position.coords.latitude.toFixed(6)+","+position.coords.longitude.toFixed(6);
+    $("locationStatus").textContent=t("geoOK");
+  },()=>{
+    $("useLocation").disabled=false;$("locationStatus").textContent=t("geoError");
+  },{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
+};
+
+function applyLanguage(){
+  document.documentElement.lang=lang;
+  document.title=CONFIG.nombre+" | "+t("menuTitle");
+  document.querySelectorAll("[data-t]").forEach(node=>node.textContent=t(node.dataset.t));
+  
+  $("btnRest").innerHTML = "🛵 " + t("modeRest");
+  $("btnToGo").innerHTML = "🛍️ " + t("modeToGo");
+
+  $("language").textContent=lang==="es"?"English · EN":"Español · ES";
+  $("language").setAttribute("aria-label",lang==="es"?"Switch to English":"Cambiar a español");
+  $("slogan").textContent=lang==="es"?CONFIG.lema:CONFIG.lemaEn;
+  $("search").placeholder=t("search");$("search").setAttribute("aria-label",t("search"));
+  $("filters").setAttribute("aria-label",t("category"));
+  $("closeOrder").setAttribute("aria-label",t("close"));
+  $("closePhoto").setAttribute("aria-label",t("close"));
+  $("photoDialog").setAttribute("aria-label",t("photo"));
+  $("floatingWA").href=wa(t("hello"));
+  $("floatingWA").setAttribute("aria-label",t("chat"));
+  $("contactWA").href=wa(t("hello"));
+  $("orderForm").querySelectorAll("input").forEach(input=>input.setCustomValidity(""));
+  renderFilters();renderProducts();renderBranches();renderCart();
+}
+$("language").onclick=()=>{lang=lang==="es"?"en":"es";applyLanguage();};
+$("instagram").href=CONFIG.instagram;
+$("facebook").href=CONFIG.facebook;
+
+if(CONFIG.portada){
+  $("heroPhoto").onload=()=>{
+    $("heroPhoto").hidden=false;$("hero").classList.add("has-photo");
+  };
+  $("heroPhoto").onerror=()=>{
+    $("heroPhoto").hidden=true;$("hero").classList.remove("has-photo");
+  };
+  $("heroPhoto").src=CONFIG.portada;
+}
+window.addEventListener("hashchange",()=>showView(location.hash==="#visitanos"?"visit":"menu",false));
+applyLanguage();
+updateService();
+showView(location.hash==="#visitanos"?"visit":"menu",false,false);
+</script>
+</body>
+</html>
