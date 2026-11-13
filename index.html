@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 <style>
 :root{
   --bg:#F4EFE6;
@@ -39,11 +40,11 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 .wrap{width:min(1200px,100%);margin:auto;padding-inline:22px}
 
-/* HERO CON LOGOTIPO ELEVADO */
+/* HERO CON LOGOTIPO PROTAGÓNICO */
 .hero{
   position:relative;isolation:isolate;overflow:hidden;
   background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 65%,#235337 100%);
-  color:var(--paper);padding:22px 0 46px;
+  color:var(--paper);padding:24px 0 38px;
   border-bottom:6px solid var(--yellow);
 }
 .hero:before{
@@ -61,55 +62,61 @@ a{color:inherit}
   background:linear-gradient(90deg,#122e1ee6,#1b432ccc);
 }
 .hero-top-bar{
-  display:flex;justify-content:space-between;align-items:flex-start;gap:18px;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+}
+.top-actions{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;
 }
 .kicker{font-size:11px;font-weight:800;letter-spacing:1.8px;line-height:1.6;text-transform:uppercase}
-.language{
+.language,.qr-trigger{
   border:1.5px solid var(--yellow);color:var(--yellow);background:#122e1eb3;
-  padding:9px 16px;border-radius:99px;min-height:40px;font-weight:800;font-size:12px;
-  letter-spacing:.5px;transition:all .2s;
+  padding:9px 15px;border-radius:99px;min-height:40px;font-weight:800;font-size:12px;
+  letter-spacing:.5px;transition:all .2s;display:inline-flex;align-items:center;gap:6px;
 }
-.language:hover{background:var(--yellow);color:var(--ink)}
+.language:hover,.qr-trigger:hover{background:var(--yellow);color:var(--ink)}
+.qr-trigger svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .hero-content{padding-top:4px;max-width:680px}
 .hero .kicker{color:var(--yellow)}
 
-/* CUADRO BLANCO DEL LOGO ELEVADO CON "TO GO" DEBAJO DE PASTA & PIZZA */
+/* CUADRO BLANCO DEL LOGO CON MAYOR PROTAGONISMO */
 .brand-badge{
   display:inline-flex;align-items:center;
   background:var(--paper);color:var(--ink);
-  padding:14px 24px;border-radius:22px;margin:0 0 18px;
-  box-shadow:0 12px 32px #00000033;
-  border:2.5px solid var(--yellow);
+  padding:22px 36px;border-radius:26px;margin:0 0 20px;
+  box-shadow:0 16px 40px #00000040;
+  border:3.5px solid var(--yellow);
 }
 .brand-logo-text{
-  font-family:var(--font-sans);font-weight:400;font-size:30px;line-height:0.94;letter-spacing:1px;
+  font-family:var(--font-sans);font-weight:400;
+  font-size:clamp(44px,7vw,58px);line-height:0.92;letter-spacing:1.5px;
   color:var(--ink);text-align:left;
 }
 .brand-logo-sub{
-  font-weight:800;display:block;font-size:10px;line-height:1.35;
-  letter-spacing:1.8px;margin-top:8px;padding-top:6px;
-  border-top:1.5px solid var(--line);color:var(--green);text-align:center;
+  font-weight:800;display:block;font-size:12.5px;line-height:1.35;
+  letter-spacing:2.2px;margin-top:12px;padding-top:9px;
+  border-top:2px solid var(--line);color:var(--green);text-align:center;
 }
 .brand-logo-sub span{
-  display:block;color:var(--ink);font-size:9.5px;letter-spacing:2.4px;margin-top:1px;
+  display:block;color:var(--ink);font-size:11.5px;letter-spacing:3px;margin-top:2px;
 }
 .lemon-dot{
-  display:inline-block;width:19px;height:14px;background:var(--yellow);
+  display:inline-block;width:30px;height:22px;background:var(--yellow);
   border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-  position:relative;vertical-align:middle;margin:0 1px;
-  box-shadow:inset -2px -2px 0 #d4a700;
+  position:relative;vertical-align:middle;margin:0 2px;
+  box-shadow:inset -3px -3px 0 #d4a700;
 }
 .lemon-dot:after{
-  content:"";position:absolute;top:-4px;right:2px;width:6px;height:4px;
+  content:"";position:absolute;top:-6px;right:3px;width:9px;height:6px;
   background:#2E6F40;border-radius:50% 0 50% 0;
 }
+
+/* TÍTULO "MENÚ LIMONCELLO" COMPACTO */
 .hero h1{
-  margin:6px 0 12px;font-family:var(--font-display);
-  font-size:clamp(42px,7vw,78px);font-weight:800;
-  letter-spacing:-1.5px;line-height:1.02;color:var(--paper);
+  margin:4px 0 0;font-family:var(--font-display);
+  font-size:clamp(26px,4vw,38px);font-weight:800;
+  letter-spacing:-0.8px;line-height:1.1;color:var(--paper);
 }
 .hero h1 span{color:var(--yellow)}
-.hero p{font-size:17px;line-height:1.65;max-width:580px;margin-bottom:0;color:#EAE4D7}
 
 /* NAVEGACIÓN DESKTOP */
 .desktop-nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 4px 18px #1b432c0a}
@@ -267,6 +274,7 @@ h2{font-family:var(--font-display);font-size:clamp(32px,5vw,46px);font-weight:80
 .visit-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .visit-btn.maps{background:var(--green);color:var(--yellow)}
 .visit-btn.pickup{background:var(--yellow);color:var(--ink);border:1.5px solid #d4a700}
+.visit-btn.qr-btn{background:var(--bg);color:var(--green);border:1.5px solid var(--green)}
 
 .social-title{
   font-size:12px;font-weight:800;letter-spacing:1.4px;
@@ -293,10 +301,32 @@ h2{font-family:var(--font-display);font-size:clamp(32px,5vw,46px);font-weight:80
 .secondary{background:transparent;color:var(--green);border-color:var(--green)}
 footer{
   padding:28px 22px 40px;border-top:1px solid var(--line);
-  text-align:center;color:var(--muted);font-size:13px;line-height:1.8;
-  background:#ECE5D8;
+  text-align:center;color:var(--green);font-size:14px;font-weight:700;line-height:1.8;
+  background:#ECE5D8;letter-spacing:.4px;
 }
-footer strong{color:var(--green);font-family:var(--font-display);font-size:16px}
+
+/* BOTÓN FLOTANTE TRANSLÚCIDO PARA VOLVER ARRIBA */
+.scroll-top{
+  position:fixed;bottom:90px;right:24px;z-index:29;
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(27,67,44,0.72);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1.5px solid rgba(245,196,0,0.78);
+  color:var(--yellow);display:grid;place-items:center;
+  box-shadow:0 6px 20px rgba(18,46,30,0.28);
+  opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s,background .2s;
+}
+.scroll-top.visible{
+  opacity:1;visibility:visible;transform:translateY(0);
+}
+.scroll-top:hover{
+  background:rgba(27,67,44,0.92);transform:translateY(-2px);
+}
+.scroll-top svg{
+  width:22px;height:22px;fill:none;stroke:currentColor;
+  stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+}
 
 .wa-float{
   position:fixed;bottom:23px;right:20px;z-index:30;
@@ -322,7 +352,7 @@ dialog{
 dialog::backdrop{background:#122e1ec9}
 .dialog-content{padding:25px}
 .dialog-head{display:flex;justify-content:space-between;align-items:center;gap:15px}
-.dialog-head h2{font-size:30px;margin:0}
+.dialog-head h2{font-size:28px;margin:0}
 .close{width:44px;height:44px;flex-shrink:0;border:1.5px solid var(--line);border-radius:50%;background:white;color:var(--green);font-size:27px}
 .hint{font-size:12px;line-height:1.7;color:var(--muted)}
 .cart-row{padding:16px 0;border-bottom:1px solid var(--line)}
@@ -345,6 +375,19 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
 #photoDialog{width:min(1000px,calc(100% - 24px));background:transparent;box-shadow:none}
 .photo-top{display:flex;justify-content:end;margin-bottom:10px}
 #largePhoto{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:auto;border-radius:16px}
+
+/* MODAL DE CÓDIGO QR CON IDENTIDAD LIMONCELLO */
+#qrDialog{width:min(480px,calc(100% - 24px))}
+.qr-preview-wrap{
+  display:flex;flex-direction:column;align-items:center;
+  background:var(--bg);padding:18px;border-radius:20px;border:1.5px solid var(--line);
+  margin:14px 0 16px;
+}
+#qrCanvas{
+  width:100%;max-width:320px;height:auto;border-radius:16px;
+  box-shadow:0 10px 28px rgba(18,46,30,0.18);display:block;
+}
+
 .toast{
   position:fixed;z-index:60;bottom:100px;left:50%;transform:translateX(-50%);
   width:max-content;max-width:calc(100% - 30px);padding:14px 18px;border-radius:13px;
@@ -353,9 +396,9 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){
   .wrap{padding-inline:16px}
-  .hero{padding:16px 0 32px}
-  .hero h1{font-size:clamp(36px,10vw,60px)}
-  .hero p{font-size:15.5px}
+  .hero{padding:18px 0 30px}
+  .brand-badge{padding:18px 28px}
+  .hero h1{font-size:clamp(24px,6.5vw,32px)}
   .desktop-nav{display:none}
   main{scroll-margin-top:15px}
   .search{width:100%;max-width:none}
@@ -369,6 +412,7 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
   }
   .mobile-nav button{padding:7px 3px;font-size:10px;min-height:53px;border-radius:14px}
   .mobile-nav button.active{background:var(--green);color:var(--yellow)}
+  .scroll-top{bottom:calc(155px + env(safe-area-inset-bottom));right:17px;width:46px;height:46px}
   .wa-float{bottom:calc(95px + env(safe-area-inset-bottom));right:16px;width:50px;height:50px}
   footer{padding:24px 20px calc(115px + env(safe-area-inset-bottom))}
   .toast{bottom:calc(155px + env(safe-area-inset-bottom))}
@@ -395,12 +439,17 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
           </div>
         </div>
       </div>
-      <button type="button" id="language" class="language">English · EN</button>
+      <div class="top-actions">
+        <button type="button" id="openQrTop" class="qr-trigger" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M14 14h3v3h-3zM18 14h3v3h-3zM14 18h3v3h-3zM18 18h3v3h-3z"></path></svg>
+          <span>QR</span>
+        </button>
+        <button type="button" id="language" class="language">English · EN</button>
+      </div>
     </div>
     <div class="hero-content">
       <div class="kicker" data-t="heroLabel">AUTÉNTICO SABOR ITALIANO</div>
       <h1>Menú <span>Limoncello</span></h1>
-      <p id="slogan"></p>
     </div>
   </div>
 </header>
@@ -482,6 +531,10 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
           <span data-t="pickupBtn">PEDIR PARA LLEVAR (TO GO)</span>
         </button>
+        <button id="openQrVisit" type="button" class="visit-btn qr-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M14 14h3v3h-3zM18 14h3v3h-3zM14 18h3v3h-3zM18 18h3v3h-3z"></path></svg>
+          <span data-t="qrBtn">CÓDIGO QR DEL MENÚ</span>
+        </button>
       </div>
 
       <h3 class="social-title" data-t="followUs">REDES SOCIALES</h3>
@@ -500,10 +553,15 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
 </main>
 
 <footer>
-  <strong>Limoncello · Pasta &amp; Pizza To Go</strong><br>
-  <span>Arista #250, Centro Histórico · Tel. + 444 6539978</span><br>
-  <span data-t="footer">Horario: Lunes a Viernes de 1-8 PM | Sábados de 1-6</span>
+  Limoncello SLP - Estudio de Soluciones Digitales 2026
 </footer>
+
+<!-- BOTÓN FLOTANTE TRANSLÚCIDO PARA VOLVER ARRIBA -->
+<button id="scrollTopBtn" class="scroll-top" type="button" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
 
 <a id="floatingWA" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24">
@@ -589,6 +647,25 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
   </div>
 </dialog>
 
+<!-- MODAL GENERADOR DE CÓDIGO QR CON IDENTIDAD LIMONCELLO -->
+<dialog id="qrDialog" aria-labelledby="qrTitle">
+  <div class="dialog-content">
+    <div class="dialog-head">
+      <h2 id="qrTitle" data-t="qrModalTitle">QR Limoncello</h2>
+      <button id="closeQr" class="close" type="button" aria-label="Cerrar">×</button>
+    </div>
+    <p class="hint" data-t="qrModalDesc">Tarjeta QR de alta resolución con el emblema de Limoncello lista para imprimir en mostrador o compartir.</p>
+    <div class="qr-preview-wrap">
+      <canvas id="qrCanvas" width="900" height="1140"></canvas>
+    </div>
+    <label class="field">
+      <span data-t="qrUrlLabel">Enlace del menú digital (URL)</span>
+      <input id="qrUrlInput" type="url" spellcheck="false">
+    </label>
+    <button id="downloadQrBtn" class="button full" type="button" data-t="qrDownload">DESCARGAR TARJETA QR (PNG)</button>
+  </div>
+</dialog>
+
 <dialog id="photoDialog" aria-label="Fotografía del platillo">
   <div class="photo-top"><button id="closePhoto" class="close" type="button" aria-label="Cerrar">×</button></div>
   <img id="largePhoto" alt="">
@@ -607,8 +684,7 @@ const CONFIG = {
   whatsapp:"524446539978",
   facebook:"https://www.facebook.com/search/top?q=Limoncello",
   instagram:"https://www.instagram.com/limoncellopizzaypasta/",
-  lema:"Pasta fresca, pizzas artesanales, tiramisú y bebidas listas para llevar o disfrutar.",
-  lemaEn:"Fresh pasta, artisan pizzas, tiramisu and drinks ready to go or enjoy.",
+  urlPorDefecto:"https://blenderingforconservation-maker.github.io/limoncello_slp/",
   
   portada:"imagenes/portada_limoncello.jpg",
   carpetaFotos:"images/Menu/",
@@ -824,9 +900,8 @@ const TEXT = {
     visitLabel:"INFORMACIÓN DEL ESTABLECIMIENTO",visitTitle:"Limoncello · Pasta & Pizza To Go",
     visitIntro:"Visítanos en el Centro Histórico o realiza tu pedido anticipado por WhatsApp.",
     locationLabel:"DIRECCIÓN",scheduleLabel:"HORARIO",phoneLabel:"TELÉFONO / WHATSAPP",
-    mapsBtn:"VER EN GOOGLE MAPS",pickupBtn:"PEDIR PARA LLEVAR (TO GO)",
+    mapsBtn:"VER EN GOOGLE MAPS",pickupBtn:"PEDIR PARA LLEVAR (TO GO)",qrBtn:"CÓDIGO QR DEL MENÚ",
     followUs:"REDES SOCIALES",
-    footer:"Horario: Lunes a Viernes de 1-8 PM | Sábados de 1-6",
     orderTitle:"Mi pedido",review:"Revisa platillos, opciones o extras y cantidades.",
     subtotal:"Productos",shipping:"Servicio / Envío",total:"Total estimado",pending:"Por confirmar",
     continue:"CONTINUAR",more:"AGREGAR MÁS PLATILLOS",details:"Datos de tu pedido",
@@ -851,7 +926,11 @@ const TEXT = {
     category:"Categorías del menú",chat:"Contactar por WhatsApp",
     sentTitle:"Pedido enviado",
     sentDesc:"Consulta el chat en WhatsApp para confirmar tu pedido.",
-    backMenu:"VOLVER AL MENÚ"
+    backMenu:"VOLVER AL MENÚ",
+    qrModalTitle:"QR Limoncello",
+    qrModalDesc:"Tarjeta QR de alta resolución con el emblema de Limoncello lista para imprimir en mostrador o compartir.",
+    qrUrlLabel:"Enlace del menú digital (URL)",
+    qrDownload:"DESCARGAR TARJETA QR (PNG)"
   },
   en:{
     heroLabel:"AUTHENTIC ITALIAN FLAVOR",
@@ -862,9 +941,8 @@ const TEXT = {
     visitLabel:"ESTABLISHMENT INFORMATION",visitTitle:"Limoncello · Pasta & Pizza To Go",
     visitIntro:"Visit us in Centro Histórico or place your order in advance via WhatsApp.",
     locationLabel:"ADDRESS",scheduleLabel:"HOURS",phoneLabel:"PHONE / WHATSAPP",
-    mapsBtn:"VIEW ON GOOGLE MAPS",pickupBtn:"ORDER TO GO (PICKUP)",
+    mapsBtn:"VIEW ON GOOGLE MAPS",pickupBtn:"ORDER TO GO (PICKUP)",qrBtn:"MENU QR CODE",
     followUs:"SOCIAL MEDIA",
-    footer:"Hours: Monday to Friday 1-8 PM | Saturdays 1-6 PM",
     orderTitle:"My order",review:"Review dishes, options/extras and quantities.",
     subtotal:"Items",shipping:"Service / Delivery",total:"Estimated total",pending:"To be confirmed",
     continue:"CONTINUE",more:"ADD MORE DISHES",details:"Order details",
@@ -889,7 +967,11 @@ const TEXT = {
     category:"Menu categories",chat:"Contact via WhatsApp",
     sentTitle:"Order sent",
     sentDesc:"Please check your WhatsApp chat to confirm your order.",
-    backMenu:"BACK TO MENU"
+    backMenu:"BACK TO MENU",
+    qrModalTitle:"Limoncello QR",
+    qrModalDesc:"High-resolution QR card with the Limoncello emblem ready to print for the counter or share.",
+    qrUrlLabel:"Digital menu link (URL)",
+    qrDownload:"DOWNLOAD QR CARD (PNG)"
   }
 };
 
@@ -933,10 +1015,21 @@ function showView(view,changeHash=true,scroll=true){
 }
 document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>showView(b.dataset.view));
 
+/* CONTROL DEL BOTÓN FLOTANTE TRANSLÚCIDO PARA SUBIR */
+window.addEventListener("scroll",()=>{
+  $("scrollTopBtn").classList.toggle("visible",window.scrollY>280);
+},{passive:true});
+$("scrollTopBtn").onclick=()=>{
+  window.scrollTo({
+    top:0,
+    behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"
+  });
+};
+
 function openDialog(dialog){
   dialog.showModal();document.body.classList.add("locked");
 }
-[$("orderDialog"),$("photoDialog")].forEach(dialog=>{
+[$("orderDialog"),$("photoDialog"),$("qrDialog")].forEach(dialog=>{
   dialog.addEventListener("close",()=>document.body.classList.remove("locked"));
   dialog.addEventListener("click",event=>{
     if(event.target!==dialog)return;
@@ -946,6 +1039,168 @@ function openDialog(dialog){
 });
 $("closeOrder").onclick=()=>$("orderDialog").close();
 $("closePhoto").onclick=()=>$("photoDialog").close();
+$("closeQr").onclick=()=>$("qrDialog").close();
+
+/* ============================================================
+   GENERADOR DE TARJETA QR CON IDENTIDAD Y LIMÓN CENTRAL
+   ============================================================ */
+function roundRectPath(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+
+function drawBrandedQR(urlText){
+  const canvas=$("qrCanvas");
+  const ctx=canvas.getContext("2d");
+  const W=canvas.width, H=canvas.height;
+  const targetUrl=(urlText||CONFIG.urlPorDefecto).trim();
+
+  // Fondo Verde Bosque Limoncello
+  const grad=ctx.createLinearGradient(0,0,W,H);
+  grad.addColorStop(0,"#122E1E");
+  grad.addColorStop(1,"#1B432C");
+  ctx.fillStyle=grad;
+  ctx.fillRect(0,0,W,H);
+
+  // Marco interior punteado amarillo limón
+  ctx.strokeStyle="rgba(245, 196, 0, 0.35)";
+  ctx.lineWidth=4;
+  ctx.setLineDash([14,10]);
+  roundRectPath(ctx,28,28,W-56,H-56,36);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Tarjeta crema central para el encabezado y el QR
+  ctx.fillStyle="#FAF7F2";
+  roundRectPath(ctx,64,64,W-128,H-180,32);
+  ctx.fill();
+  ctx.lineWidth=6;
+  ctx.strokeStyle="#F5C400";
+  ctx.stroke();
+
+  // Encabezado tipográfico Limoncello
+  ctx.fillStyle="#1B432C";
+  ctx.font="800 54px 'Fraunces', Georgia, serif";
+  ctx.textAlign="center";
+  ctx.fillText("Limoncello",W/2,145);
+
+  ctx.fillStyle="#1C241E";
+  ctx.font="800 22px 'Plus Jakarta Sans', Arial, sans-serif";
+  ctx.fillText("PASTA & PIZZA · TO GO",W/2,185);
+
+  // Línea divisoria
+  ctx.strokeStyle="#DFD7C8";
+  ctx.lineWidth=3;
+  ctx.beginPath();
+  ctx.moveTo(160,212);
+  ctx.lineTo(W-160,212);
+  ctx.stroke();
+
+  // Generación de matriz QR con nivel H (alta redundancia para permitir el logo al centro)
+  if(typeof qrcode==="function"){
+    const qr=qrcode(0,"H");
+    qr.addData(targetUrl);
+    qr.make();
+    const count=qr.getModuleCount();
+    const qrSize=580;
+    const cellSize=qrSize/count;
+    const startX=(W-qrSize)/2;
+    const startY=248;
+
+    for(let r=0;r<count;r++){
+      for(let c=0;c<count;c++){
+        if(qr.isDark(r,c)){
+          const cx=startX+c*cellSize;
+          const cy=startY+r*cellSize;
+          // Ojos de las 3 esquinas en verde oscuro y puntos del cuerpo ligeramente redondeados
+          ctx.fillStyle="#1B432C";
+          roundRectPath(ctx,cx+0.4,cy+0.4,cellSize-0.8,cellSize-0.8,cellSize*0.28);
+          ctx.fill();
+        }
+      }
+    }
+
+    // Medallón central con abstracción del limón de Limoncello
+    const centerX=W/2;
+    const centerY=startY+qrSize/2;
+    const badgeR=72;
+
+    ctx.fillStyle="#FAF7F2";
+    ctx.beginPath();
+    ctx.arc(centerX,centerY,badgeR+10,0,Math.PI*2);
+    ctx.fill();
+
+    ctx.fillStyle="#1B432C";
+    ctx.beginPath();
+    ctx.arc(centerX,centerY,badgeR,0,Math.PI*2);
+    ctx.fill();
+    ctx.lineWidth=5;
+    ctx.strokeStyle="#F5C400";
+    ctx.stroke();
+
+    // Limón abstracto vectorial al centro
+    ctx.save();
+    ctx.translate(centerX,centerY+4);
+    ctx.rotate(-0.22);
+    ctx.fillStyle="#F5C400";
+    ctx.beginPath();
+    ctx.ellipse(0,0,38,27,0,0,Math.PI*2);
+    ctx.fill();
+    // Puntas del limón
+    ctx.beginPath();
+    ctx.arc(-38,0,6,0,Math.PI*2);
+    ctx.arc(38,0,6,0,Math.PI*2);
+    ctx.fill();
+    // Brillo interior
+    ctx.strokeStyle="#FFF6CC";
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.arc(0,-4,22,Math.PI*1.15,Math.PI*1.85);
+    ctx.stroke();
+    // Hoja verde superior
+    ctx.fillStyle="#45935A";
+    ctx.beginPath();
+    ctx.ellipse(12,-28,16,8,0.45,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // Pie de la tarjeta interior
+  ctx.fillStyle="#1B432C";
+  ctx.font="800 24px 'Plus Jakarta Sans', Arial, sans-serif";
+  ctx.fillText("ESCANEA PARA VER EL MENÚ Y PEDIR",W/2,895);
+
+  ctx.fillStyle="#526357";
+  ctx.font="700 19px 'Plus Jakarta Sans', Arial, sans-serif";
+  ctx.fillText("Arista #250, Centro Histórico · WhatsApp + 444 6539978",W/2,932);
+
+  // Pie exterior sobre el fondo verde
+  ctx.fillStyle="#F5C400";
+  ctx.font="800 22px 'Plus Jakarta Sans', Arial, sans-serif";
+  ctx.fillText("LIMONCELLO · SAN LUIS POTOSÍ",W/2,1045);
+}
+
+function openQrModal(){
+  const defaultUrl=location.protocol.startsWith("http")?location.href:CONFIG.urlPorDefecto;
+  if(!$("qrUrlInput").value)$("qrUrlInput").value=defaultUrl;
+  drawBrandedQR($("qrUrlInput").value);
+  openDialog($("qrDialog"));
+}
+$("openQrTop").onclick=openQrModal;
+$("openQrVisit").onclick=openQrModal;
+$("qrUrlInput").addEventListener("input",e=>drawBrandedQR(e.target.value));
+$("downloadQrBtn").onclick=()=>{
+  drawBrandedQR($("qrUrlInput").value);
+  const link=document.createElement("a");
+  link.download="QR_Limoncello_SLP.png";
+  link.href=$("qrCanvas").toDataURL("image/png");
+  link.click();
+};
 
 function controls(p,index){
   const row=make("div","quantity");
@@ -1270,11 +1525,11 @@ function applyLanguage(){
 
   $("language").textContent=lang==="es"?"English · EN":"Español · ES";
   $("language").setAttribute("aria-label",lang==="es"?"Switch to English":"Cambiar a español");
-  $("slogan").textContent=lang==="es"?CONFIG.lema:CONFIG.lemaEn;
   $("search").placeholder=t("search");$("search").setAttribute("aria-label",t("search"));
   $("filters").setAttribute("aria-label",t("category"));
   $("closeOrder").setAttribute("aria-label",t("close"));
   $("closePhoto").setAttribute("aria-label",t("close"));
+  $("closeQr").setAttribute("aria-label",t("close"));
   $("photoDialog").setAttribute("aria-label",t("photo"));
   $("floatingWA").href=wa(t("hello"));
   $("floatingWA").setAttribute("aria-label",t("chat"));
