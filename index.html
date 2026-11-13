@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#1D412C">
+<meta name="theme-color" content="#1B432C">
 <meta name="description" content="Limoncello Pasta & Pizza To Go en Centro Histórico, San Luis Potosí. Menú digital y pedidos por WhatsApp.">
 <title>Limoncello · Pasta & Pizza To Go | Menú</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F2ECE1;
+  --bg:#F4EFE6;
   --paper:#FAF7F2;
-  --ink:#1A211C;
-  --muted:#5A665D;
-  --green:#1D412C;
-  --green-dark:#142E1F;
-  --green-soft:#E4ECE6;
-  --yellow:#F3C300;
-  --gold-muted:#C8A96E;
+  --ink:#1C241E;
+  --muted:#526357;
+  --green:#1B432C;
+  --green-dark:#122E1E;
+  --green-soft:#E6EFE9;
+  --yellow:#F5C400;
+  --yellow-soft:#FFF6CC;
   --line:#DFD7C8;
-  --radius:18px;
+  --radius:20px;
   --font-display:'Fraunces',Georgia,serif;
   --font-sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
 }
@@ -38,460 +38,390 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 button{cursor:pointer}
 button:disabled{opacity:.38;cursor:default}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
 .wrap{width:min(1160px,100%);margin:auto;padding-inline:22px}
 
 /* ============================================================
-   CABECERA EDITORIAL FIEL AL IMPRESO DE LIMONCELLO
+   CABECERA CON RECUADRO DE LOGO Y TÍTULO LIMPIO
    ============================================================ */
-.masthead{
-  position:relative;
-  background:var(--green);
-  border-bottom:4px solid var(--yellow);
-  overflow:hidden;
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 65%,#235337 100%);
+  color:var(--paper);padding:22px 0 32px;
+  border-bottom:5px solid var(--yellow);
 }
-.masthead-inner{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  min-height:220px;
-  width:min(1160px,100%);
-  margin:auto;
-}
-
-/* Panel izquierdo crema con el logotipo original y corte ondulado */
-.brand-panel{
-  position:relative;
-  background:var(--bg);
-  color:var(--ink);
-  padding:28px 34px 28px 22px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  z-index:2;
-}
-.brand-panel::after{
-  content:"";
-  position:absolute;
-  top:0;bottom:0;right:-27px;
-  width:28px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L12,0 C28,15 28,45 12,60 C-4,75 -4,105 12,120 L0,120 Z' fill='%23F2ECE1'/%3E%3C/svg%3E");
-  background-size:28px 110px;
-  background-repeat:repeat-y;
-  pointer-events:none;
-}
-
-.logo-lockup{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:flex-start;
-  user-select:none;
-}
-.logo-word{
-  font-family:var(--font-sans);
-  font-weight:300;
-  font-size:56px;
-  line-height:0.88;
-  letter-spacing:-0.5px;
-  color:var(--ink);
-}
-.logo-word .row{
-  display:flex;
-  align-items:center;
-}
-.logo-word .stem-dot{
-  position:relative;
-}
-.lemon-svg{
-  width:34px;
-  height:28px;
-  display:inline-block;
-  margin:0 2px;
-  transform:translateY(2px);
-}
-.logo-sub{
-  margin-top:12px;
-  padding-top:8px;
-  border-top:1px solid #CEC5B4;
-  width:100%;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.8px;
-  line-height:1.35;
-  color:var(--ink);
-  text-transform:uppercase;
-}
-.logo-sub span{
-  display:block;
-  color:var(--green);
-  letter-spacing:2.6px;
-  margin-top:1px;
-}
-
-/* Panel derecho verde bosque con botón de idioma arriba y título MENÚ */
-.title-panel{
-  position:relative;
-  padding:16px 22px 28px 56px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  color:var(--paper);
-}
-.top-utility{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
+.hero-top-bar{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
 }
 .language{
-  border:1px solid rgba(250,247,242,0.35);
-  color:var(--paper);
-  background:rgba(20,46,31,0.45);
-  padding:6px 14px;
-  border-radius:99px;
-  font-weight:700;
-  font-size:12px;
-  letter-spacing:0.4px;
-  transition:background .15s,border-color .15s,color .15s;
+  height:40px;padding:0 16px;border-radius:99px;
+  border:1.5px solid var(--yellow);color:var(--yellow);background:rgba(18,46,30,0.65);
+  font-weight:800;font-size:12px;letter-spacing:.4px;
+  display:inline-flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .2s;
 }
-.language:hover{
-  background:var(--yellow);
-  border-color:var(--yellow);
-  color:var(--ink);
+.language:hover{background:var(--yellow);color:var(--ink)}
+
+/* Recuadro del logo de Limoncello */
+.brand-badge{
+  display:inline-flex;align-items:center;
+  background:var(--paper);color:var(--ink);
+  padding:20px 32px;border-radius:24px;margin:0 0 16px;
+  box-shadow:0 14px 36px rgba(0,0,0,0.28);
+  border:3px solid var(--yellow);
 }
-.title-block{
-  margin:auto 0 4px;
+.brand-logo-text{
+  font-family:var(--font-sans);font-weight:400;
+  font-size:clamp(42px,6.5vw,54px);line-height:0.92;letter-spacing:1.2px;
+  color:var(--ink);text-align:left;user-select:none;
 }
-.masthead-title{
-  font-family:var(--font-sans);
-  font-weight:800;
-  font-size:clamp(44px,6vw,72px);
-  letter-spacing:2px;
-  line-height:0.95;
-  color:var(--yellow);
-  margin:0;
-  text-transform:uppercase;
+.brand-logo-sub{
+  font-weight:800;display:block;font-size:12px;line-height:1.35;
+  letter-spacing:2px;margin-top:10px;padding-top:8px;
+  border-top:2px solid var(--line);color:var(--green);text-align:center;
 }
-.masthead-cats{
-  margin:10px 0 0;
-  font-family:var(--font-display);
-  font-size:clamp(16px,2vw,20px);
-  font-weight:700;
-  color:var(--paper);
-  letter-spacing:0.2px;
-  opacity:0.92;
+.brand-logo-sub span{
+  display:block;color:var(--ink);font-size:11px;letter-spacing:2.8px;margin-top:2px;
 }
-.masthead-cats span{
-  color:var(--yellow);
-  margin:0 6px;
+.lemon-dot{
+  display:inline-block;width:28px;height:20px;background:var(--yellow);
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  position:relative;vertical-align:middle;margin:0 2px;
+  box-shadow:inset -3px -3px 0 #d4a700;
+}
+.lemon-dot:after{
+  content:"";position:absolute;top:-5px;right:3px;width:8px;height:5px;
+  background:#2E6F40;border-radius:50% 0 50% 0;
 }
 
-/* NAVEGACIÓN DESKTOP */
+.hero-content{padding-top:2px}
+.hero h1{
+  margin:0;font-family:var(--font-display);
+  font-size:clamp(26px,3.8vw,36px);font-weight:800;
+  letter-spacing:-0.6px;line-height:1.1;color:var(--paper);
+}
+.hero h1 span{color:var(--yellow)}
+
+/* ============================================================
+   NAVEGACIÓN DESKTOP (BOTONES CON TAMAÑO UNIFORME FIJO)
+   ============================================================ */
 .desktop-nav{
   position:sticky;top:0;z-index:20;
-  background:rgba(242,236,225,0.94);
+  background:rgba(244,239,230,0.95);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
+  box-shadow:0 4px 18px rgba(27,67,44,0.05);
 }
-.nav-inner{display:flex;justify-content:space-between;align-items:center;min-height:64px;gap:20px}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:20px}
 .brand{
-  font-family:var(--font-display);font-size:21px;font-weight:800;
+  font-family:var(--font-display);font-size:22px;font-weight:800;
   color:var(--green);display:flex;align-items:baseline;gap:10px;
 }
 .brand small{
-  font-family:var(--font-sans);font-size:10.5px;font-weight:800;
-  letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;
+  font-family:var(--font-sans);font-size:11px;font-weight:800;
+  letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;
 }
-.nav-buttons{display:flex;gap:6px}
-.nav-buttons button,.mobile-nav button{
-  border:0;color:var(--ink);background:transparent;
-  padding:10px 16px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:.5px;
+.nav-buttons{display:flex;align-items:center;gap:10px}
+.nav-buttons button{
+  height:42px;min-width:124px;padding:0 18px;
+  border:1.5px solid transparent;border-radius:99px;
+  color:var(--ink);background:transparent;
+  font-size:12.5px;font-weight:800;letter-spacing:.5px;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
   transition:all .15s;
 }
-.nav-buttons button:hover:not(.active){background:var(--green-soft);color:var(--green)}
-.nav-buttons .active{background:var(--green);color:var(--yellow)}
+.nav-buttons button:hover:not(.active){
+  background:var(--green-soft);color:var(--green);border-color:#c9dbcf;
+}
+.nav-buttons button.active{
+  background:var(--green);color:var(--yellow);border-color:var(--green);
+}
 .count{
-  display:inline-block;background:var(--yellow);color:var(--ink);
-  padding:2px 7px;border-radius:99px;font-size:11px;font-weight:800;margin-left:5px;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;height:20px;padding:0 6px;
+  background:var(--yellow);color:var(--ink);
+  border-radius:99px;font-size:11px;font-weight:800;line-height:1;
 }
 
 main{padding-block:28px 65px;scroll-margin-top:75px}
 
-/* HERRAMIENTAS DE BÚSQUEDA Y FILTROS */
-.toolbar-row{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:16px;flex-wrap:wrap;margin-bottom:24px;
+/* ============================================================
+   BUSCADOR Y BARRA DE CATEGORÍAS DESLIZABLE CON TAMAÑO FIJO
+   ============================================================ */
+.menu-controls{
+  display:flex;flex-direction:column;gap:14px;margin-bottom:24px;
 }
 .search-wrap{
-  position:relative;
-  width:min(100%,300px);
+  position:relative;width:min(100%,380px);
 }
 .search-wrap svg{
-  position:absolute;left:14px;top:50%;transform:translateY(-50%);
-  width:17px;height:17px;stroke:var(--muted);fill:none;stroke-width:2;
+  position:absolute;left:15px;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2.2;
   pointer-events:none;
 }
 .search{
-  width:100%;padding:11px 16px 11px 40px;min-height:44px;
-  border:1px solid #CFC6B4;border-radius:12px;
-  background:var(--paper);color:var(--ink);font-size:14.5px;font-weight:600;
+  width:100%;height:46px;padding:0 16px 0 42px;
+  border:1.5px solid var(--line);border-radius:13px;
+  background:var(--paper);color:var(--ink);font-size:15px;font-weight:600;
   transition:border-color .15s;
 }
 .search:focus{border-color:var(--green);outline:none}
+
 .filters{
-  display:flex;gap:8px;overflow:auto;padding:4px 0;scrollbar-width:none;
+  display:flex;align-items:center;gap:10px;
+  width:100%;overflow-x:auto;overflow-y:hidden;
+  padding:4px 2px 8px;
+  scroll-behavior:smooth;-webkit-overflow-scrolling:touch;
+  touch-action:pan-x;scrollbar-width:none;
+  user-select:none;cursor:grab;
 }
+.filters:active{cursor:grabbing}
 .filters::-webkit-scrollbar{display:none}
 .filter{
-  flex-shrink:0;min-height:40px;border:1px solid #CFC6B4;
-  border-radius:99px;background:var(--paper);color:var(--ink);
-  padding:8px 16px;font-size:12.5px;font-weight:800;transition:all .15s;
-  display:inline-flex;align-items:center;gap:7px;
+  flex:0 0 auto;
+  height:44px;min-width:132px;padding:0 18px;
+  border:1.5px solid var(--line);border-radius:99px;
+  background:var(--paper);color:var(--ink);
+  font-size:13px;font-weight:800;white-space:nowrap;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:background .15s,color .15s,border-color .15s,transform .15s;
 }
 .filter svg{
-  width:16px;height:16px;stroke:var(--green);fill:none;
-  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+  width:17px;height:17px;flex-shrink:0;
+  stroke:var(--green);fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s;
 }
 .filter:hover:not(.active){border-color:var(--green);background:var(--green-soft)}
-.filter.active{background:var(--green);color:var(--yellow);border-color:var(--green)}
+.filter.active{
+  background:var(--green);color:var(--yellow);border-color:var(--green);
+  box-shadow:0 4px 12px rgba(27,67,44,0.18);
+}
 .filter.active svg{stroke:var(--yellow)}
 
-/* TARJETAS DE PLATILLOS CON ESTÉTICA DE CARTA ITALIANA */
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+/* ============================================================
+   TARJETAS DE PLATILLOS
+   ============================================================ */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .card{
-  min-width:0;border:1px solid #D8CFC0;border-radius:var(--radius);
+  min-width:0;border:1.5px solid var(--line);border-radius:var(--radius);
   overflow:hidden;background:var(--paper);display:flex;flex-direction:column;
-  transition:border-color .2s,box-shadow .2s;
+  box-shadow:0 8px 24px rgba(27,67,44,0.05);transition:transform .2s,border-color .2s;
 }
-.card:hover{border-color:var(--green);box-shadow:0 10px 26px rgba(29,65,44,0.08)}
+.card:hover{transform:translateY(-2px);border-color:#c5bba8}
 .photo{
   width:100%;aspect-ratio:16/9;position:relative;display:grid;
-  place-items:center;background:var(--green);
-  border:0;padding:0;overflow:hidden;border-bottom:2px solid var(--yellow);
+  place-items:center;background:linear-gradient(135deg,var(--green-dark),var(--green));
+  border:0;padding:0;overflow:hidden;border-bottom:3px solid var(--yellow);
 }
 .photo:disabled{opacity:1}
 .photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .placeholder{
-  text-align:center;color:var(--paper);padding:16px;
-  display:flex;flex-direction:column;align-items:center;gap:4px;
+  text-align:center;color:var(--paper);padding:18px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
 }
 .placeholder-icon{
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(243,195,0,0.12);border:1px solid rgba(243,195,0,0.5);
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(245,196,0,0.14);border:1.5px solid var(--yellow);
   display:grid;place-items:center;color:var(--yellow);margin-bottom:2px;
 }
-.placeholder-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.placeholder strong{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--paper);letter-spacing:.3px}
+.placeholder-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.placeholder strong{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--yellow);display:block}
+.placeholder small{font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#EAE4D7;opacity:.85}
 
-.content{padding:18px 18px 14px;flex:1;display:flex;flex-direction:column}
+.content{padding:18px 20px 14px;flex:1;display:flex;flex-direction:column}
 .card-top-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
-.category-label{font-size:10.5px;font-weight:800;letter-spacing:1.1px;color:var(--muted);text-transform:uppercase}
-
-/* Pastilla idéntica a las etiquetas blancas del menú físico */
+.category-label{font-size:11px;font-weight:800;letter-spacing:1.1px;color:var(--green);text-transform:uppercase}
 .pill-badge{
-  display:inline-block;background:var(--bg);border:1px solid #C5BBA8;
-  color:var(--ink);padding:3px 10px;border-radius:7px;
+  display:inline-block;background:var(--bg);border:1.5px solid var(--green);
+  color:var(--green);padding:3px 10px;border-radius:8px;
   font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
 }
 .card h3{
   font-family:var(--font-display);font-size:22px;font-weight:800;
-  line-height:1.18;margin:2px 0 6px;color:var(--ink);
+  line-height:1.2;margin:2px 0 8px;color:var(--ink);
 }
-.card-description{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0 0 12px}
+.card-description{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0 0 12px}
 .variant-label{
-  display:block;font-size:10.5px;font-weight:800;color:var(--green);
-  margin-top:auto;padding-top:4px;text-transform:uppercase;letter-spacing:.6px;
+  display:block;font-size:11px;font-weight:800;color:var(--green);
+  margin-top:auto;padding-top:6px;text-transform:uppercase;letter-spacing:.6px;
 }
 .variant-label select{
-  display:block;width:100%;margin-top:5px;padding:9px 11px;min-height:42px;
-  border:1px solid #C5BBA8;border-radius:10px;background:white;
-  color:var(--ink);font-size:13px;font-weight:700;
+  display:block;width:100%;margin-top:6px;padding:10px 12px;height:44px;
+  border:1.5px solid var(--green);border-radius:11px;background:white;
+  color:var(--ink);font-size:13.5px;font-weight:700;
 }
-.variant-label select:focus{border-color:var(--green);outline:none}
-
-/* Pie de tarjeta con línea punteada estilo menú impreso */
 .card-footer{
-  margin:0 18px 16px;padding-top:12px;
-  display:flex;justify-content:space-between;align-items:center;gap:10px;
-}
-.price-leader{
-  display:flex;align-items:baseline;flex:1;min-width:0;
+  margin:0 20px 18px;padding-top:14px;border-top:1px dashed var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
 }
 .price{
-  font-family:var(--font-display);font-size:22px;font-weight:800;
-  color:var(--green);white-space:nowrap;
+  font-family:var(--font-display);font-size:23px;font-weight:800;
+  color:var(--green);background:var(--yellow-soft);
+  padding:4px 12px;border-radius:10px;border:1.5px solid var(--yellow);
 }
-.dots{
-  flex:1;border-bottom:2px dotted #CFC6B4;margin:0 10px;
-  position:relative;top:-4px;
-}
-.quantity{
-  display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;
-}
-.stepper{display:flex;align-items:center;gap:6px}
+.quantity{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700}
+.stepper{display:flex;align-items:center;gap:8px}
 .stepper button{
-  width:36px;height:36px;border:1px solid #C5BBA8;border-radius:9px;
-  background:white;color:var(--green);font-size:19px;font-weight:700;transition:all .15s;
+  width:40px;height:40px;border:1.5px solid var(--green);border-radius:11px;
+  background:white;color:var(--green);font-size:20px;font-weight:800;transition:all .15s;
 }
-.stepper button:not(:disabled):hover{background:var(--green);color:var(--yellow);border-color:var(--green)}
-.stepper output{min-width:18px;text-align:center;font-weight:800;font-size:14.5px}
+.stepper button:not(:disabled):hover{background:var(--green);color:var(--yellow)}
+.stepper output{min-width:20px;text-align:center;font-weight:800;font-size:15px}
 .empty{padding:32px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);line-height:1.7}
 
-/* SECCIÓN VISÍTANOS CON RECUADRO UNIFICADO */
+/* ============================================================
+   SECCIÓN VISÍTANOS CON RECUADRO UNIFICADO
+   ============================================================ */
 .visit-card{
-  max-width:620px;margin:0 auto;padding:34px 28px;
-  background:var(--paper);border:1px solid #D8CFC0;
-  border-radius:24px;
+  max-width:640px;margin:0 auto;padding:34px 28px;
+  background:var(--paper);border:1.5px solid var(--line);
+  border-radius:26px;box-shadow:0 12px 34px rgba(27,67,44,0.07);
 }
-.visit-card .kicker{color:var(--green);font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+.visit-card .kicker{color:var(--green);font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
 .visit-card h2{
-  font-family:var(--font-display);font-size:clamp(28px,4vw,38px);
-  margin:6px 0 10px;line-height:1.12;color:var(--green);
+  font-family:var(--font-display);font-size:clamp(28px,4.5vw,40px);
+  margin:8px 0 12px;line-height:1.12;color:var(--green);
 }
-.visit-card .lead{font-size:14.5px;color:var(--muted);margin:0 0 22px;line-height:1.6}
+.visit-card .lead{font-size:15px;color:var(--muted);margin:0 0 22px;line-height:1.6}
 .branch-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .branch-tab{
-  flex:1;min-height:40px;padding:8px 14px;border-radius:10px;
+  flex:1;height:42px;padding:0 14px;border-radius:12px;
   border:1px solid var(--line);background:var(--bg);color:var(--muted);
   font-size:12px;font-weight:800;
 }
 .branch-tab.active{background:var(--green);color:var(--yellow);border-color:var(--green)}
 
 .unified-info-box{
-  padding:20px;margin-bottom:20px;
-  background:var(--bg);border:1px solid #D8CFC0;border-radius:18px;
-  display:flex;flex-direction:column;gap:16px;
+  padding:22px;margin-bottom:22px;
+  background:var(--bg);border:1.5px solid var(--line);border-radius:20px;
+  display:flex;flex-direction:column;gap:18px;
 }
 .info-item{
   display:flex;align-items:flex-start;gap:14px;
-  padding-bottom:14px;border-bottom:1px dashed #CEC5B4;
+  padding-bottom:16px;border-bottom:1px dashed var(--line);
 }
 .info-item:last-child{padding-bottom:0;border-bottom:0}
 .info-icon{
-  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  width:40px;height:40px;border-radius:12px;flex-shrink:0;
   background:var(--green);color:var(--yellow);
   display:grid;place-items:center;
 }
-.info-icon svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.info-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .info-box-label{
-  display:block;font-size:10.5px;font-weight:800;letter-spacing:1.1px;
-  color:var(--green);text-transform:uppercase;margin-bottom:3px;
+  display:block;font-size:11px;font-weight:800;letter-spacing:1.2px;
+  color:var(--green);text-transform:uppercase;margin-bottom:4px;
 }
-.info-box-text{margin:0;font-size:15px;font-weight:700;line-height:1.45;color:var(--ink)}
+.info-box-text{margin:0;font-size:15.5px;font-weight:700;line-height:1.5;color:var(--ink)}
 
-.visit-actions{display:flex;flex-direction:column;gap:10px;margin:20px 0 28px}
+.visit-actions{display:flex;flex-direction:column;gap:12px;margin:22px 0 28px}
 .visit-btn{
-  min-height:50px;width:100%;display:inline-flex;align-items:center;justify-content:center;
-  gap:10px;padding:14px 18px;border:0;border-radius:14px;
-  text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.6px;
-  text-transform:uppercase;transition:filter .15s;
+  height:52px;width:100%;display:inline-flex;align-items:center;justify-content:center;
+  gap:10px;padding:0 20px;border:0;border-radius:15px;
+  text-decoration:none;font-size:13.5px;font-weight:800;letter-spacing:.6px;
+  text-transform:uppercase;transition:transform .15s,filter .15s;
 }
-.visit-btn:hover{filter:brightness(1.05)}
-.visit-btn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.visit-btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
+.visit-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .visit-btn.maps{background:var(--green);color:var(--yellow)}
-.visit-btn.pickup{background:var(--yellow);color:var(--ink)}
+.visit-btn.pickup{background:var(--yellow);color:var(--ink);border:1.5px solid #d4a700}
 
 .social-title{
-  font-size:11px;font-weight:800;letter-spacing:1.4px;
-  color:var(--muted);text-transform:uppercase;margin:0 0 12px;
+  font-size:12px;font-weight:800;letter-spacing:1.4px;
+  color:var(--muted);text-transform:uppercase;margin:0 0 14px;
 }
-.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .social-item{
-  min-height:50px;display:inline-flex;align-items:center;justify-content:center;
-  gap:10px;padding:12px 14px;border:1px solid var(--green);border-radius:14px;
+  height:52px;display:inline-flex;align-items:center;justify-content:center;
+  gap:10px;padding:0 16px;border:1.5px solid var(--green);border-radius:15px;
   background:white;color:var(--green);text-decoration:none;
-  font-size:13.5px;font-weight:800;transition:all 0.15s ease;
+  font-size:14px;font-weight:800;transition:all 0.2s ease;
 }
 .social-item svg{
-  width:19px;height:19px;fill:none;stroke:currentColor;
+  width:20px;height:20px;fill:none;stroke:currentColor;
   stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;
 }
 .social-item:hover{background:var(--green);color:var(--yellow)}
 
 .button{
-  min-height:46px;display:inline-flex;align-items:center;justify-content:center;
-  padding:12px 18px;border:1px solid transparent;border-radius:12px;
-  background:var(--green);color:var(--yellow);text-decoration:none;font-size:12.5px;font-weight:800;letter-spacing:.5px;
+  height:48px;display:inline-flex;align-items:center;justify-content:center;
+  padding:0 18px;border:1.5px solid transparent;border-radius:13px;
+  background:var(--green);color:var(--yellow);text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.5px;
 }
 .secondary{background:transparent;color:var(--green);border-color:var(--green)}
 footer{
-  padding:26px 22px 36px;border-top:1px solid var(--line);
-  text-align:center;color:var(--green);font-size:13px;font-weight:700;line-height:1.8;
-  background:#EAE3D5;letter-spacing:.3px;
+  padding:28px 22px 40px;border-top:1px solid var(--line);
+  text-align:center;color:var(--green);font-size:14px;font-weight:700;line-height:1.8;
+  background:#ECE5D8;letter-spacing:.4px;
 }
 
 /* BOTÓN FLOTANTE TRANSLÚCIDO PARA VOLVER ARRIBA */
 .scroll-top{
   position:fixed;bottom:88px;right:22px;z-index:29;
-  width:44px;height:44px;border-radius:50%;
-  background:rgba(29,65,44,0.72);
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(27,67,44,0.72);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  border:1px solid rgba(243,195,0,0.7);
+  border:1.5px solid rgba(245,196,0,0.75);
   color:var(--yellow);display:grid;place-items:center;
-  box-shadow:0 6px 18px rgba(20,46,31,0.22);
+  box-shadow:0 6px 18px rgba(18,46,30,0.24);
   opacity:0;visibility:hidden;transform:translateY(12px);
   transition:opacity .25s ease,transform .25s ease,visibility .25s,background .2s;
 }
-.scroll-top.visible{
-  opacity:1;visibility:visible;transform:translateY(0);
-}
-.scroll-top:hover{
-  background:rgba(29,65,44,0.92);transform:translateY(-2px);
-}
-.scroll-top svg{
-  width:20px;height:20px;fill:none;stroke:currentColor;
-  stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
-}
+.scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.scroll-top:hover{background:rgba(27,67,44,0.92);transform:translateY(-2px)}
+.scroll-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
 .wa-float{
   position:fixed;bottom:22px;right:18px;z-index:30;
-  width:52px;height:52px;display:grid;place-items:center;
+  width:54px;height:54px;display:grid;place-items:center;
   background:var(--green);border:2px solid var(--yellow);border-radius:50%;
-  color:var(--yellow);box-shadow:0 8px 22px rgba(20,46,31,0.35);transition:transform .2s;
+  color:var(--yellow);box-shadow:0 8px 24px rgba(18,46,30,0.4);transition:transform .2s;
 }
-.wa-float:hover{transform:scale(1.04)}
+.wa-float:hover{transform:scale(1.05)}
 .wa-float svg{width:28px;height:28px;fill:currentColor;stroke:none}
 
+/* NAVEGACIÓN MÓVIL CON TAMAÑO FIJO E INALTERABLE */
 .mobile-nav{display:none}
 .nav-icon{
-  width:20px;height:20px;margin:0 auto 4px;display:block;
+  width:20px;height:20px;display:block;flex-shrink:0;
   fill:none;stroke:currentColor;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round;
 }
 
 dialog{
-  padding:0;border:0;border-radius:22px;background:var(--paper);color:var(--ink);
-  width:min(580px,calc(100% - 24px));max-height:90vh;max-height:90dvh;
-  box-shadow:0 24px 80px rgba(0,0,0,0.35);
+  padding:0;border:0;border-radius:24px;background:var(--paper);color:var(--ink);
+  width:min(600px,calc(100% - 24px));max-height:90vh;max-height:90dvh;
+  box-shadow:0 25px 90px rgba(0,0,0,0.4);
 }
-dialog::backdrop{background:rgba(20,46,31,0.75)}
+dialog::backdrop{background:rgba(18,46,30,0.78)}
 .dialog-content{padding:24px}
 .dialog-head{display:flex;justify-content:space-between;align-items:center;gap:15px}
-.dialog-head h2{font-family:var(--font-display);font-size:26px;margin:0;color:var(--green)}
-.close{width:40px;height:40px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;background:white;color:var(--green);font-size:24px}
+.dialog-head h2{font-family:var(--font-display);font-size:28px;margin:0;color:var(--green)}
+.close{width:42px;height:42px;flex-shrink:0;border:1.5px solid var(--line);border-radius:50%;background:white;color:var(--green);font-size:26px}
 .hint{font-size:12px;line-height:1.65;color:var(--muted)}
-.cart-row{padding:14px 0;border-bottom:1px solid var(--line)}
-.cart-title{display:flex;justify-content:space-between;align-items:start;gap:15px;font-size:14.5px;line-height:1.45}
-.cart-variant{font-size:12px;font-weight:700;color:var(--green);margin-top:3px}
-.cart-row .quantity{margin:10px 0 0;padding:0;border:0;justify-content:space-between}
-.totals{padding:14px 0}
+.cart-row{padding:15px 0;border-bottom:1px solid var(--line)}
+.cart-title{display:flex;justify-content:space-between;align-items:start;gap:15px;font-size:15px;line-height:1.45}
+.cart-variant{font-size:12px;font-weight:700;color:var(--green);margin-top:4px}
+.cart-row .quantity{margin:12px 0 0;padding:0;border:0;justify-content:space-between}
+.totals{padding:16px 0}
 .totals div{display:flex;justify-content:space-between;gap:15px;margin:10px 0;font-size:14px}
-.totals .total{font-size:17px;font-weight:800;color:var(--green)}
+.totals .total{font-size:18px;font-weight:800;color:var(--green)}
 .full{width:100%;margin-top:10px}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.field{display:block;font-size:12.5px;font-weight:700;line-height:1.45}
+.field{display:block;font-size:13px;font-weight:600;line-height:1.45}
 .field input,.field select,.field textarea{
-  display:block;width:100%;margin-top:5px;padding:11px;min-height:44px;
-  border:1px solid #C5BBA8;border-radius:10px;background:white;color:var(--ink);font-size:14.5px;font-weight:400;
+  display:block;width:100%;margin-top:6px;padding:11px;min-height:44px;
+  border:1.5px solid var(--line);border-radius:11px;background:white;color:var(--ink);font-size:15px;font-weight:400;
 }
 .wide{grid-column:1/-1}
 fieldset{padding:0;margin:20px 0;border:0;min-width:0}
-legend{font-weight:800;color:var(--green);margin-bottom:12px;font-size:14px}
-#photoDialog{width:min(960px,calc(100% - 24px));background:transparent;box-shadow:none}
+legend{font-weight:800;color:var(--green);margin-bottom:14px}
+#photoDialog{width:min(980px,calc(100% - 24px));background:transparent;box-shadow:none}
 .photo-top{display:flex;justify-content:end;margin-bottom:10px}
-#largePhoto{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:auto;border-radius:14px}
+#largePhoto{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:auto;border-radius:16px}
 
 .toast{
   position:fixed;z-index:60;bottom:100px;left:50%;transform:translateX(-50%);
-  width:max-content;max-width:calc(100% - 30px);padding:12px 16px;border-radius:11px;
+  width:max-content;max-width:calc(100% - 30px);padding:13px 18px;border-radius:12px;
   background:var(--green);color:var(--yellow);font-size:13px;font-weight:700;
 }
 
@@ -500,56 +430,37 @@ legend{font-weight:800;color:var(--green);margin-bottom:12px;font-size:14px}
 }
 @media(max-width:760px){
   .wrap{padding-inline:16px}
-  .masthead-inner{
-    grid-template-columns:1fr;
-    min-height:unset;
-  }
-  .brand-panel{
-    padding:18px 18px 24px;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:flex-start;
-  }
-  .brand-panel::after{
-    top:auto;right:0;left:0;bottom:-17px;
-    width:100%;height:18px;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 18' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L120,0 L120,8 C105,18 75,18 60,8 C45,-2 15,-2 0,8 Z' fill='%23F2ECE1'/%3E%3C/svg%3E");
-    background-size:110px 18px;
-    background-repeat:repeat-x;
-  }
-  .logo-word{font-size:48px}
-  .lemon-svg{width:30px;height:24px}
-  .title-panel{
-    padding:28px 18px 22px;
-  }
-  .top-utility{
-    position:absolute;
-    top:-142px;
-    right:16px;
-    z-index:5;
-  }
-  .language{
-    background:var(--paper);
-    color:var(--green);
-    border:1px solid #C5BBA8;
-  }
+  .hero{padding:18px 0 26px}
+  .brand-badge{padding:16px 26px;margin-bottom:14px}
+  .hero h1{font-size:clamp(24px,6vw,30px)}
   .desktop-nav{display:none}
   main{scroll-margin-top:15px;padding-top:22px}
-  .toolbar-row{flex-direction:column;align-items:stretch;gap:12px;margin-bottom:18px}
   .search-wrap{width:100%}
-  .visit-card{padding:24px 18px;border-radius:20px}
+  .filter{height:42px;min-width:122px;padding:0 16px;font-size:12.5px}
+  .visit-card{padding:26px 20px;border-radius:22px}
   .social-grid{grid-template-columns:1fr}
   .mobile-nav{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:5px;
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;
     position:fixed;bottom:calc(10px + env(safe-area-inset-bottom));
-    left:10px;right:10px;z-index:35;background:var(--paper);
-    padding:6px;border:1px solid #CFC6B4;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,0.14);
+    left:12px;right:12px;z-index:35;background:var(--paper);
+    padding:6px;border:1.5px solid var(--line);border-radius:20px;
+    box-shadow:0 10px 32px rgba(0,0,0,0.18);
   }
-  .mobile-nav button{padding:6px 3px;font-size:10px;min-height:50px;border-radius:12px}
+  .mobile-nav button{
+    position:relative;height:54px;width:100%;padding:6px 4px;
+    border:0;border-radius:14px;background:transparent;color:var(--ink);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    font-size:10.5px;font-weight:800;letter-spacing:.4px;
+  }
   .mobile-nav button.active{background:var(--green);color:var(--yellow)}
-  .scroll-top{bottom:calc(150px + env(safe-area-inset-bottom));right:16px;width:42px;height:42px}
-  .wa-float{bottom:calc(90px + env(safe-area-inset-bottom));right:15px;width:48px;height:48px}
-  footer{padding:24px 20px calc(110px + env(safe-area-inset-bottom))}
+  .mobile-nav .count{
+    position:absolute;top:5px;right:calc(50% - 28px);
+    min-width:18px;height:18px;padding:0 5px;font-size:10px;
+  }
+  .scroll-top{bottom:calc(152px + env(safe-area-inset-bottom));right:16px;width:44px;height:44px}
+  .wa-float{bottom:calc(88px + env(safe-area-inset-bottom));right:15px;width:50px;height:50px}
+  footer{padding:24px 20px calc(112px + env(safe-area-inset-bottom))}
+  .toast{bottom:calc(152px + env(safe-area-inset-bottom))}
 }
 @media(max-width:540px){
   .grid,.fields{grid-template-columns:1fr}
@@ -560,50 +471,22 @@ legend{font-weight:800;color:var(--green);margin-bottom:12px;font-size:14px}
 </head>
 <body>
 
-<header class="masthead" id="hero">
-  <div class="masthead-inner">
-    <!-- Bloque crema con el logotipo fiel al menú físico -->
-    <div class="brand-panel">
-      <div class="logo-lockup" aria-label="Limoncello Pasta & Pizza To Go">
-        <div class="logo-word" aria-hidden="true">
-          <div class="row">Li</div>
-          <div class="row">
-            m
-            <svg class="lemon-svg" viewBox="0 0 40 32">
-              <path d="M9,21 C4,21 2,18 4,14 C6,8 15,4 24,5 C31,6 36,10 35,15 C34,21 25,26 15,25 C12,24 10,22 9,21 Z" fill="#F3C300"/>
-              <path d="M21,5 C23,1 29,0 33,3 C29,6 24,7 21,5 Z" fill="#2D6A3E"/>
-              <path d="M12,19 C17,22 25,20 29,15" stroke="#FFF5C0" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-            n
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-top-bar">
+      <div class="brand-badge" aria-label="Limoncello Pasta & Pizza To Go">
+        <div class="brand-logo-text">
+          Li<br>m<span class="lemon-dot"></span>n<br>cell<span class="lemon-dot"></span>
+          <div class="brand-logo-sub">
+            PASTA &amp; PIZZA
+            <span>TO GO</span>
           </div>
-          <div class="row">
-            cell
-            <svg class="lemon-svg" viewBox="0 0 40 32">
-              <ellipse cx="20" cy="16" rx="14" ry="12" transform="rotate(-12 20 16)" fill="#F3C300"/>
-              <circle cx="6" cy="19" r="2.5" fill="#F3C300"/>
-              <circle cx="34" cy="13" r="2.5" fill="#F3C300"/>
-              <path d="M14,21 C19,24 26,21 29,16" stroke="#FFF5C0" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="logo-sub">
-          PASTA &amp; PIZZA
-          <span>TO GO</span>
         </div>
       </div>
+      <button type="button" id="language" class="language">English · EN</button>
     </div>
-
-    <!-- Bloque verde bosque con selector de idioma arriba y título editorial -->
-    <div class="title-panel">
-      <div class="top-utility">
-        <button type="button" id="language" class="language">English · EN</button>
-      </div>
-      <div class="title-block">
-        <h1 class="masthead-title" data-t="menuHeader">MENÚ</h1>
-        <p class="masthead-cats" data-t="menuSub">
-          Spaghetti <span>·</span> Pizza <span>·</span> Ensalada <span>·</span> Tiramisú
-        </p>
-      </div>
+    <div class="hero-content">
+      <h1><span data-t="menuHeader">Menú</span> Limoncello</h1>
     </div>
   </div>
 </header>
@@ -612,8 +495,12 @@ legend{font-weight:800;color:var(--green);margin-bottom:12px;font-size:14px}
   <nav class="wrap nav-inner" aria-label="Principal">
     <span class="brand">Limoncello <small>Pasta &amp; Pizza · To Go</small></span>
     <div class="nav-buttons">
-      <button type="button" data-view="menu" class="active" data-t="menu">MENÚ</button>
-      <button type="button" data-view="visit" data-t="visit">VISÍTANOS</button>
+      <button type="button" data-view="menu" class="active">
+        <span data-t="menu">MENÚ</span>
+      </button>
+      <button type="button" data-view="visit">
+        <span data-t="visit">VISÍTANOS</span>
+      </button>
       <button type="button" data-order aria-haspopup="dialog">
         <span data-t="order">PEDIDOS</span>
         <span class="count" data-count hidden></span>
@@ -624,7 +511,7 @@ legend{font-weight:800;color:var(--green);margin-bottom:12px;font-size:14px}
 
 <main id="main" class="wrap">
   <section id="menuView">
-    <div class="toolbar-row">
+    <div class="menu-controls">
       <div class="search-wrap">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <input id="search" class="search" type="search" aria-label="Buscar" placeholder="Buscar">
@@ -731,7 +618,8 @@ legend{font-weight:800;color:var(--green);margin-bottom:12px;font-size:14px}
   </button>
   <button type="button" data-order aria-haspopup="dialog">
     <svg class="nav-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-    <span data-t="order">PEDIDOS</span><span class="count" data-count hidden></span>
+    <span data-t="order">PEDIDOS</span>
+    <span class="count" data-count hidden></span>
   </button>
 </nav>
 
@@ -878,8 +766,8 @@ const MENU = [
     "RAGU",
     "Spaghetti Ragú",
     "Ragu Spaghetti",
-    "Pasta preparada con salsa ragú de la casa.",
-    "Pasta prepared with house ragu sauce.",
+    "Pasta tradicional preparada con salsa ragú de la casa.",
+    "Traditional pasta prepared with house ragu sauce.",
     [
       ["RAGU — $70.00", "RAGU — $70.00", 70],
       ["RAGU + Carne (+$15.00) — $85.00", "RAGU + Meat (+$15.00) — $85.00", 85]
@@ -890,8 +778,8 @@ const MENU = [
     "PESTO",
     "Spaghetti Pesto",
     "Pesto Spaghetti",
-    "Pasta al pesto de albahaca fresca.",
-    "Fresh basil pesto pasta.",
+    "Pasta al pesto aromático de albahaca fresca.",
+    "Aromatic fresh basil pesto pasta.",
     [
       ["PESTO — $70.00", "PESTO — $70.00", 70],
       ["PESTO + Nuez (+$15.00) — $85.00", "PESTO + Walnut (+$15.00) — $85.00", 85]
@@ -902,8 +790,8 @@ const MENU = [
     "ALFREDO",
     "Spaghetti Alfredo",
     "Alfredo Spaghetti",
-    "Pasta en salsa cremosa Alfredo.",
-    "Creamy Alfredo sauce pasta.",
+    "Pasta en salsa cremosa estilo Alfredo.",
+    "Creamy Alfredo-style pasta.",
     [
       ["ALFREDO — $70.00", "ALFREDO — $70.00", 70],
       ["ALFREDO + Tocino (+$15.00) — $85.00", "ALFREDO + Bacon (+$15.00) — $85.00", 85]
@@ -963,8 +851,8 @@ const MENU = [
     "ENSALADA",
     "Ensalada",
     "Salad",
-    "Ensalada fresca de la casa.",
-    "Fresh house salad.",
+    "Ensalada fresca preparada al momento.",
+    "Freshly prepared house salad.",
     [["Orden — $50.00", "Order — $50.00", 50]]
   ),
   itemMenu(
@@ -972,8 +860,8 @@ const MENU = [
     "LIMÓN O CAFÉ",
     "Tiramisú",
     "Tiramisu",
-    "Postre italiano tradicional.",
-    "Traditional Italian dessert.",
+    "Postre italiano tradicional en dos variedades a elegir.",
+    "Traditional Italian dessert in two varieties.",
     [
       ["LIMÓN — $50.00", "LEMON — $50.00", 50],
       ["CAFÉ — $50.00", "COFFEE — $50.00", 50]
@@ -986,8 +874,8 @@ const MENU = [
     "CAFETERÍA",
     "Cappuccino",
     "Cappuccino",
-    "Cappuccino caliente preparado al momento.",
-    "Freshly prepared hot cappuccino.",
+    "Cappuccino caliente espumoso preparado al momento.",
+    "Freshly prepared hot foamy cappuccino.",
     [["Regular — $40.00", "Regular — $40.00", 40]]
   ),
   itemMenu(
@@ -995,7 +883,7 @@ const MENU = [
     "BEBIDA",
     "Refresco",
     "Soft Drink",
-    "Refresco de lata o botella.",
+    "Refresco bien frío.",
     "Chilled soft drink.",
     [["Regular — $35.00", "Regular — $35.00", 35]]
   ),
@@ -1004,8 +892,8 @@ const MENU = [
     "BEBIDA",
     "Agua mineral",
     "Sparkling Water",
-    "Agua mineral fría.",
-    "Chilled sparkling mineral water.",
+    "Agua mineral refrescante.",
+    "Refreshing sparkling mineral water.",
     [["Regular — $35.00", "Regular — $35.00", 35]]
   ),
   itemMenu(
@@ -1013,15 +901,15 @@ const MENU = [
     "BEBIDA",
     "Agua frutal",
     "Fruit Water",
-    "Agua frutal natural del día.",
-    "Natural fruit water of the day.",
+    "Agua frutal fresca del día.",
+    "Fresh fruit water of the day.",
     [["Regular — $35.00", "Regular — $35.00", 35]]
   )
 ];
 
 const TEXT = {
   es:{
-    menuHeader:"MENÚ",
+    menuHeader:"Menú",
     menu:"MENÚ",visit:"VISÍTANOS",order:"PEDIDOS",
     noResults:"No encontramos platillos con esa búsqueda.",
     visitLabel:"INFORMACIÓN DEL ESTABLECIMIENTO",visitTitle:"Limoncello · Pasta & Pizza To Go",
@@ -1042,7 +930,7 @@ const TEXT = {
     confirm:"El restaurante confirmará disponibilidad, costo final, formas de pago y tiempo de recolección o entrega.",
     send:"CONTINUAR EN WHATSAPP",back:"VOLVER A MI PEDIDO",
     waNote:"WhatsApp se abrirá con el pedido preparado. Pulsa Enviar allí para solicitarlo.",
-    all:"Todos",search:"Buscar",presentation:"Opciones / Extras",
+    all:"Todos",search:"Buscar",presentation:"Selecciona preparación / extra",
     quantity:"Cant.",add:"Agregar",remove:"Quitar",close:"Cerrar",photo:"Fotografía del platillo",
     enlarge:"Ampliar fotografía",emptyCart:"Tu pedido está vacío.",
     noShipping:"Para llevar (Sin costo de envío)",
@@ -1056,7 +944,7 @@ const TEXT = {
     backMenu:"VOLVER AL MENÚ"
   },
   en:{
-    menuHeader:"MENU",
+    menuHeader:"Menu",
     menu:"MENU",visit:"VISIT US",order:"ORDERS",
     noResults:"No dishes match your search.",
     visitLabel:"ESTABLISHMENT INFORMATION",visitTitle:"Limoncello · Pasta & Pizza To Go",
@@ -1077,7 +965,7 @@ const TEXT = {
     confirm:"The restaurant will confirm availability, final cost, payment methods and pickup or delivery time.",
     send:"CONTINUE IN WHATSAPP",back:"BACK TO MY ORDER",
     waNote:"WhatsApp will open with your order ready. Press Send there to request it.",
-    all:"All",search:"Search",presentation:"Options / Extras",
+    all:"All",search:"Search",presentation:"Select preparation / extra",
     quantity:"Qty.",add:"Add",remove:"Remove",close:"Close",photo:"Dish photo",
     enlarge:"Enlarge photo",emptyCart:"Your order is empty.",
     noShipping:"To Go (No delivery fee)",
@@ -1143,6 +1031,30 @@ $("scrollTopBtn").onclick=()=>{
   });
 };
 
+/* SOPORTE DE DESPLAZAMIENTO HORIZONTAL SUAVE EN CATEGORÍAS (TÁCTIL + ARRASTRE MOUSE) */
+(function enableFilterDragScroll(){
+  const slider=$("filters");
+  let isDown=false,startX=0,scrollLeft=0,dragged=false;
+  slider.addEventListener("mousedown",e=>{
+    isDown=true;dragged=false;
+    startX=e.pageX-slider.offsetLeft;
+    scrollLeft=slider.scrollLeft;
+  });
+  window.addEventListener("mouseup",()=>{isDown=false;});
+  slider.addEventListener("mousemove",e=>{
+    if(!isDown)return;
+    const x=e.pageX-slider.offsetLeft;
+    const walk=x-startX;
+    if(Math.abs(walk)>6){
+      dragged=true;
+      slider.scrollLeft=scrollLeft-walk;
+    }
+  });
+  slider.addEventListener("click",e=>{
+    if(dragged){e.stopPropagation();dragged=false;}
+  },true);
+})();
+
 function openDialog(dialog){
   dialog.showModal();document.body.classList.add("locked");
 }
@@ -1193,6 +1105,19 @@ function sync(){
     node.textContent=total;node.hidden=total===0;
   });
 }
+
+function selectCategory(id,button){
+  category=id;
+  const nav=$("filters");
+  nav.querySelectorAll("button").forEach(b=>{
+    const isCurrent=b===button;
+    b.classList.toggle("active",isCurrent);
+    b.setAttribute("aria-pressed",String(isCurrent));
+  });
+  button.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"});
+  renderProducts();
+}
+
 function renderFilters(){
   const nav=$("filters");nav.replaceChildren();
 
@@ -1200,7 +1125,8 @@ function renderFilters(){
   btnAll.type="button";
   btnAll.innerHTML = ICONS.all + `<span>${t("all")}</span>`;
   btnAll.classList.toggle("active",category==="");
-  btnAll.onclick=()=>{ category=""; renderFilters(); renderProducts(); };
+  btnAll.setAttribute("aria-pressed",String(category===""));
+  btnAll.onclick=()=>selectCategory("",btnAll);
   nav.append(btnAll);
 
   CATS_ALL.forEach(id=>{
@@ -1211,17 +1137,11 @@ function renderFilters(){
     button.innerHTML = ICONS[iconKey] + `<span>${textLabel}</span>`;
     button.classList.toggle("active",category===id);
     button.setAttribute("aria-pressed",String(category===id));
-    button.onclick=()=>{
-      category=id;
-      nav.querySelectorAll("button").forEach(b=>{
-        b.classList.toggle("active",b===button);
-        b.setAttribute("aria-pressed",String(b===button));
-      });
-      renderProducts();
-    };
+    button.onclick=()=>selectCategory(id,button);
     nav.append(button);
   });
 }
+
 function renderProducts(){
   const grid=$("products");grid.replaceChildren();
   const query=normalize($("search").value.trim());
@@ -1247,7 +1167,8 @@ function renderProducts(){
     iconWrap.setAttribute("aria-hidden","true");
     fallback.append(
       iconWrap,
-      make("strong","","Limoncello")
+      make("strong","","Limoncello"),
+      make("small","","PASTA & PIZZA · TO GO")
     );
     const image=make("img");
     image.alt=name(p);image.loading="lazy";image.hidden=true;
@@ -1276,10 +1197,8 @@ function renderProducts(){
 
     let index=selected.get(p.id)||0;
     const footer=make("div","card-footer");
-    const priceLeader=make("div","price-leader");
     const price=make("div","price",money(p.variantes[index][2]));
     price.setAttribute("aria-live","polite");
-    priceLeader.append(price,make("span","dots"));
     let quantity=controls(p,index);
 
     if(p.variantes.length>1){
@@ -1298,7 +1217,7 @@ function renderProducts(){
       label.append(select);content.append(label);
     }
 
-    footer.append(priceLeader,quantity);
+    footer.append(price,quantity);
     card.append(photo,content,footer);
     grid.append(card);
   });
