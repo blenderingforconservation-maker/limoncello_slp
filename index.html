@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1B432C">
 <meta name="description" content="Limoncello Pasta & Pizza To Go en Centro Histórico, San Luis Potosí. Menú digital y pedidos por WhatsApp.">
-<title>Limoncello · Pasta & Pizza To Go | Menú</title>
+<title>Limoncello · Pasta & Pizza To Go</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F4EFE6;
@@ -42,65 +42,105 @@ a{color:inherit}
 .wrap{width:min(1160px,100%);margin:auto;padding-inline:22px}
 
 /* ============================================================
-   CABECERA CON RECUADRO DE LOGO Y TÍTULO LIMPIO
+   CABECERA: LOGOTIPO ABARCANDO TODO EL RECUADRO VERDE
    ============================================================ */
 .hero{
   position:relative;isolation:isolate;overflow:hidden;
-  background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 65%,#235337 100%);
-  color:var(--paper);padding:22px 0 32px;
+  background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 60%,#235337 100%);
+  padding:20px 0 24px;
   border-bottom:5px solid var(--yellow);
 }
-.hero-top-bar{
-  display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+.hero-card{
+  position:relative;
+  width:100%;
+  background:var(--paper);
+  color:var(--ink);
+  border-radius:26px;
+  border:3px solid var(--yellow);
+  box-shadow:0 16px 40px rgba(0,0,0,0.28);
+  padding:28px 36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .language{
-  height:40px;padding:0 16px;border-radius:99px;
-  border:1.5px solid var(--yellow);color:var(--yellow);background:rgba(18,46,30,0.65);
-  font-weight:800;font-size:12px;letter-spacing:.4px;
-  display:inline-flex;align-items:center;justify-content:center;
-  flex-shrink:0;transition:all .2s;
+  position:absolute;
+  top:16px;
+  right:16px;
+  height:38px;
+  padding:0 16px;
+  border-radius:99px;
+  border:1.5px solid var(--green);
+  color:var(--green);
+  background:var(--bg);
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:.4px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s ease;
 }
-.language:hover{background:var(--yellow);color:var(--ink)}
+.language:hover{
+  background:var(--green);
+  color:var(--yellow);
+}
 
-/* Recuadro del logo de Limoncello */
-.brand-badge{
-  display:inline-flex;align-items:center;
-  background:var(--paper);color:var(--ink);
-  padding:20px 32px;border-radius:24px;margin:0 0 16px;
-  box-shadow:0 14px 36px rgba(0,0,0,0.28);
-  border:3px solid var(--yellow);
+.brand-lockup{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  user-select:none;
 }
 .brand-logo-text{
-  font-family:var(--font-sans);font-weight:400;
-  font-size:clamp(42px,6.5vw,54px);line-height:0.92;letter-spacing:1.2px;
-  color:var(--ink);text-align:left;user-select:none;
-}
-.brand-logo-sub{
-  font-weight:800;display:block;font-size:12px;line-height:1.35;
-  letter-spacing:2px;margin-top:10px;padding-top:8px;
-  border-top:2px solid var(--line);color:var(--green);text-align:center;
-}
-.brand-logo-sub span{
-  display:block;color:var(--ink);font-size:11px;letter-spacing:2.8px;margin-top:2px;
+  font-family:var(--font-sans);
+  font-weight:400;
+  font-size:clamp(52px,8vw,74px);
+  line-height:0.9;
+  letter-spacing:1.5px;
+  color:var(--ink);
+  text-align:left;
 }
 .lemon-dot{
-  display:inline-block;width:28px;height:20px;background:var(--yellow);
+  display:inline-block;
+  width:clamp(30px,4.5vw,42px);
+  height:clamp(22px,3.2vw,30px);
+  background:var(--yellow);
   border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-  position:relative;vertical-align:middle;margin:0 2px;
+  position:relative;
+  vertical-align:middle;
+  margin:0 3px;
   box-shadow:inset -3px -3px 0 #d4a700;
 }
 .lemon-dot:after{
-  content:"";position:absolute;top:-5px;right:3px;width:8px;height:5px;
-  background:#2E6F40;border-radius:50% 0 50% 0;
+  content:"";
+  position:absolute;
+  top:-6px;right:4px;
+  width:10px;height:6px;
+  background:#2E6F40;
+  border-radius:50% 0 50% 0;
 }
-
-.hero-content{padding-top:2px}
-.hero h1{
-  margin:0;font-family:var(--font-display);
-  font-size:clamp(26px,3.8vw,36px);font-weight:800;
-  letter-spacing:-0.6px;line-height:1.1;color:var(--paper);
+.brand-logo-sub{
+  font-weight:800;
+  display:block;
+  width:100%;
+  font-size:clamp(12px,1.6vw,14px);
+  line-height:1.35;
+  letter-spacing:2.8px;
+  margin-top:14px;
+  padding-top:10px;
+  border-top:2px solid var(--line);
+  color:var(--green);
+  text-align:center;
 }
-.hero h1 span{color:var(--yellow)}
+.brand-logo-sub span{
+  display:block;
+  color:var(--ink);
+  font-size:clamp(11px,1.4vw,12.5px);
+  letter-spacing:4px;
+  margin-top:2px;
+}
 
 /* ============================================================
    NAVEGACIÓN DESKTOP (BOTONES CON TAMAÑO UNIFORME FIJO)
@@ -143,7 +183,7 @@ a{color:inherit}
   border-radius:99px;font-size:11px;font-weight:800;line-height:1;
 }
 
-main{padding-block:28px 65px;scroll-margin-top:75px}
+main{padding-block:26px 65px;scroll-margin-top:75px}
 
 /* ============================================================
    BUSCADOR Y BARRA DE CATEGORÍAS DESLIZABLE CON TAMAÑO FIJO
@@ -199,22 +239,32 @@ main{padding-block:28px 65px;scroll-margin-top:75px}
 .filter.active svg{stroke:var(--yellow)}
 
 /* ============================================================
-   TARJETAS DE PLATILLOS
+   TARJETAS DE PLATILLOS Y VISUALIZACIÓN DE FOTOS DEL REPO
    ============================================================ */
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}
 .card{
   min-width:0;border:1.5px solid var(--line);border-radius:var(--radius);
   overflow:hidden;background:var(--paper);display:flex;flex-direction:column;
-  box-shadow:0 8px 24px rgba(27,67,44,0.05);transition:transform .2s,border-color .2s;
+  box-shadow:0 8px 24px rgba(27,67,44,0.05);transition:transform .2s,border-color .2s,box-shadow .2s;
 }
-.card:hover{transform:translateY(-2px);border-color:#c5bba8}
+.card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 14px 32px rgba(27,67,44,0.1)}
 .photo{
   width:100%;aspect-ratio:16/9;position:relative;display:grid;
   place-items:center;background:linear-gradient(135deg,var(--green-dark),var(--green));
   border:0;padding:0;overflow:hidden;border-bottom:3px solid var(--yellow);
+  transition:aspect-ratio .2s ease;
+}
+/* Cuando el platillo tiene fotografía real en el repositorio, adopta proporción editorial 3:4 para lucir completa */
+.photo.has-img{
+  aspect-ratio:3/4;
+  background:var(--green-dark);
 }
 .photo:disabled{opacity:1}
-.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo img{
+  width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+  transition:transform .35s ease;
+}
+.card:hover .photo.has-img img{transform:scale(1.02)}
 .placeholder{
   text-align:center;color:var(--paper);padding:18px;
   display:flex;flex-direction:column;align-items:center;gap:6px;
@@ -417,7 +467,7 @@ fieldset{padding:0;margin:20px 0;border:0;min-width:0}
 legend{font-weight:800;color:var(--green);margin-bottom:14px}
 #photoDialog{width:min(980px,calc(100% - 24px));background:transparent;box-shadow:none}
 .photo-top{display:flex;justify-content:end;margin-bottom:10px}
-#largePhoto{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:auto;border-radius:16px}
+#largePhoto{display:block;max-width:100%;max-height:80vh;object-fit:contain;margin:auto;border-radius:16px}
 
 .toast{
   position:fixed;z-index:60;bottom:100px;left:50%;transform:translateX(-50%);
@@ -430,11 +480,11 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
 }
 @media(max-width:760px){
   .wrap{padding-inline:16px}
-  .hero{padding:18px 0 26px}
-  .brand-badge{padding:16px 26px;margin-bottom:14px}
-  .hero h1{font-size:clamp(24px,6vw,30px)}
+  .hero{padding:14px 0 18px}
+  .hero-card{padding:24px 20px 22px;border-radius:22px}
+  .language{top:12px;right:12px;height:34px;padding:0 12px;font-size:11px}
   .desktop-nav{display:none}
-  main{scroll-margin-top:15px;padding-top:22px}
+  main{scroll-margin-top:15px;padding-top:20px}
   .search-wrap{width:100%}
   .filter{height:42px;min-width:122px;padding:0 16px;font-size:12.5px}
   .visit-card{padding:26px 20px;border-radius:22px}
@@ -473,20 +523,17 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
 
 <header class="hero" id="hero">
   <div class="wrap">
-    <div class="hero-top-bar">
-      <div class="brand-badge" aria-label="Limoncello Pasta & Pizza To Go">
+    <div class="hero-card" aria-label="Limoncello Pasta & Pizza To Go">
+      <button type="button" id="language" class="language">English · EN</button>
+      <div class="brand-lockup">
         <div class="brand-logo-text">
           Li<br>m<span class="lemon-dot"></span>n<br>cell<span class="lemon-dot"></span>
-          <div class="brand-logo-sub">
-            PASTA &amp; PIZZA
-            <span>TO GO</span>
-          </div>
+        </div>
+        <div class="brand-logo-sub">
+          PASTA &amp; PIZZA
+          <span>TO GO</span>
         </div>
       </div>
-      <button type="button" id="language" class="language">English · EN</button>
-    </div>
-    <div class="hero-content">
-      <h1><span data-t="menuHeader">Menú</span> Limoncello</h1>
     </div>
   </div>
 </header>
@@ -705,8 +752,8 @@ const CONFIG = {
   facebook:"https://www.facebook.com/search/top?q=Limoncello",
   instagram:"https://www.instagram.com/limoncellopizzaypasta/",
   
-  carpetaFotos:"images/Menu/",
-  extensionFotos:".jpg",
+  carpetaFotos:"imagenes/",
+  extensionFotos:".png",
 
   sucursales:[
     {
@@ -720,7 +767,13 @@ const CONFIG = {
   ]
 };
 
-const FOTOS = {};
+/* MAPEO EXACTO A LOS ARCHIVOS DEL REPOSITORIO GITHUB (imagenes/) */
+const FOTOS = {
+  "spaghetti-pesto": "imagenes/spaggettinuez.jpeg",
+  "pizza-pepperoni": "imagenes/pizza_pep.png",
+  "pizza-pimiento-cebolla": "imagenes/pizzavegetales.png",
+  "ensalada": "imagenes/ensaladaproetina.png"
+};
 
 /* ICONOS VECTORIALES DE MARCA */
 const ICONS = {
@@ -763,23 +816,11 @@ const MENU = [
   /* ================== SPAGHETTI ================== */
   itemMenu(
     "spaghetti",
-    "RAGU",
-    "Spaghetti Ragú",
-    "Ragu Spaghetti",
-    "Pasta tradicional preparada con salsa ragú de la casa.",
-    "Traditional pasta prepared with house ragu sauce.",
-    [
-      ["RAGU — $70.00", "RAGU — $70.00", 70],
-      ["RAGU + Carne (+$15.00) — $85.00", "RAGU + Meat (+$15.00) — $85.00", 85]
-    ]
-  ),
-  itemMenu(
-    "spaghetti",
     "PESTO",
     "Spaghetti Pesto",
     "Pesto Spaghetti",
-    "Pasta al pesto aromático de albahaca fresca.",
-    "Aromatic fresh basil pesto pasta.",
+    "Pasta al dente en salsa aromática de albahaca fresca. Disponible sencilla o con extra de nuez troceada.",
+    "Al dente pasta in aromatic fresh basil pesto. Available plain or with crushed walnut extra.",
     [
       ["PESTO — $70.00", "PESTO — $70.00", 70],
       ["PESTO + Nuez (+$15.00) — $85.00", "PESTO + Walnut (+$15.00) — $85.00", 85]
@@ -787,11 +828,23 @@ const MENU = [
   ),
   itemMenu(
     "spaghetti",
+    "RAGU",
+    "Spaghetti Ragú",
+    "Ragu Spaghetti",
+    "Pasta tradicional preparada con salsa ragú de la casa a fuego lento.",
+    "Traditional pasta prepared with slow-simmered house ragu sauce.",
+    [
+      ["RAGU — $70.00", "RAGU — $70.00", 70],
+      ["RAGU + Carne (+$15.00) — $85.00", "RAGU + Meat (+$15.00) — $85.00", 85]
+    ]
+  ),
+  itemMenu(
+    "spaghetti",
     "ALFREDO",
     "Spaghetti Alfredo",
     "Alfredo Spaghetti",
-    "Pasta en salsa cremosa estilo Alfredo.",
-    "Creamy Alfredo-style pasta.",
+    "Pasta envuelta en salsa cremosa estilo Alfredo recién preparada.",
+    "Pasta tossed in freshly prepared creamy Alfredo sauce.",
     [
       ["ALFREDO — $70.00", "ALFREDO — $70.00", 70],
       ["ALFREDO + Tocino (+$15.00) — $85.00", "ALFREDO + Bacon (+$15.00) — $85.00", 85]
@@ -804,17 +857,26 @@ const MENU = [
     "PEPPERONI",
     "Pizza Pepperoni",
     "Pepperoni Pizza",
-    "Salsa de tomate, mozzarella y pepperoni.",
-    "Tomato sauce, mozzarella and pepperoni.",
+    "Salsa de tomate, queso mozzarella gratinado y pepperoni recién horneado.",
+    "Tomato sauce, melted mozzarella cheese and freshly baked pepperoni.",
     [["Pepperoni — $75.00", "Pepperoni — $75.00", 75]]
+  ),
+  itemMenu(
+    "pizza",
+    "PIMIENTO + CEBOLLA",
+    "Pizza Pimiento + Cebolla",
+    "Pepper + Onion Pizza",
+    "Pizza de vegetales con salsa de tomate, queso mozzarella, pimiento morrón y cebolla.",
+    "Vegetable pizza with tomato sauce, mozzarella cheese, bell pepper and onion.",
+    [["Pimiento + Cebolla — $75.00", "Pepper + Onion — $75.00", 75]]
   ),
   itemMenu(
     "pizza",
     "MARGARITA",
     "Pizza Margarita",
     "Margherita Pizza",
-    "Napolitana con tomate, mozzarella y albahaca.",
-    "Neapolitan style with tomato, mozzarella and basil.",
+    "Napolitana clásica con tomate, queso mozzarella y hojas de albahaca fresca.",
+    "Classic Neapolitan style with tomato, mozzarella and fresh basil leaves.",
     [["Margarita — $75.00", "Margherita — $75.00", 75]]
   ),
   itemMenu(
@@ -822,37 +884,28 @@ const MENU = [
     "CHAMPIÑONES",
     "Pizza Champiñones",
     "Mushroom Pizza",
-    "Salsa de tomate, mozzarella y champiñones.",
-    "Tomato sauce, mozzarella and mushrooms.",
+    "Salsa de tomate, queso mozzarella fundido y champiñones frescos.",
+    "Tomato sauce, melted mozzarella and fresh mushrooms.",
     [["Champiñones — $75.00", "Mushrooms — $75.00", 75]]
-  ),
-  itemMenu(
-    "pizza",
-    "PIMIENTO + CEBOLLA",
-    "Pizza Pimiento + Cebolla",
-    "Pepper + Onion Pizza",
-    "Salsa de tomate, queso mozzarella, pimiento y cebolla.",
-    "Tomato sauce, mozzarella cheese, bell pepper and onion.",
-    [["Pimiento + Cebolla — $75.00", "Pepper + Onion — $75.00", 75]]
   ),
   itemMenu(
     "pizza",
     "PEPPERONI + CHAMPIÑONES",
     "Pizza Pepperoni + Champiñones",
     "Pepperoni + Mushroom Pizza",
-    "Salsa de tomate, queso mozzarella, champiñones y pepperoni.",
-    "Tomato sauce, mozzarella cheese, mushrooms and pepperoni.",
+    "Salsa de tomate, queso mozzarella, champiñones frescos y pepperoni.",
+    "Tomato sauce, mozzarella cheese, fresh mushrooms and pepperoni.",
     [["Pepperoni + Champiñones — $75.00", "Pepperoni + Mushrooms — $75.00", 75]]
   ),
 
   /* ================== COMPLEMENTOS Y POSTRES ================== */
   itemMenu(
     "complementos",
-    "ENSALADA",
+    "CON PROTEÍNA",
     "Ensalada",
     "Salad",
-    "Ensalada fresca preparada al momento.",
-    "Freshly prepared house salad.",
+    "Pechuga de pollo a la plancha sobre una cama de vegetales frescos y aderezo de la casa.",
+    "Grilled chicken breast over a bed of fresh vegetables and house dressing.",
     [["Orden — $50.00", "Order — $50.00", 50]]
   ),
   itemMenu(
@@ -860,8 +913,8 @@ const MENU = [
     "LIMÓN O CAFÉ",
     "Tiramisú",
     "Tiramisu",
-    "Postre italiano tradicional en dos variedades a elegir.",
-    "Traditional Italian dessert in two varieties.",
+    "Postre italiano tradicional cremoso en dos especialidades a elegir.",
+    "Creamy traditional Italian dessert in two specialties to choose from.",
     [
       ["LIMÓN — $50.00", "LEMON — $50.00", 50],
       ["CAFÉ — $50.00", "COFFEE — $50.00", 50]
@@ -909,7 +962,6 @@ const MENU = [
 
 const TEXT = {
   es:{
-    menuHeader:"Menú",
     menu:"MENÚ",visit:"VISÍTANOS",order:"PEDIDOS",
     noResults:"No encontramos platillos con esa búsqueda.",
     visitLabel:"INFORMACIÓN DEL ESTABLECIMIENTO",visitTitle:"Limoncello · Pasta & Pizza To Go",
@@ -944,7 +996,6 @@ const TEXT = {
     backMenu:"VOLVER AL MENÚ"
   },
   en:{
-    menuHeader:"Menu",
     menu:"MENU",visit:"VISIT US",order:"ORDERS",
     noResults:"No dishes match your search.",
     visitLabel:"ESTABLISHMENT INFORMATION",visitTitle:"Limoncello · Pasta & Pizza To Go",
@@ -1031,7 +1082,7 @@ $("scrollTopBtn").onclick=()=>{
   });
 };
 
-/* SOPORTE DE DESPLAZAMIENTO HORIZONTAL SUAVE EN CATEGORÍAS (TÁCTIL + ARRASTRE MOUSE) */
+/* DESPLAZAMIENTO HORIZONTAL SUAVE EN CATEGORÍAS (TÁCTIL + ARRASTRE MOUSE) */
 (function enableFilterDragScroll(){
   const slider=$("filters");
   let isDown=false,startX=0,scrollLeft=0,dragged=false;
@@ -1172,8 +1223,18 @@ function renderProducts(){
     );
     const image=make("img");
     image.alt=name(p);image.loading="lazy";image.hidden=true;
-    image.onload=()=>{image.hidden=false;fallback.hidden=true;photo.disabled=false;};
-    image.onerror=()=>{image.hidden=true;fallback.hidden=false;photo.disabled=true;};
+    image.onload=()=>{
+      image.hidden=false;
+      fallback.hidden=true;
+      photo.disabled=false;
+      photo.classList.add("has-img");
+    };
+    image.onerror=()=>{
+      image.hidden=true;
+      fallback.hidden=false;
+      photo.disabled=true;
+      photo.classList.remove("has-img");
+    };
     image.src=FOTOS[p.id]||CONFIG.carpetaFotos+p.id+CONFIG.extensionFotos;
     photo.append(fallback,image);
     photo.onclick=()=>{
@@ -1395,7 +1456,7 @@ $("useLocation").onclick=()=>{
 
 function applyLanguage(){
   document.documentElement.lang=lang;
-  document.title=CONFIG.nombre+" | "+t("menuHeader");
+  document.title=CONFIG.nombre;
   document.querySelectorAll("[data-t]").forEach(node=>{
     if(t(node.dataset.t)) node.textContent=t(node.dataset.t);
   });
