@@ -13,15 +13,13 @@
 :root{
   --bg:#F4EFE6;
   --paper:#FAF7F2;
-  --card-green:#1B432C;
   --ink:#1C241E;
-  --muted:#536358;
+  --muted:#526357;
   --green:#1B432C;
   --green-dark:#122E1E;
+  --green-soft:#E6EFE9;
   --yellow:#F5C400;
-  --yellow-soft:#FFF5C0;
-  --gold:#D8B467;
-  --coral:#C84B31;
+  --yellow-soft:#FFF6CC;
   --dark-btn:#142219;
   --line:#DFD7C8;
   --radius:22px;
@@ -41,11 +39,11 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 .wrap{width:min(1200px,100%);margin:auto;padding-inline:22px}
 
-/* HERO INSPIRADO EN EL MENÚ IMPRESO DE LIMONCELLO */
+/* HERO CON LOGOTIPO ELEVADO */
 .hero{
   position:relative;isolation:isolate;overflow:hidden;
   background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 65%,#235337 100%);
-  color:var(--paper);padding-bottom:54px;
+  color:var(--paper);padding:22px 0 46px;
   border-bottom:6px solid var(--yellow);
 }
 .hero:before{
@@ -62,32 +60,41 @@ a{color:inherit}
   content:"";position:absolute;inset:0;z-index:-2;
   background:linear-gradient(90deg,#122e1ee6,#1b432ccc);
 }
-.top{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-block:20px}
+.hero-top-bar{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:18px;
+}
 .kicker{font-size:11px;font-weight:800;letter-spacing:1.8px;line-height:1.6;text-transform:uppercase}
 .language{
-  border:1px solid #f5c40080;color:var(--yellow);background:#122e1e99;
-  padding:9px 16px;border-radius:99px;min-height:40px;font-weight:700;font-size:13px;
+  border:1.5px solid var(--yellow);color:var(--yellow);background:#122e1eb3;
+  padding:9px 16px;border-radius:99px;min-height:40px;font-weight:800;font-size:12px;
+  letter-spacing:.5px;transition:all .2s;
 }
-.hero-grid{
-  display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
-  padding:10px 0 6px;
-}
-.hero-content{flex:1;min-width:280px}
+.language:hover{background:var(--yellow);color:var(--ink)}
+.hero-content{padding-top:4px;max-width:680px}
 .hero .kicker{color:var(--yellow)}
+
+/* CUADRO BLANCO DEL LOGO ELEVADO CON "TO GO" DEBAJO DE PASTA & PIZZA */
 .brand-badge{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--bg);color:var(--ink);
-  padding:14px 22px;border-radius:22px;margin:14px 0 18px;
-  box-shadow:0 10px 30px #00000029;
-  border:2px solid var(--yellow);
+  display:inline-flex;align-items:center;
+  background:var(--paper);color:var(--ink);
+  padding:14px 24px;border-radius:22px;margin:0 0 18px;
+  box-shadow:0 12px 32px #00000033;
+  border:2.5px solid var(--yellow);
 }
 .brand-logo-text{
-  font-family:var(--font-sans);font-weight:400;font-size:28px;line-height:0.95;letter-spacing:1px;
-  color:var(--ink);
+  font-family:var(--font-sans);font-weight:400;font-size:30px;line-height:0.94;letter-spacing:1px;
+  color:var(--ink);text-align:left;
 }
-.brand-logo-text strong{font-weight:800;display:block;font-size:10px;letter-spacing:1.6px;margin-top:6px;color:var(--green)}
+.brand-logo-sub{
+  font-weight:800;display:block;font-size:10px;line-height:1.35;
+  letter-spacing:1.8px;margin-top:8px;padding-top:6px;
+  border-top:1.5px solid var(--line);color:var(--green);text-align:center;
+}
+.brand-logo-sub span{
+  display:block;color:var(--ink);font-size:9.5px;letter-spacing:2.4px;margin-top:1px;
+}
 .lemon-dot{
-  display:inline-block;width:18px;height:13px;background:var(--yellow);
+  display:inline-block;width:19px;height:14px;background:var(--yellow);
   border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
   position:relative;vertical-align:middle;margin:0 1px;
   box-shadow:inset -2px -2px 0 #d4a700;
@@ -97,129 +104,128 @@ a{color:inherit}
   background:#2E6F40;border-radius:50% 0 50% 0;
 }
 .hero h1{
-  margin:6px 0 14px;font-family:var(--font-display);
-  font-size:clamp(42px,7vw,82px);font-weight:800;
+  margin:6px 0 12px;font-family:var(--font-display);
+  font-size:clamp(42px,7vw,78px);font-weight:800;
   letter-spacing:-1.5px;line-height:1.02;color:var(--paper);
 }
 .hero h1 span{color:var(--yellow)}
-.hero p{font-size:18px;line-height:1.65;max-width:600px;margin-bottom:0;color:#EAE4D7}
+.hero p{font-size:17px;line-height:1.65;max-width:580px;margin-bottom:0;color:#EAE4D7}
 
 /* NAVEGACIÓN DESKTOP */
 .desktop-nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 4px 18px #1b432c0a}
 .nav-inner{display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:20px}
-.brand{font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:8px}
-.brand small{font-family:var(--font-sans);font-size:11px;font-weight:800;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.brand{font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:10px}
+.brand small{font-family:var(--font-sans);font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--muted);text-transform:uppercase}
 .nav-buttons{display:flex;gap:8px}
 .nav-buttons button,.mobile-nav button{
   border:0;color:var(--ink);background:transparent;
   padding:12px 18px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:.5px;
+  transition:all .2s;
 }
+.nav-buttons button:hover:not(.active){background:var(--green-soft);color:var(--green)}
 .nav-buttons .active{background:var(--green);color:var(--yellow)}
 .count{display:inline-block;background:var(--yellow);color:var(--ink);padding:3px 7px;border-radius:99px;font-size:11px;font-weight:800;margin-left:5px}
 
-main{padding-block:36px 65px;scroll-margin-top:85px}
-h2{font-family:var(--font-display);font-size:clamp(32px,5vw,46px);font-weight:800;margin:8px 0 14px;color:var(--green)}
-.lead{color:var(--muted);line-height:1.7;max-width:730px;font-size:15px}
+main{padding-block:34px 65px;scroll-margin-top:85px}
+h2{font-family:var(--font-display);font-size:clamp(32px,5vw,46px);font-weight:800;margin:0 0 12px;color:var(--green)}
+.lead{color:var(--muted);line-height:1.7;max-width:700px;font-size:15px;margin-top:0}
 
-/* SELECTOR DE MODALIDAD */
-.menu-modes{
-  display:flex;gap:8px;margin:20px 0;
-  background:#E8E1D3;padding:6px;border-radius:16px;border:1px solid var(--line);
-}
-.mode-btn{
-  flex:1;padding:13px;border:none;background:transparent;border-radius:12px;
-  font-weight:800;color:var(--muted);font-size:14px;transition:all 0.2s;
-}
-.mode-btn.active{
-  background:var(--green);color:var(--yellow);box-shadow:0 4px 12px #1b432c26;
-}
-
-.menu-tools{display:flex;align-items:center;gap:20px;justify-content:space-between;margin-top:22px}
+/* BUSCADOR Y FILTROS CON ICONOS ABSTRACTOS DE MARCA */
+.menu-tools{display:flex;align-items:center;margin-top:20px}
 .search{
-  width:min(100%,350px);padding:13px 16px;min-height:46px;
-  border:1px solid var(--line);border-radius:14px;
-  background:var(--paper);color:var(--ink);font-size:15px;
+  width:min(100%,420px);padding:13px 18px;min-height:48px;
+  border:1.5px solid var(--line);border-radius:14px;
+  background:var(--paper);color:var(--ink);font-size:15px;font-weight:600;
 }
-.currency{font-size:12px;font-weight:700;color:var(--muted)}
-.filters{display:flex;gap:8px;overflow:auto;padding:18px 0 25px;scrollbar-width:thin}
+.filters{display:flex;gap:10px;overflow:auto;padding:18px 0 26px;scrollbar-width:thin}
 .filter{
-  flex-shrink:0;min-height:44px;border:1px solid var(--line);
+  flex-shrink:0;min-height:44px;border:1.5px solid var(--line);
   border-radius:99px;background:var(--paper);color:var(--ink);
   padding:10px 18px;font-size:13px;font-weight:800;transition:all .15s;
+  display:inline-flex;align-items:center;gap:8px;
 }
+.filter svg{width:17px;height:17px;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s}
+.filter:hover:not(.active){border-color:var(--green);background:var(--green-soft)}
 .filter.active{background:var(--green);color:var(--yellow);border-color:var(--green)}
+.filter.active svg{stroke:var(--yellow)}
 
-/* TARJETAS CON ESTÉTICA DEL MENÚ IMPRESO */
+/* TARJETAS DE PLATILLO OPTIMIZADAS */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .card{
-  min-width:0;border:1px solid var(--line);border-radius:var(--radius);
+  min-width:0;border:1.5px solid var(--line);border-radius:var(--radius);
   overflow:hidden;background:var(--paper);display:flex;flex-direction:column;
-  box-shadow:0 8px 24px #1b432c08;transition:transform .2s;
+  box-shadow:0 8px 24px #1b432c08;transition:transform .2s,border-color .2s;
 }
-.card:hover{transform:translateY(-2px)}
+.card:hover{transform:translateY(-2px);border-color:#c5bba8}
 .photo{
-  width:100%;aspect-ratio:16/10;position:relative;display:grid;
+  width:100%;aspect-ratio:16/9;position:relative;display:grid;
   place-items:center;background:linear-gradient(135deg,var(--green-dark),var(--green));
   border:0;padding:0;overflow:hidden;border-bottom:3px solid var(--yellow);
 }
 .photo:disabled{opacity:1}
 .photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.placeholder{text-align:center;color:var(--paper);padding:20px}
-.placeholder span{display:block;font-size:38px;margin-bottom:8px}
-.placeholder strong{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--yellow);display:block}
-.placeholder small{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#EAE4D7;opacity:.85}
+.placeholder{text-align:center;color:var(--paper);padding:18px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.placeholder-icon{
+  width:46px;height:46px;border-radius:50%;
+  background:#f5c4001f;border:1.5px solid var(--yellow);
+  display:grid;place-items:center;color:var(--yellow);margin-bottom:2px;
+}
+.placeholder-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.placeholder strong{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--yellow);display:block}
+.placeholder small{font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#EAE4D7;opacity:.85}
 
-.content{padding:20px;flex:1;display:flex;flex-direction:column}
-.card-top-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.content{padding:18px 20px 14px;flex:1;display:flex;flex-direction:column}
+.card-top-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
 .category-label{font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--green);text-transform:uppercase}
 .pill-badge{
-  display:inline-block;background:var(--bg);border:1.5px solid var(--ink);
-  color:var(--ink);padding:4px 11px;border-radius:9px;
-  font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+  display:inline-block;background:var(--bg);border:1.5px solid var(--green);
+  color:var(--green);padding:3px 10px;border-radius:8px;
+  font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
 }
 .card h3{
-  font-family:var(--font-display);font-size:24px;font-weight:800;
-  line-height:1.2;margin:4px 0 10px;color:var(--ink);
+  font-family:var(--font-display);font-size:23px;font-weight:800;
+  line-height:1.2;margin:2px 0 8px;color:var(--ink);
 }
-.card-description{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 12px}
-.variant-label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-top:auto;padding-top:8px;text-transform:uppercase;letter-spacing:.6px}
+.card-description{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0 0 12px}
+.variant-label{
+  display:block;font-size:11px;font-weight:800;color:var(--green);
+  margin-top:auto;padding-top:6px;text-transform:uppercase;letter-spacing:.6px;
+}
 .variant-label select{
-  display:block;width:100%;margin-top:6px;padding:10px 11px;min-height:44px;
-  border:1.5px solid var(--line);border-radius:11px;background:white;
-  color:var(--ink);font-size:14px;font-weight:700;
+  display:block;width:100%;margin-top:6px;padding:10px 12px;min-height:44px;
+  border:1.5px solid var(--green);border-radius:11px;background:white;
+  color:var(--ink);font-size:13.5px;font-weight:700;
 }
-.price-row{
-  display:flex;align-items:baseline;justify-content:space-between;
-  margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);
+.card-footer{
+  margin:0 20px 18px;padding-top:14px;border-top:1px dashed var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
 }
-.price-dots{flex:1;border-bottom:2px dotted var(--line);margin:0 10px;position:relative;top:-4px}
 .price{
-  font-family:var(--font-display);font-size:25px;font-weight:800;
+  font-family:var(--font-display);font-size:24px;font-weight:800;
   color:var(--green);background:var(--yellow-soft);
-  padding:2px 10px;border-radius:8px;border:1px solid #e5b80040;
+  padding:4px 12px;border-radius:10px;border:1.5px solid var(--yellow);
 }
 .quantity{
-  margin:0 20px 19px;padding-top:13px;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;font-weight:700;
+  display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;
 }
-.stepper{display:flex;align-items:center;gap:10px}
+.stepper{display:flex;align-items:center;gap:8px}
 .stepper button{
-  width:42px;height:42px;border:1.5px solid var(--line);border-radius:12px;
-  background:white;color:var(--green);font-size:22px;font-weight:700;
+  width:40px;height:40px;border:1.5px solid var(--green);border-radius:11px;
+  background:white;color:var(--green);font-size:20px;font-weight:800;transition:all .15s;
 }
-.stepper button:not(:disabled):hover{background:var(--green);color:var(--yellow);border-color:var(--green)}
+.stepper button:not(:disabled):hover{background:var(--green);color:var(--yellow)}
 .stepper output{min-width:20px;text-align:center;font-weight:800;font-size:15px}
 .empty{padding:32px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);line-height:1.7}
 
-/* SECCIÓN VISÍTANOS */
+/* SECCIÓN VISÍTANOS CON RECUADRO UNIFICADO */
 .visit-card{
-  max-width:660px;margin:0 auto;padding:36px 30px;
-  background:var(--paper);border:1px solid var(--line);
+  max-width:640px;margin:0 auto;padding:36px 30px;
+  background:var(--paper);border:1.5px solid var(--line);
   border-radius:28px;box-shadow:0 12px 34px #1b432c12;
 }
 .visit-card .kicker{color:var(--green);font-size:12px;letter-spacing:1.8px}
 .visit-card h2{margin:8px 0 12px;line-height:1.12;color:var(--green)}
-.visit-card .lead{font-size:15px;margin-bottom:24px}
+.visit-card .lead{font-size:15px;margin-bottom:22px}
 .branch-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .branch-tab{
   flex:1;min-height:42px;padding:8px 14px;border-radius:12px;
@@ -227,49 +233,64 @@ h2{font-family:var(--font-display);font-size:clamp(32px,5vw,46px);font-weight:80
   font-size:12px;font-weight:800;transition:all .2s;
 }
 .branch-tab.active{background:var(--green);color:var(--yellow);border-color:var(--green)}
-.info-box{
-  padding:18px 20px;margin-bottom:14px;
-  background:var(--bg);border:1px solid var(--line);border-radius:18px;
+
+.unified-info-box{
+  padding:22px;margin-bottom:22px;
+  background:var(--bg);border:1.5px solid var(--line);border-radius:20px;
+  display:flex;flex-direction:column;gap:18px;
 }
+.info-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding-bottom:16px;border-bottom:1px dashed var(--line);
+}
+.info-item:last-child{padding-bottom:0;border-bottom:0}
+.info-icon{
+  width:40px;height:40px;border-radius:12px;flex-shrink:0;
+  background:var(--green);color:var(--yellow);
+  display:grid;place-items:center;
+}
+.info-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .info-box-label{
   display:block;font-size:11px;font-weight:800;letter-spacing:1.2px;
-  color:var(--green);text-transform:uppercase;margin-bottom:6px;
+  color:var(--green);text-transform:uppercase;margin-bottom:4px;
 }
-.info-box-text{margin:0;font-size:16px;font-weight:600;line-height:1.55;color:var(--ink)}
-.visit-actions{display:flex;flex-direction:column;gap:12px;margin:22px 0 32px}
+.info-box-text{margin:0;font-size:15.5px;font-weight:700;line-height:1.5;color:var(--ink)}
+
+.visit-actions{display:flex;flex-direction:column;gap:12px;margin:22px 0 30px}
 .visit-btn{
   min-height:54px;width:100%;display:inline-flex;align-items:center;justify-content:center;
-  gap:8px;padding:15px 20px;border:0;border-radius:16px;
-  color:white;text-decoration:none;font-size:14px;font-weight:800;letter-spacing:.6px;
-  text-transform:uppercase;
+  gap:10px;padding:15px 20px;border:0;border-radius:16px;
+  text-decoration:none;font-size:13.5px;font-weight:800;letter-spacing:.6px;
+  text-transform:uppercase;transition:transform .15s,filter .15s;
 }
-.visit-btn.maps{background:var(--dark-btn);color:var(--paper)}
-.visit-btn.pickup{background:var(--yellow);color:var(--ink)}
+.visit-btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
+.visit-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.visit-btn.maps{background:var(--green);color:var(--yellow)}
+.visit-btn.pickup{background:var(--yellow);color:var(--ink);border:1.5px solid #d4a700}
+
 .social-title{
-  font-size:13px;font-weight:800;letter-spacing:1.2px;
+  font-size:12px;font-weight:800;letter-spacing:1.4px;
   color:var(--muted);text-transform:uppercase;margin:0 0 14px;
 }
-.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .social-item{
   min-height:54px;display:inline-flex;align-items:center;justify-content:center;
-  gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;
-  background:white;color:var(--ink);text-decoration:none;
+  gap:10px;padding:12px 16px;border:1.5px solid var(--green);border-radius:16px;
+  background:white;color:var(--green);text-decoration:none;
   font-size:14px;font-weight:800;transition:all 0.2s ease;
 }
 .social-item svg{
   width:20px;height:20px;fill:none;stroke:currentColor;
-  stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;
 }
-.social-item.facebook:hover{color:#1877F2;border-color:#1877F2}
-.social-item.instagram:hover{color:#E1306C;border-color:#E1306C}
-.social-item.whatsapp:hover{color:#25D366;border-color:#25D366}
+.social-item:hover{background:var(--green);color:var(--yellow)}
 
 .button{
   min-height:48px;display:inline-flex;align-items:center;justify-content:center;
-  padding:13px 18px;border:1px solid transparent;border-radius:13px;
+  padding:13px 18px;border:1.5px solid transparent;border-radius:13px;
   background:var(--green);color:var(--yellow);text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.5px;
 }
-.secondary{background:transparent;color:var(--green);border-color:var(--line)}
+.secondary{background:transparent;color:var(--green);border-color:var(--green)}
 footer{
   padding:28px 22px 40px;border-top:1px solid var(--line);
   text-align:center;color:var(--muted);font-size:13px;line-height:1.8;
@@ -280,14 +301,16 @@ footer strong{color:var(--green);font-family:var(--font-display);font-size:16px}
 .wa-float{
   position:fixed;bottom:23px;right:20px;z-index:30;
   width:56px;height:56px;display:grid;place-items:center;
-  background:#25D366;border-radius:50%;color:white;box-shadow:0 8px 24px #0004;
+  background:var(--green);border:2px solid var(--yellow);border-radius:50%;
+  color:var(--yellow);box-shadow:0 8px 24px #122e1e66;transition:transform .2s;
 }
-.wa-float svg{width:32px;height:32px;fill:currentColor;stroke:none}
+.wa-float:hover{transform:scale(1.05)}
+.wa-float svg{width:30px;height:30px;fill:currentColor;stroke:none}
 
 .mobile-nav{display:none}
 .nav-icon{
   width:22px;height:22px;margin:0 auto 5px;display:block;
-  fill:none;stroke:currentColor;stroke-width:1.9;
+  fill:none;stroke:currentColor;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round;
 }
 
@@ -300,12 +323,12 @@ dialog::backdrop{background:#122e1ec9}
 .dialog-content{padding:25px}
 .dialog-head{display:flex;justify-content:space-between;align-items:center;gap:15px}
 .dialog-head h2{font-size:30px;margin:0}
-.close{width:44px;height:44px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;background:white;color:var(--ink);font-size:27px}
+.close{width:44px;height:44px;flex-shrink:0;border:1.5px solid var(--line);border-radius:50%;background:white;color:var(--green);font-size:27px}
 .hint{font-size:12px;line-height:1.7;color:var(--muted)}
 .cart-row{padding:16px 0;border-bottom:1px solid var(--line)}
 .cart-title{display:flex;justify-content:space-between;align-items:start;gap:15px;font-size:15px;line-height:1.5}
 .cart-variant{font-size:12px;font-weight:700;color:var(--green);margin-top:4px}
-.cart-row .quantity{margin:12px 0 0;padding:0;border:0}
+.cart-row .quantity{margin:12px 0 0;padding:0;border:0;justify-content:space-between}
 .totals{padding:16px 0}
 .totals div{display:flex;justify-content:space-between;gap:15px;margin:12px 0;font-size:14px}
 .totals .total{font-size:18px;font-weight:800;color:var(--green)}
@@ -314,7 +337,7 @@ dialog::backdrop{background:#122e1ec9}
 .field{display:block;font-size:13px;font-weight:600;line-height:1.5}
 .field input,.field select,.field textarea{
   display:block;width:100%;margin-top:6px;padding:12px;min-height:46px;
-  border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font-size:15px;font-weight:400;
+  border:1.5px solid var(--line);border-radius:11px;background:white;color:var(--ink);font-size:15px;font-weight:400;
 }
 .wide{grid-column:1/-1}
 fieldset{padding:0;margin:22px 0;border:0;min-width:0}
@@ -330,22 +353,19 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){
   .wrap{padding-inline:16px}
-  .hero{padding-bottom:32px}
-  .hero h1{font-size:clamp(38px,11vw,64px)}
-  .hero p{font-size:16px}
+  .hero{padding:16px 0 32px}
+  .hero h1{font-size:clamp(36px,10vw,60px)}
+  .hero p{font-size:15.5px}
   .desktop-nav{display:none}
   main{scroll-margin-top:15px}
-  .menu-modes{flex-direction:row;gap:6px;margin:15px 0}
-  .menu-tools{display:block}
   .search{width:100%;max-width:none}
-  .currency{display:block;margin-top:12px}
   .visit-card{padding:26px 20px;border-radius:24px}
   .social-grid{grid-template-columns:1fr}
   .mobile-nav{
     display:grid;grid-template-columns:repeat(3,1fr);gap:5px;
     position:fixed;bottom:calc(10px + env(safe-area-inset-bottom));
     left:10px;right:10px;z-index:35;background:var(--paper);
-    padding:7px;border:1px solid var(--line);border-radius:21px;box-shadow:0 10px 35px #0003;
+    padding:7px;border:1.5px solid var(--line);border-radius:21px;box-shadow:0 10px 35px #0003;
   }
   .mobile-nav button{padding:7px 3px;font-size:10px;min-height:53px;border-radius:14px}
   .mobile-nav button.active{background:var(--green);color:var(--yellow)}
@@ -365,29 +385,29 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
 <header class="hero" id="hero">
   <img id="heroPhoto" class="hero-photo" alt="" hidden>
   <div class="wrap">
-    <div class="top">
-      <span class="kicker">ARISTA #250 · CENTRO HISTÓRICO</span>
-      <button type="button" id="language" class="language">English · EN</button>
-    </div>
-    <div class="hero-grid">
-      <div class="hero-content">
-        <div class="brand-badge" aria-label="Limoncello Pasta & Pizza To Go">
-          <div class="brand-logo-text">
-            Li<br>m<span class="lemon-dot"></span>n<br>cell<span class="lemon-dot"></span>
-            <strong>PASTA &amp; PIZZA TO GO</strong>
+    <div class="hero-top-bar">
+      <div class="brand-badge" aria-label="Limoncello Pasta & Pizza To Go">
+        <div class="brand-logo-text">
+          Li<br>m<span class="lemon-dot"></span>n<br>cell<span class="lemon-dot"></span>
+          <div class="brand-logo-sub">
+            PASTA &amp; PIZZA
+            <span>TO GO</span>
           </div>
         </div>
-        <div class="kicker" data-t="heroLabel">AUTÉNTICO SABOR ITALIANO</div>
-        <h1>Menú <span>Limoncello</span></h1>
-        <p id="slogan">Pasta fresca, pizzas artesanales, tiramisú y bebidas listas para llevar o disfrutar.</p>
       </div>
+      <button type="button" id="language" class="language">English · EN</button>
+    </div>
+    <div class="hero-content">
+      <div class="kicker" data-t="heroLabel">AUTÉNTICO SABOR ITALIANO</div>
+      <h1>Menú <span>Limoncello</span></h1>
+      <p id="slogan">Pasta fresca, pizzas artesanales, tiramisú y bebidas listas para llevar o disfrutar.</p>
     </div>
   </div>
 </header>
 
 <div class="desktop-nav">
   <nav class="wrap nav-inner" aria-label="Principal">
-    <span class="brand">Limoncello <small>Pasta &amp; Pizza To Go</small></span>
+    <span class="brand">Limoncello <small>Pasta &amp; Pizza · To Go</small></span>
     <div class="nav-buttons">
       <button type="button" data-view="menu" class="active" data-t="menu">MENÚ</button>
       <button type="button" data-view="visit" data-t="visit">VISÍTANOS</button>
@@ -401,18 +421,11 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
 
 <main id="main" class="wrap">
   <section id="menuView">
-    <span class="kicker" data-t="menuLabel">PASTA &amp; PIZZA TO GO</span>
     <h2 data-t="menuTitle">Nuestro Menú</h2>
-    <p class="lead" data-t="intro">Elige tu pasta, pizza, complemento o bebida favorita y personaliza tus extras. Confirmaremos tu pedido por WhatsApp.</p>
-    
-    <div class="menu-modes" aria-label="Modalidad de pedido">
-      <button id="btnToGo" type="button" class="mode-btn active" data-mode="togo">🛍️ Para llevar (To Go)</button>
-      <button id="btnRest" type="button" class="mode-btn" data-mode="restaurante">🛵 Pedido a domicilio</button>
-    </div>
+    <p class="lead" data-t="intro">Elige tu pasta, pizza, complemento o bebida favorita y selecciona tus opciones en cada platillo.</p>
 
     <div class="menu-tools">
       <input id="search" class="search" type="search" aria-label="Buscar platillos" placeholder="Buscar spaghetti, pizza, tiramisú…">
-      <span class="currency" data-t="currency">Precios en pesos mexicanos · MXN</span>
     </div>
     <nav id="filters" class="filters" aria-label="Categorías del menú"></nav>
     <div id="products" class="grid"></div>
@@ -427,32 +440,51 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
 
       <div id="branchTabs" class="branch-tabs" aria-label="Sucursales"></div>
 
-      <div class="info-box">
-        <span class="info-box-label" data-t="locationLabel">DIRECCIÓN</span>
-        <p id="visitAddress" class="info-box-text"></p>
-      </div>
+      <!-- RECUADRO UNIFICADO: DIRECCIÓN, HORARIO Y TELÉFONO -->
+      <div class="unified-info-box">
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div>
+            <span class="info-box-label" data-t="locationLabel">DIRECCIÓN</span>
+            <p id="visitAddress" class="info-box-text"></p>
+          </div>
+        </div>
 
-      <div class="info-box">
-        <span class="info-box-label" data-t="scheduleLabel">HORARIO</span>
-        <p id="visitSchedule" class="info-box-text"></p>
-      </div>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div>
+            <span class="info-box-label" data-t="scheduleLabel">HORARIO</span>
+            <p id="visitSchedule" class="info-box-text"></p>
+          </div>
+        </div>
 
-      <div class="info-box">
-        <span class="info-box-label" data-t="phoneLabel">TELÉFONO / WHATSAPP</span>
-        <p class="info-box-text">+ 444 6539978</p>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div>
+            <span class="info-box-label" data-t="phoneLabel">TELÉFONO / WHATSAPP</span>
+            <p id="visitPhone" class="info-box-text">+ 444 6539978</p>
+          </div>
+        </div>
       </div>
 
       <div class="visit-actions">
         <a id="visitMapsBtn" class="visit-btn maps" target="_blank" rel="noopener noreferrer">
-          <span aria-hidden="true">📍</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
           <span data-t="mapsBtn">VER EN GOOGLE MAPS</span>
         </a>
-        <button id="pickupOrderBtn" type="button" class="visit-btn pickup" data-t="pickupBtn">
-          PEDIR PARA LLEVAR (TO GO)
+        <button id="pickupOrderBtn" type="button" class="visit-btn pickup">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span data-t="pickupBtn">PEDIR PARA LLEVAR (TO GO)</span>
         </button>
       </div>
 
-      <h3 class="social-title" data-t="followUs">REDES SOCIALES Y CONTACTO</h3>
+      <h3 class="social-title" data-t="followUs">REDES SOCIALES</h3>
       <div class="social-grid">
         <a id="instagram" class="social-item instagram" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -461,10 +493,6 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
         <a id="facebook" class="social-item facebook" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
           <span>Limoncello</span>
-        </a>
-        <a id="contactWA" class="social-item whatsapp" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-          <span>+ 444 6539978</span>
         </a>
       </div>
     </div>
@@ -553,7 +581,7 @@ legend{font-weight:800;color:var(--green);margin-bottom:15px}
     </div>
 
     <div id="orderSuccess" hidden style="text-align:center;padding:26px 12px 14px;">
-      <div style="width:72px;height:72px;margin:0 auto 18px;border-radius:50%;background:#E6F7ED;display:grid;place-items:center;color:#25D366;font-size:38px;box-shadow:0 6px 18px #25D36622;">✓</div>
+      <div style="width:72px;height:72px;margin:0 auto 18px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:var(--yellow);font-size:38px;box-shadow:0 6px 18px #1b432c33;">✓</div>
       <h2 style="font-family:var(--font-display);font-size:29px;margin:0 0 10px;color:var(--ink);" data-t="sentTitle">Pedido enviado</h2>
       <p style="font-size:16px;line-height:1.6;color:var(--muted);margin:0 0 26px;" data-t="sentDesc">Consulta el chat en WhatsApp para confirmar tu pedido.</p>
       <button id="closeSuccess" class="button full" type="button" data-t="backMenu">VOLVER AL MENÚ</button>
@@ -578,9 +606,9 @@ const CONFIG = {
   nombre:"Limoncello (Pasta & Pizza To Go)",
   whatsapp:"524446539978",
   facebook:"https://www.facebook.com/search/top?q=Limoncello",
-  instagram:"https://www.instagram.com/explore/search/keyword/?q=Limoncello%20Pizza%20%26%20Pasta",
-  lema:"Pasta fresca, pizzas artesanales, tiramisú y bebidas listas para llevar.",
-  lemaEn:"Fresh pasta, artisan pizzas, tiramisu and drinks ready to go.",
+  instagram:"https://www.instagram.com/limoncellopizzaypasta/",
+  lema:"Pasta fresca, pizzas artesanales, tiramisú y bebidas listas para llevar o disfrutar.",
+  lemaEn:"Fresh pasta, artisan pizzas, tiramisu and drinks ready to go or enjoy.",
   
   portada:"imagenes/portada_limoncello.jpg",
   carpetaFotos:"images/Menu/",
@@ -590,7 +618,7 @@ const CONFIG = {
     {
       id:"centro",
       nombre:"Centro Histórico",
-      direccion:"Arista #250, Centro Histórico, San Luis Potosí, S.L.P.",
+      direccion:"Arista #250, Centro Histórico",
       horario:"Lunes a Viernes de 1-8 PM | Sábados de 1-6",
       horarioEn:"Monday to Friday 1-8 PM | Saturdays 1-6 PM",
       maps:"https://www.google.com/maps/search/?api=1&query=Arista+250+Centro+Historico+San+Luis+Potosi"
@@ -600,12 +628,21 @@ const CONFIG = {
 
 const FOTOS = {};
 
-/* CATEGORÍAS FIELES AL MENÚ IMPRESO */
+/* ICONOS VECTORIALES ABSTRACTOS DE LA MARCA */
+const ICONS = {
+  all: `<svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>`,
+  spaghetti: `<svg viewBox="0 0 24 24"><path d="M4 15h16a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6z"></path><path d="M7 15c0-4 2.5-6 5-6s5 2 5 6"></path><line x1="3" y1="6" x2="21" y2="6"></line></svg>`,
+  pizza: `<svg viewBox="0 0 24 24"><path d="M12 2L3 20a19 19 0 0 0 18 0L12 2z"></path><path d="M5.5 15a14 14 0 0 0 13 0"></path><circle cx="12" cy="11" r="1.2"></circle><circle cx="10" cy="14" r="1"></circle><circle cx="14" cy="13.5" r="1"></circle></svg>`,
+  complementos: `<svg viewBox="0 0 24 24"><path d="M12 3c4.5 0 8 3.5 8 8H4c0-4.5 3.5-8 8-8z"></path><path d="M4 11h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-3z"></path><line x1="12" y1="19" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>`,
+  bebidas: `<svg viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="2" x2="6" y2="5"></line><line x1="10" y1="2" x2="10" y2="5"></line><line x1="14" y1="2" x2="14" y2="5"></line></svg>`
+};
+
+/* CATEGORÍAS SIN PRECIOS EN EL TÍTULO */
 const CATEGORIAS = {
-  spaghetti:["Spaghetti ($70.00)","Spaghetti ($70.00)","🍝"],
-  pizza:["Pizza ($75.00)","Pizza ($75.00)","🍕"],
-  complementos:["Complementos y Postres","Sides & Desserts","🥗"],
-  bebidas:["Bebidas","Drinks","☕"]
+  spaghetti:["Spaghetti","Spaghetti","spaghetti"],
+  pizza:["Pizza","Pizza","pizza"],
+  complementos:["Complementos y Postres","Sides & Desserts","complementos"],
+  bebidas:["Bebidas","Drinks","bebidas"]
 };
 
 const CATS_ALL = ["spaghetti","pizza","complementos","bebidas"];
@@ -627,20 +664,20 @@ function itemMenu(categoria, badge, nombre, nombreEn, descEs, descEn, variantes)
 }
 
 /* ============================================================
-   CATÁLOGO EXACTO EXTRAÍDO DEL MENÚ FÍSICO DE LIMONCELLO
+   CATÁLOGO LIMONCELLO (DESCRIPCIONES LIMPIAS, PRECIOS EN SELECT)
    ============================================================ */
 const MENU = [
-  /* ================== SPAGHETTI ($70.00) ================== */
+  /* ================== SPAGHETTI ================== */
   itemMenu(
     "spaghetti",
     "RAGU",
     "Spaghetti Ragú",
     "Ragu Spaghetti",
-    "Spaghetti base ($70.00) · Opción de extra: + Carne ($15.00)",
-    "Base spaghetti ($70.00) · Optional extra: + Meat ($15.00)",
+    "Pasta tradicional preparada con salsa ragú de la casa. Disponible sencilla o con extra de carne.",
+    "Traditional pasta prepared with house ragu sauce. Available plain or with extra meat.",
     [
-      ["RAGU (Base $70.00)", "RAGU (Base $70.00)", 70],
-      ["RAGU + Carne (+$15.00)", "RAGU + Meat (+$15.00)", 85]
+      ["RAGU sencilla — $70.00", "Plain RAGU — $70.00", 70],
+      ["RAGU + Carne (+$15.00) — $85.00", "RAGU + Meat (+$15.00) — $85.00", 85]
     ]
   ),
   itemMenu(
@@ -648,11 +685,11 @@ const MENU = [
     "PESTO",
     "Spaghetti Pesto",
     "Pesto Spaghetti",
-    "Spaghetti base ($70.00) · Opción de extra: + Nuez ($15.00)",
-    "Base spaghetti ($70.00) · Optional extra: + Walnut ($15.00)",
+    "Pasta al pesto aromático de albahaca fresca. Disponible sencilla o con extra de nuez.",
+    "Aromatic fresh basil pesto pasta. Available plain or with extra walnut.",
     [
-      ["PESTO (Base $70.00)", "PESTO (Base $70.00)", 70],
-      ["PESTO + Nuez (+$15.00)", "PESTO + Walnut (+$15.00)", 85]
+      ["PESTO sencilla — $70.00", "Plain PESTO — $70.00", 70],
+      ["PESTO + Nuez (+$15.00) — $85.00", "PESTO + Walnut (+$15.00) — $85.00", 85]
     ]
   ),
   itemMenu(
@@ -660,15 +697,15 @@ const MENU = [
     "ALFREDO",
     "Spaghetti Alfredo",
     "Alfredo Spaghetti",
-    "Spaghetti base ($70.00) · Opción de extra: + Tocino ($15.00)",
-    "Base spaghetti ($70.00) · Optional extra: + Bacon ($15.00)",
+    "Pasta en salsa cremosa estilo Alfredo. Disponible sencilla o con extra de tocino.",
+    "Creamy Alfredo-style pasta. Available plain or with extra bacon.",
     [
-      ["ALFREDO (Base $70.00)", "ALFREDO (Base $70.00)", 70],
-      ["ALFREDO + Tocino (+$15.00)", "ALFREDO + Bacon (+$15.00)", 85]
+      ["ALFREDO sencilla — $70.00", "Plain ALFREDO — $70.00", 70],
+      ["ALFREDO + Tocino (+$15.00) — $85.00", "ALFREDO + Bacon (+$15.00) — $85.00", 85]
     ]
   ),
 
-  /* ================== PIZZA ($75.00) ================== */
+  /* ================== PIZZA ================== */
   itemMenu(
     "pizza",
     "PEPPERONI",
@@ -676,7 +713,7 @@ const MENU = [
     "Pepperoni Pizza",
     "Salsa de tomate, mozzarella y pepperoni.",
     "Tomato sauce, mozzarella and pepperoni.",
-    [["Especialidad · Pepperoni", "Specialty · Pepperoni", 75]]
+    [["Especialidad · Pepperoni — $75.00", "Specialty · Pepperoni — $75.00", 75]]
   ),
   itemMenu(
     "pizza",
@@ -685,7 +722,7 @@ const MENU = [
     "Margherita Pizza",
     "Napolitana con tomate, mozzarella y albahaca.",
     "Neapolitan style with tomato, mozzarella and basil.",
-    [["Especialidad · Margarita", "Specialty · Margherita", 75]]
+    [["Especialidad · Margarita — $75.00", "Specialty · Margherita — $75.00", 75]]
   ),
   itemMenu(
     "pizza",
@@ -694,7 +731,7 @@ const MENU = [
     "Mushroom Pizza",
     "Salsa de tomate, mozzarella y champiñones.",
     "Tomato sauce, mozzarella and mushrooms.",
-    [["Especialidad · Champiñones", "Specialty · Mushrooms", 75]]
+    [["Especialidad · Champiñones — $75.00", "Specialty · Mushrooms — $75.00", 75]]
   ),
   itemMenu(
     "pizza",
@@ -703,7 +740,7 @@ const MENU = [
     "Pepper + Onion Pizza",
     "Salsa de tomate, queso mozzarella, pimiento y cebolla.",
     "Tomato sauce, mozzarella cheese, bell pepper and onion.",
-    [["Especialidad · Pimiento + Cebolla", "Specialty · Pepper + Onion", 75]]
+    [["Especialidad · Pimiento + Cebolla — $75.00", "Specialty · Pepper + Onion — $75.00", 75]]
   ),
   itemMenu(
     "pizza",
@@ -712,7 +749,7 @@ const MENU = [
     "Pepperoni + Mushroom Pizza",
     "Salsa de tomate, queso mozzarella, champiñones y pepperoni.",
     "Tomato sauce, mozzarella cheese, mushrooms and pepperoni.",
-    [["Especialidad · Pepperoni + Champiñones", "Specialty · Pepperoni + Mushrooms", 75]]
+    [["Especialidad · Pepperoni + Champiñones — $75.00", "Specialty · Pepperoni + Mushrooms — $75.00", 75]]
   ),
 
   /* ================== COMPLEMENTOS Y POSTRES ================== */
@@ -721,20 +758,20 @@ const MENU = [
     "COMPLEMENTO",
     "Ensalada",
     "Salad",
-    "Ensalada fresca del menú Limoncello.",
-    "Fresh house salad.",
-    [["Orden", "Order", 50]]
+    "Ensalada fresca preparada al momento.",
+    "Freshly prepared house salad.",
+    [["Orden individual — $50.00", "Single order — $50.00", 50]]
   ),
   itemMenu(
     "complementos",
     "LIMÓN O CAFÉ",
     "Tiramisú",
     "Tiramisu",
-    "Postre italiano tradicional. Opciones: LIMÓN O CAFÉ.",
-    "Traditional Italian dessert. Options: LEMON OR COFFEE.",
+    "Postre italiano tradicional en dos variedades a elegir: Limón o Café.",
+    "Traditional Italian dessert in two varieties to choose from: Lemon or Coffee.",
     [
-      ["Opción: LIMÓN", "Option: LEMON", 50],
-      ["Opción: CAFÉ", "Option: COFFEE", 50]
+      ["Opción: LIMÓN — $50.00", "Option: LEMON — $50.00", 50],
+      ["Opción: CAFÉ — $50.00", "Option: COFFEE — $50.00", 50]
     ]
   ),
 
@@ -744,9 +781,9 @@ const MENU = [
     "CAFETERÍA",
     "Cappuccino",
     "Cappuccino",
-    "Cappuccino caliente preparado al momento.",
-    "Freshly prepared hot cappuccino.",
-    [["Regular", "Regular", 40]]
+    "Cappuccino caliente espumoso preparado al momento.",
+    "Freshly prepared hot foamy cappuccino.",
+    [["Regular — $40.00", "Regular — $40.00", 40]]
   ),
   itemMenu(
     "bebidas",
@@ -755,7 +792,7 @@ const MENU = [
     "Soft Drink",
     "Refresco bien frío.",
     "Chilled soft drink.",
-    [["Regular", "Regular", 35]]
+    [["Regular — $35.00", "Regular — $35.00", 35]]
   ),
   itemMenu(
     "bebidas",
@@ -764,7 +801,7 @@ const MENU = [
     "Sparkling Water",
     "Agua mineral refrescante.",
     "Refreshing sparkling mineral water.",
-    [["Regular", "Regular", 35]]
+    [["Regular — $35.00", "Regular — $35.00", 35]]
   ),
   itemMenu(
     "bebidas",
@@ -773,7 +810,7 @@ const MENU = [
     "Fruit Water",
     "Agua frutal fresca del día.",
     "Fresh fruit water of the day.",
-    [["Regular", "Regular", 35]]
+    [["Regular — $35.00", "Regular — $35.00", 35]]
   )
 ];
 
@@ -781,16 +818,14 @@ const TEXT = {
   es:{
     heroLabel:"AUTÉNTICO SABOR ITALIANO",
     menu:"MENÚ",visit:"VISÍTANOS",order:"PEDIDOS",
-    menuLabel:"PASTA & PIZZA TO GO",menuTitle:"Nuestro Menú",
-    intro:"Elige tu pasta, pizza, complemento o bebida favorita y personaliza tus extras. Confirmaremos tu pedido por WhatsApp.",
-    modeRest:"Pedido a domicilio", modeToGo:"Para llevar (To Go)",
-    currency:"Precios en pesos mexicanos · MXN",
+    menuTitle:"Nuestro Menú",
+    intro:"Elige tu pasta, pizza, complemento o bebida favorita y selecciona tus opciones en cada platillo.",
     noResults:"No encontramos platillos con esa búsqueda.",
     visitLabel:"INFORMACIÓN DEL ESTABLECIMIENTO",visitTitle:"Limoncello · Pasta & Pizza To Go",
     visitIntro:"Visítanos en el Centro Histórico o realiza tu pedido anticipado por WhatsApp.",
     locationLabel:"DIRECCIÓN",scheduleLabel:"HORARIO",phoneLabel:"TELÉFONO / WHATSAPP",
     mapsBtn:"VER EN GOOGLE MAPS",pickupBtn:"PEDIR PARA LLEVAR (TO GO)",
-    followUs:"REDES SOCIALES Y CONTACTO",
+    followUs:"REDES SOCIALES",
     footer:"Horario: Lunes a Viernes de 1-8 PM | Sábados de 1-6",
     orderTitle:"Mi pedido",review:"Revisa platillos, opciones o extras y cantidades.",
     subtotal:"Productos",shipping:"Servicio / Envío",total:"Total estimado",pending:"Por confirmar",
@@ -805,8 +840,8 @@ const TEXT = {
     confirm:"El restaurante confirmará disponibilidad, costo final, formas de pago y tiempo de recolección o entrega.",
     send:"CONTINUAR EN WHATSAPP",back:"VOLVER A MI PEDIDO",
     waNote:"WhatsApp se abrirá con el pedido preparado. Pulsa Enviar allí para solicitarlo.",
-    all:"Todos (14)",search:"Buscar spaghetti, pizza, tiramisú…",presentation:"Opciones de preparación / Extras",
-    quantity:"Cantidad",add:"Agregar",remove:"Quitar",close:"Cerrar",photo:"Fotografía del platillo",
+    all:"Todos",search:"Buscar spaghetti, pizza, tiramisú…",presentation:"Selecciona preparación / extra",
+    quantity:"Cant.",add:"Agregar",remove:"Quitar",close:"Cerrar",photo:"Fotografía del platillo",
     enlarge:"Ampliar fotografía",emptyCart:"Tu pedido está vacío.",
     noShipping:"Para llevar (Sin costo de envío)",
     hello:"Hola Limoncello, me gustaría realizar un pedido.",
@@ -821,16 +856,14 @@ const TEXT = {
   en:{
     heroLabel:"AUTHENTIC ITALIAN FLAVOR",
     menu:"MENU",visit:"VISIT US",order:"ORDERS",
-    menuLabel:"PASTA & PIZZA TO GO",menuTitle:"Our Menu",
-    intro:"Choose your favorite pasta, pizza, side or drink and customize your extras. We will confirm your order via WhatsApp.",
-    modeRest:"Home Delivery", modeToGo:"Takeout (To Go)",
-    currency:"Prices in Mexican pesos · MXN",
+    menuTitle:"Our Menu",
+    intro:"Choose your favorite pasta, pizza, side or drink and select your options on each dish.",
     noResults:"No dishes match your search.",
     visitLabel:"ESTABLISHMENT INFORMATION",visitTitle:"Limoncello · Pasta & Pizza To Go",
     visitIntro:"Visit us in Centro Histórico or place your order in advance via WhatsApp.",
     locationLabel:"ADDRESS",scheduleLabel:"HOURS",phoneLabel:"PHONE / WHATSAPP",
     mapsBtn:"VIEW ON GOOGLE MAPS",pickupBtn:"ORDER TO GO (PICKUP)",
-    followUs:"SOCIAL MEDIA & CONTACT",
+    followUs:"SOCIAL MEDIA",
     footer:"Hours: Monday to Friday 1-8 PM | Saturdays 1-6 PM",
     orderTitle:"My order",review:"Review dishes, options/extras and quantities.",
     subtotal:"Items",shipping:"Service / Delivery",total:"Estimated total",pending:"To be confirmed",
@@ -845,12 +878,12 @@ const TEXT = {
     confirm:"The restaurant will confirm availability, final cost, payment methods and pickup or delivery time.",
     send:"CONTINUE IN WHATSAPP",back:"BACK TO MY ORDER",
     waNote:"WhatsApp will open with your order ready. Press Send there to request it.",
-    all:"All (14)",search:"Search spaghetti, pizza, tiramisu…",presentation:"Preparation options / Extras",
-    quantity:"Quantity",add:"Add",remove:"Remove",close:"Close",photo:"Dish photo",
+    all:"All",search:"Search spaghetti, pizza, tiramisu…",presentation:"Select preparation / extra",
+    quantity:"Qty.",add:"Add",remove:"Remove",close:"Close",photo:"Dish photo",
     enlarge:"Enlarge photo",emptyCart:"Your order is empty.",
     noShipping:"To Go (No delivery fee)",
     hello:"Hello Limoncello, I would like to place an order.",
-    phoneError:"Enter a phone number with 10 to 15 dígitos.",required:"Please complete this field.",
+    phoneError:"Enter a phone number with 10 to 15 digits.",required:"Please complete this field.",
     geoLoading:"Getting your location…",geoOK:"Location added. Check the delivery point.",
     geoError:"Could not access your location. Type your address or paste a Maps link.",
     category:"Menu categories",chat:"Contact via WhatsApp",
@@ -867,7 +900,7 @@ const make = (tag,cls,text) => {
   if(text!==undefined) node.textContent=text;
   return node;
 };
-let lang="es",category="",orderId="",activeBranchIndex=0,menuMode="togo",toastTimer;
+let lang="es",category="",orderId="",activeBranchIndex=0;
 const cart=new Map();
 const selected=new Map();
 const lookup=new Map(MENU.map(p=>[p.id,p]));
@@ -900,17 +933,6 @@ function showView(view,changeHash=true,scroll=true){
 }
 document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>showView(b.dataset.view));
 
-$("btnRest").onclick = () => setMenuMode("restaurante");
-$("btnToGo").onclick = () => setMenuMode("togo");
-
-function setMenuMode(mode){
-  menuMode = mode;
-  $("btnRest").classList.toggle("active", mode === "restaurante");
-  $("btnToGo").classList.toggle("active", mode === "togo");
-  $("service").value = mode === "togo" ? "pickup" : "delivery";
-  updateService();
-}
-
 function openDialog(dialog){
   dialog.showModal();document.body.classList.add("locked");
 }
@@ -928,7 +950,6 @@ $("closePhoto").onclick=()=>$("photoDialog").close();
 function controls(p,index){
   const row=make("div","quantity");
   row.dataset.key=keyFor(p,index);
-  row.append(make("span","",t("quantity")));
   const stepper=make("div","stepper");
   const minus=make("button","","−"),plus=make("button","","+"),out=make("output","","0");
   minus.type=plus.type="button";
@@ -965,17 +986,19 @@ function sync(){
 function renderFilters(){
   const nav=$("filters");nav.replaceChildren();
 
-  const btnAll = make("button","filter",t("all"));
+  const btnAll = make("button","filter");
   btnAll.type="button";
+  btnAll.innerHTML = ICONS.all + `<span>${t("all")}</span>`;
   btnAll.classList.toggle("active",category==="");
   btnAll.onclick=()=>{ category=""; renderFilters(); renderProducts(); };
   nav.append(btnAll);
 
   CATS_ALL.forEach(id=>{
     const textLabel = CATEGORIAS[id][lang==="es"?0:1];
-    const emoji = CATEGORIAS[id][2];
-    const button=make("button","filter", emoji + " " + textLabel);
+    const iconKey = CATEGORIAS[id][2];
+    const button=make("button","filter");
     button.type="button";
+    button.innerHTML = ICONS[iconKey] + `<span>${textLabel}</span>`;
     button.classList.toggle("active",category===id);
     button.setAttribute("aria-pressed",String(category===id));
     button.onclick=()=>{
@@ -1009,12 +1032,13 @@ function renderProducts(){
     photo.type="button";photo.disabled=true;
     photo.setAttribute("aria-label",t("enlarge")+" "+name(p));
     const fallback=make("div","placeholder");
-    const symbol=make("span","",CATEGORIAS[p.categoria][2]);
-    symbol.setAttribute("aria-hidden","true");
+    const iconWrap=make("div","placeholder-icon");
+    iconWrap.innerHTML=ICONS[CATEGORIAS[p.categoria][2]];
+    iconWrap.setAttribute("aria-hidden","true");
     fallback.append(
-      symbol,
+      iconWrap,
       make("strong","","Limoncello"),
-      make("small","","PASTA & PIZZA TO GO")
+      make("small","","PASTA & PIZZA · TO GO")
     );
     const image=make("img");
     image.alt=name(p);image.loading="lazy";image.hidden=true;
@@ -1042,17 +1066,16 @@ function renderProducts(){
     );
 
     let index=selected.get(p.id)||0;
-    const priceRow=make("div","price-row");
+    const footer=make("div","card-footer");
     const price=make("div","price",money(p.variantes[index][2]));
     price.setAttribute("aria-live","polite");
-    priceRow.append(make("span","price-dots"),price);
-
     let quantity=controls(p,index);
+
     if(p.variantes.length>1){
       const label=make("label","variant-label",t("presentation"));
       const select=make("select");
       p.variantes.forEach((v,i)=>{
-        const option=make("option","",vName(v)+" — "+money(v[2]));
+        const option=make("option","",vName(v));
         option.value=String(i);select.append(option);
       });
       select.value=String(index);
@@ -1063,8 +1086,9 @@ function renderProducts(){
       };
       label.append(select);content.append(label);
     }
-    content.append(priceRow);
-    card.append(photo,content,quantity);
+
+    footer.append(price,quantity);
+    card.append(photo,content,footer);
     grid.append(card);
   });
   sync();
@@ -1243,9 +1267,6 @@ function applyLanguage(){
   document.documentElement.lang=lang;
   document.title=CONFIG.nombre+" | "+t("menuTitle");
   document.querySelectorAll("[data-t]").forEach(node=>node.textContent=t(node.dataset.t));
-  
-  $("btnRest").innerHTML = "🛵 " + t("modeRest");
-  $("btnToGo").innerHTML = "🛍️ " + t("modeToGo");
 
   $("language").textContent=lang==="es"?"English · EN":"Español · ES";
   $("language").setAttribute("aria-label",lang==="es"?"Switch to English":"Cambiar a español");
@@ -1257,7 +1278,6 @@ function applyLanguage(){
   $("photoDialog").setAttribute("aria-label",t("photo"));
   $("floatingWA").href=wa(t("hello"));
   $("floatingWA").setAttribute("aria-label",t("chat"));
-  $("contactWA").href=wa(t("hello"));
   $("orderForm").querySelectorAll("input").forEach(input=>input.setCustomValidity(""));
   renderFilters();renderProducts();renderBranches();renderCart();
 }
