@@ -841,9 +841,8 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
 
   <section id="visitView" hidden>
     <div class="visit-card">
-      <span class="kicker" data-t="visitLabel">INFORMACIÓN DEL ESTABLECIMIENTO</span>
       <h2 data-t="visitTitle">Limoncello · Pasta &amp; Pizza To Go</h2>
-      <p class="lead" data-t="visitIntro">Visítanos en el Centro Histórico o realiza tu pedido anticipado por WhatsApp.</p>
+      <p class="lead" data-t="visitIntro">Visítanos en el Centro Histórico o realiza tu pedido por WhatsApp.</p>
 
       <div id="branchTabs" class="branch-tabs" aria-label="Sucursales"></div>
 
@@ -870,12 +869,12 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
         </div>
 
         <div class="info-item">
-          <div class="info-icon" aria-hidden="true">
+          <a class="info-icon" href="tel:+524441152129" aria-label="Llamar al 444 115 2129" title="Llamar" style="text-decoration:none">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          </div>
+          </a>
           <div>
             <span class="info-box-label" data-t="phoneLabel">TELÉFONO / WHATSAPP</span>
-            <p id="visitPhone" class="info-box-text">+ 444 6539978</p>
+            <a id="visitPhone" class="info-box-text" href="tel:+524441152129" style="text-decoration:none;display:inline-block">444 115 2129</a>
           </div>
         </div>
       </div>
@@ -1021,7 +1020,7 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
    ============================================================ */
 const CONFIG = {
   nombre:"Limoncello (Pasta & Pizza To Go)",
-  whatsapp:"524446539978",
+  whatsapp:"524441152129",
   facebook:"https://www.facebook.com/share/1E67bikknB/",
   instagram:"https://www.instagram.com/limoncello_pizzas?srtk=MTNyNWo0OThtMDNxMg==",
   googleReview:"https://www.google.com/maps/search/?api=1&query=Limoncello+Pasta+Pizza+Arista+250+San+Luis+Potosi",
@@ -1459,7 +1458,7 @@ const TEXT = {
     menu:"MENÚ",visit:"VISÍTANOS",order:"PEDIDOS",
     noResults:"No encontramos platillos con esa búsqueda.",
     visitLabel:"INFORMACIÓN DEL ESTABLECIMIENTO",visitTitle:"Limoncello · Pasta & Pizza To Go",
-    visitIntro:"Visítanos en el Centro Histórico o realiza tu pedido anticipado por WhatsApp.",
+    visitIntro:"Visítanos en el Centro Histórico o realiza tu pedido por WhatsApp.",
     locationLabel:"DIRECCIÓN",scheduleLabel:"HORARIO",phoneLabel:"TELÉFONO / WHATSAPP",
     mapsBtn:"VER EN GOOGLE MAPS",pickupBtn:"PEDIR PARA LLEVAR (TO GO)",
     followUs:"REDES SOCIALES Y RESEÑAS",
