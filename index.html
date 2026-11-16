@@ -97,13 +97,34 @@ a{color:inherit}
 /* Hojas e ilustración 2D en las mitades de la cortina */
 .curtain-botanical{
   position:absolute;
-  width:clamp(140px,22vw,240px);
+  width:clamp(150px,23vw,250px);
   height:auto;
   opacity:0.92;
   pointer-events:none;
 }
 .curtain-half.left .curtain-botanical{top:-12px;left:-14px}
 .curtain-half.right .curtain-botanical{bottom:-12px;right:-14px;transform:rotate(180deg)}
+
+@keyframes spinFlower2D{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@keyframes spinFlower2DRev{
+  from{transform:rotate(360deg)}
+  to{transform:rotate(0deg)}
+}
+.curtain-flower{
+  position:absolute;
+  width:clamp(68px,11vw,108px);
+  height:clamp(68px,11vw,108px);
+  pointer-events:none;
+  transform-origin:center center;
+  filter:drop-shadow(0 6px 12px rgba(154,108,0,0.22));
+}
+.curtain-flower.f1{top:14%;left:18%;animation:spinFlower2D 7s linear infinite}
+.curtain-flower.f2{bottom:18%;left:26%;width:clamp(54px,8.5vw,84px);height:clamp(54px,8.5vw,84px);animation:spinFlower2DRev 9s linear infinite}
+.curtain-flower.f3{top:16%;right:22%;width:clamp(58px,9vw,90px);height:clamp(58px,9vw,90px);animation:spinFlower2DRev 8s linear infinite}
+.curtain-flower.f4{bottom:14%;right:16%;animation:spinFlower2D 6.5s linear infinite}
 
 /* Limón central 2D que se parte por la mitad */
 .curtain-center-lemon{
@@ -652,11 +673,28 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
       <path d="M10 20 C60 15, 110 50, 120 110 C65 110, 20 75, 10 20 Z" fill="#1F4E34"/>
       <path d="M12 22 C52 46, 85 75, 118 108" stroke="#D7E6D9" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
       <path d="M90 10 C125 5, 160 28, 168 65 C132 68, 100 45, 90 10 Z" fill="#2E6F40"/>
-      <circle cx="52" cy="138" r="10" fill="#FFFDF4"/>
-      <circle cx="66" cy="144" r="10" fill="#FFFDF4"/>
-      <circle cx="58" cy="156" r="10" fill="#FFFDF4"/>
-      <circle cx="44" cy="150" r="10" fill="#FFFDF4"/>
-      <circle cx="55" cy="147" r="5" fill="#F59E0B"/>
+    </svg>
+    <svg class="curtain-flower f1" viewBox="0 0 100 100" fill="none">
+      <g transform="translate(50,50)">
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="10" fill="#F59E0B"/>
+        <circle cx="0" cy="0" r="5" fill="#FFE14D"/>
+      </g>
+    </svg>
+    <svg class="curtain-flower f2" viewBox="0 0 100 100" fill="none">
+      <g transform="translate(50,50)">
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="10" fill="#F59E0B"/>
+        <circle cx="0" cy="0" r="5" fill="#FFE14D"/>
+      </g>
     </svg>
   </div>
   <div class="curtain-half right">
@@ -664,11 +702,28 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
       <path d="M10 20 C60 15, 110 50, 120 110 C65 110, 20 75, 10 20 Z" fill="#1F4E34"/>
       <path d="M12 22 C52 46, 85 75, 118 108" stroke="#D7E6D9" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
       <path d="M90 10 C125 5, 160 28, 168 65 C132 68, 100 45, 90 10 Z" fill="#2E6F40"/>
-      <circle cx="52" cy="138" r="10" fill="#FFFDF4"/>
-      <circle cx="66" cy="144" r="10" fill="#FFFDF4"/>
-      <circle cx="58" cy="156" r="10" fill="#FFFDF4"/>
-      <circle cx="44" cy="150" r="10" fill="#FFFDF4"/>
-      <circle cx="55" cy="147" r="5" fill="#F59E0B"/>
+    </svg>
+    <svg class="curtain-flower f3" viewBox="0 0 100 100" fill="none">
+      <g transform="translate(50,50)">
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="10" fill="#F59E0B"/>
+        <circle cx="0" cy="0" r="5" fill="#FFE14D"/>
+      </g>
+    </svg>
+    <svg class="curtain-flower f4" viewBox="0 0 100 100" fill="none">
+      <g transform="translate(50,50)">
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-24" rx="13" ry="20" fill="#FFFDF4" stroke="#E9D896" stroke-width="1.5" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="10" fill="#F59E0B"/>
+        <circle cx="0" cy="0" r="5" fill="#FFE14D"/>
+      </g>
     </svg>
   </div>
   <div class="curtain-center-lemon">
@@ -967,8 +1022,8 @@ legend{font-weight:800;color:var(--green);margin-bottom:14px}
 const CONFIG = {
   nombre:"Limoncello (Pasta & Pizza To Go)",
   whatsapp:"524446539978",
-  facebook:"https://www.facebook.com/search/top?q=Limoncello",
-  instagram:"https://www.instagram.com/limoncellopizzaypasta/",
+  facebook:"https://www.facebook.com/share/1E67bikknB/",
+  instagram:"https://www.instagram.com/limoncello_pizzas?srtk=MTNyNWo0OThtMDNxMg==",
   googleReview:"https://www.google.com/maps/search/?api=1&query=Limoncello+Pasta+Pizza+Arista+250+San+Luis+Potosi",
 
   carpetaFotos:"imagenes/",
@@ -1035,7 +1090,11 @@ const FOTOS = {
     setTimeout(() => {
       curtain.classList.add("split");
       if (typeof CitrusBurstFX !== "undefined") {
-        CitrusBurstFX.spawn(window.innerWidth * 0.5, window.innerHeight * 0.5);
+        const cx = window.innerWidth * 0.5;
+        const h = window.innerHeight;
+        CitrusBurstFX.spawn(cx, h * 0.28, 22, 0.14);
+        CitrusBurstFX.spawn(cx, h * 0.50, 28, 0.12);
+        CitrusBurstFX.spawn(cx, h * 0.72, 22, 0.14);
       }
     }, 220);
     setTimeout(() => curtain.classList.add("done"), 1180);
@@ -1131,29 +1190,30 @@ const CitrusBurstFX = (() => {
     c.stroke();
   }
 
-  function spawn(x, y) {
+  function spawn(x, y, count = 22, lemonRatio = 0.33) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const count = 20;
     for (let i = 0; i < count; i++) {
-      const isLemon = i % 3 === 0;
-      const angle = -Math.PI * 0.5 + (Math.random() - 0.5) * Math.PI * 1.65;
-      const speed = 3.2 + Math.random() * 6.8;
+      const isLemon = Math.random() < lemonRatio;
+      const angle = -Math.PI * 0.5 + (Math.random() - 0.5) * Math.PI * 1.85;
+      const speed = 3.6 + Math.random() * 7.8;
       particles.push({
         type: isLemon ? "lemon" : "leaf",
         x,
         y,
         vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed - (1.2 + Math.random() * 2.2),
-        gravity: isLemon ? 0.26 : 0.17,
-        drag: isLemon ? 0.975 : 0.955,
-        size: isLemon ? (9 + Math.random() * 5) : (8 + Math.random() * 6),
+        vy: Math.sin(angle) * speed - (1.4 + Math.random() * 2.5),
+        gravity: isLemon ? 0.25 : 0.16,
+        drag: isLemon ? 0.975 : 0.958,
+        size: isLemon ? (9 + Math.random() * 5) : (9 + Math.random() * 7),
         color: LEAF_COLORS[Math.floor(Math.random() * LEAF_COLORS.length)],
-        rotation: Math.random() * Math.PI * 2,
-        vRot: (Math.random() - 0.5) * 0.24,
-        tilt: Math.random() * Math.PI * 2,
-        vTilt: 0.14 + Math.random() * 0.18,
+        rx: Math.random() * Math.PI * 2,
+        ry: Math.random() * Math.PI * 2,
+        rz: Math.random() * Math.PI * 2,
+        vRx: (Math.random() - 0.5) * 0.28,
+        vRy: (Math.random() - 0.5) * 0.28,
+        vRz: (Math.random() - 0.5) * 0.26,
         life: 0,
-        maxLife: 36 + Math.floor(Math.random() * 18)
+        maxLife: 42 + Math.floor(Math.random() * 22)
       });
     }
     if (!animId) animId = requestAnimationFrame(loop);
@@ -1172,24 +1232,28 @@ const CitrusBurstFX = (() => {
       p.vy = p.vy * p.drag + p.gravity;
       p.x += p.vx;
       p.y += p.vy;
-      p.rotation += p.vRot;
-      p.tilt += p.vTilt;
+      p.rx += p.vRx;
+      p.ry += p.vRy;
+      p.rz += p.vRz;
 
       const progress = p.life / p.maxLife;
-      const alpha = progress < 0.7 ? 1 : (1 - (progress - 0.7) / 0.3);
-      const scale = progress < 0.15 ? (0.5 + (progress / 0.15) * 0.5) : (1 - progress * 0.25);
+      const alpha = progress < 0.72 ? 1 : (1 - (progress - 0.72) / 0.28);
+      const scale = progress < 0.15 ? (0.5 + (progress / 0.15) * 0.5) : (1 - progress * 0.22);
+
+      // Proyección de rotación en 3 ejes (X, Y, Z)
+      const sx = Math.cos(p.ry);
+      const sy = Math.cos(p.rx);
 
       ctx.save();
       ctx.globalAlpha = Math.max(0, alpha);
       ctx.translate(p.x, p.y);
-      ctx.rotate(p.rotation);
+      ctx.rotate(p.rz);
+      ctx.scale(scale * (sx < 0 ? -Math.max(0.22, -sx) : Math.max(0.22, sx)),
+                scale * (sy < 0 ? -Math.max(0.22, -sy) : Math.max(0.22, sy)));
 
       if (p.type === "leaf") {
-        const flipY = Math.max(0.28, Math.abs(Math.cos(p.tilt)));
-        ctx.scale(scale, scale * flipY);
         drawLeaf(ctx, p.size, p.color);
       } else {
-        ctx.scale(scale, scale);
         drawLemonHalf(ctx, p.size);
       }
       ctx.restore();
